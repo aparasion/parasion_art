@@ -1,89 +1,99 @@
 <!DOCTYPE html>
-<html>
 <html lang="en">
-	  <head><script async data-id="101478851" src="//static.getclicky.com/js"></script>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width initial-scale=1" />
-		<title>Bolesław Parasion – sculptor artist</title>
-		<meta name="description" content="The website of sculptor Bolesław Parasion">
-		<link rel="stylesheet" href="https://parasion.art/css/main.css">
-
-		<link rel="icon" href="https://parasion.art/img/favicon.png" type="image/png">
-		<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700&display=swap" rel="stylesheet">
-		<script>
-		function toggleMenu() {
-		  document.querySelector('.site-nav').classList.toggle('open');
-		}
-		</script>
-	</head>
-
-
+<head>
+	<script async data-id="101478851" src="//static.getclicky.com/js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bolesław Parasion — sculptor artist</title>
+	<meta name="description" content="The website of sculptor Bolesław Parasion. Sacred and folk sculptures: angels, triptychs, madonnas, nativity scenes.">
+	<meta property="og:title" content="Bolesław Parasion — sculptor artist">
+	<meta property="og:description" content="Sacred and folk sculptures: angels, triptychs, madonnas, nativity scenes.">
+	<meta property="og:image" content="https://parasion.art/img/bpr.png">
+	<meta property="og:url" content="https://parasion.art/en/">
+	<meta property="og:type" content="website">
+	<link rel="alternate" hreflang="pl" href="https://parasion.art/">
+	<link rel="alternate" hreflang="en" href="https://parasion.art/en/">
+	<link rel="alternate" hreflang="de" href="https://parasion.art/de/">
+	<link rel="alternate" hreflang="es" href="https://parasion.art/es/">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="icon" href="/img/favicon.png" type="image/png">
+	<script>
+	function toggleMenu() {
+		document.querySelector('.site-nav').classList.toggle('open');
+	}
+	</script>
+</head>
 <body>
 
 	<header class="site-header">
-	  <div class="wrapper">
-		<a class="site-title" href="https://parasion.art/en/">Bolesław Parasion</a>
-		  <nav class="site-nav">
-			<div class="site-title" onclick="toggleMenu()">Gallery</div>
-			<div class="dropdown">
-			  <a class="page-link" href="https://parasion.art/en/angels.html">Angels</a>
-			  <a class="page-link" href="https://parasion.art/en/triptychs.html">Triptychs</a>
-			  <a class="page-link" href="https://parasion.art/en/madonnas.html">Madonnas</a>
-			  <a class="page-link" href="https://parasion.art/en/the-creation-of-the-world.html">The Creation of the World</a>
-			  <a class="page-link" href="https://parasion.art/en/the-last-supper.html">The Last Supper</a>
-			  <a class="page-link" href="https://parasion.art/en/the-way-of-the-cross.html">The Way of the Cross</a>
-			  <a class="page-link" href="https://parasion.art/en/nativity-scene.html">Nativity Scene</a>
-			  <a class="page-link" href="https://parasion.art/en/other-figures.html">Other figures</a>
-			  <a class="page-link" href="https://parasion.art/en/atelier.html">Atelier</a>			  
-			</div>
-		  </nav>
-	  </div>
+		<div class="wrapper">
+			<a class="site-title" href="/en/">Bolesław Parasion</a>
+			<nav class="site-nav">
+				<button class="nav-trigger" onclick="toggleMenu()">Gallery <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></button>
+				<div class="dropdown">
+					<a href="/en/angels.html">Angels</a>
+					<a href="/en/triptychs.html">Triptychs</a>
+					<a href="/en/madonnas.html">Madonnas</a>
+					<a href="/en/the-creation-of-the-world.html">The Creation of the World</a>
+					<a href="/en/the-last-supper.html">The Last Supper</a>
+					<a href="/en/the-way-of-the-cross.html">The Way of the Cross</a>
+					<a href="/en/nativity-scene.html">Nativity Scene</a>
+					<a href="/en/other-figures.html">Other figures</a>
+					<a href="/en/atelier.html">Atelier</a>
+				</div>
+			</nav>
+		</div>
 	</header>
 
+	<main class="page-content">
+		<div class="wrapper">
 
+			<section class="hero">
+				<img class="hero-portrait" src="/img/bpr.png" alt="Bolesław Parasion — sculptor artist" width="160" height="160">
 
-<div class="page-content">
-<div class="wrapper">
+				<div class="lang-selector">
+					<a href="/"><img src="/img/pl.png" alt="Polski" width="24"></a>
+					<a href="/de/"><img src="/img/de.png" alt="Deutsch" width="24"></a>
+					<a href="/es/"><img src="/img/es.png" alt="Español" width="24"></a>
+				</div>
 
+				<div class="contact-row">
+					<span id="email"></span>
+					<script>
+					var u = "boleslaw", d = "parasion.art";
+					document.getElementById('email').innerHTML = '<a href="mailto:' + u + '@' + d + '">' + u + '@' + d + '</a>';
+					</script>
+					<span class="contact-divider">|</span>
+					<span>&#43;&#52;&#56;&nbsp;&#54;&#54;&#53;&nbsp;&#57;&#55;&#51;&nbsp;&#50;&#50;&#51;</span>
+					<span class="contact-divider">|</span>
+					<a href="https://fb.com/parasion" class="social-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a>
+				</div>
+			</section>
 
-				<center><img src="https://parasion.art/img/bpr.png" width="150px">
-				<br />
-				<a href="https://parasion.art/"><img src="/img/pl.png" alt="Polski"></a>&nbsp;
-				<a href="https://parasion.art/de/"><img src="/img/de.png" alt="Deutsch"></a>&nbsp;
-				<a href="https://parasion.art/es/"><img src="/img/es.png" alt="Español"></a>
-				
-				<br />e-mail: <span id="email"></span>
-				<script type="text/javascript">
-				// Creating the email address in parts to hide it from crawlers
-				var username = "boleslaw";
-				var domain = "parasion.art";
-				var email = username + "@" + domain;
-				// Setting the email address as the content of the span
-				document.getElementById('email').innerHTML = '<a href="mailto:' + email + '">' + email + '</a>';
-				</script> | T.:&nbsp;&#43;&#52;&#56;&nbsp;&#54;&#54;&#53;&nbsp;&#57;&#55;&#51;&nbsp;&#50;&#50;&#51; | <a href="https://fb.com/parasion">Facebook</a><br />
-				
-				<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fparasion&tabs&width=340&height=70&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="70" style="border:none;overflow:hidden" scrolling="no" frameborder="10" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-					
-				</center>
-			
-				
-				<p style="text-indent: 40px; text-align: justify; spacing: 0;">My name is Bolesław Parasion, and I am a sculptor. My work focuses on sacred and folk themes. I create <a href="https://parasion.art/en/triptychs.html">triptychs</a>, <a href="https://parasion.art/en/angels.html">colorful angels</a>, <a href="https://parasion.art/en/madonnas.html">Madonnas</a>, <a href="https://parasion.art/en/nativity-scene.html">Christmas nativity scenes</a>, and monumental religious sculptures, such as <a href="https://parasion.art/en/the-creation-of-the-world.html">The Creation of the World</a>, <a href="https://parasion.art/en/the-last-supper.html">The Last Supper</a>, and <a href="https://parasion.art/en/the-way-of-the-cross.html">The Way of the Cross</a>. Several of my Way of the Cross works are displayed in churches in Poland and the USA. My works have been exhibited both in Poland and abroad and have been recognized in art competitions. I continuously create, fulfilling commissions for collectors, private clients, and art galleries. Sculpture remains my greatest passion and an inseparable part of my life. I invite you to explore my gallery of works.</p>
+			<p class="bio">My name is Bolesław Parasion, and I am a sculptor. My work focuses on sacred and folk themes. I create <a href="/en/triptychs.html">triptychs</a>, <a href="/en/angels.html">colorful angels</a>, <a href="/en/madonnas.html">Madonnas</a>, <a href="/en/nativity-scene.html">Christmas nativity scenes</a>, and monumental religious sculptures, such as <a href="/en/the-creation-of-the-world.html">The Creation of the World</a>, <a href="/en/the-last-supper.html">The Last Supper</a>, and <a href="/en/the-way-of-the-cross.html">The Way of the Cross</a>. Several of my Way of the Cross works are displayed in churches in Poland and the USA. My works have been exhibited both in Poland and abroad and have been recognized in art competitions. I continuously create, fulfilling commissions for collectors, private clients, and art galleries. Sculpture remains my greatest passion and an inseparable part of my life. I invite you to explore my gallery of works.</p>
 
+		</div>
+	</main>
 
-</div>
-</div>
+	<footer class="site-footer">
+		<div class="wrapper">
+			Copyright &copy; <span id="year"></span> <a href="/en/">Bolesław Parasion</a>
+			<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+		</div>
+	</footer>
 
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Artist",
+		"name": "Bolesław Parasion",
+		"url": "https://parasion.art",
+		"image": "https://parasion.art/img/bpr.png",
+		"description": "Sculptor artist. Sacred and folk sculptures.",
+		"sameAs": ["https://fb.com/parasion"]
+	}
+	</script>
 
-		<footer class="site-footer">
-		  <div class="wrapper">
-			<div class="footer-col-wrapper">
-			   Copyright © <span id="year"></span> <a href="https://parasion.art">Bolesław Parasion</a>
-			   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
-			</div>
-		  </div>
-		</footer>
-
-	
 </body>
 </html>
