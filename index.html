@@ -23,6 +23,26 @@
 		document.querySelector('.site-nav').classList.toggle('open');
 	}
 	</script>
+	<script>
+	(function() {
+		if (sessionStorage.getItem('langChosen')) return;
+		sessionStorage.setItem('langChosen', '1');
+		var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+		if (lang.startsWith('en')) { window.location.replace('/en/'); return; }
+		if (lang.startsWith('de')) { window.location.replace('/de/'); return; }
+		if (lang.startsWith('es')) { window.location.replace('/es/'); return; }
+		if (lang.startsWith('pl')) return;
+		fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(3000) })
+			.then(function(r) { return r.json(); })
+			.then(function(d) {
+				var cc = (d.country_code || '').toUpperCase();
+				var map = { US:'en',GB:'en',AU:'en',CA:'en',NZ:'en',IE:'en',
+					DE:'de',AT:'de',CH:'de',
+					ES:'es',MX:'es',AR:'es',CO:'es',CL:'es',PE:'es' };
+				if (map[cc]) window.location.replace('/' + map[cc] + '/');
+			}).catch(function() {});
+	})();
+	</script>
 </head>
 <body>
 
@@ -31,7 +51,7 @@
 			<a class="site-title" href="/">Bolesław Parasion</a>
 			<nav class="site-nav">
 				<button class="nav-trigger" onclick="toggleMenu()">Galeria <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></button>
-				<div class="dropdown">
+				<div class="nav-links">
 					<a href="/anioly.html">Anioły</a>
 					<a href="/tryptyki.html">Tryptyki</a>
 					<a href="/madonny.html">Madonny</a>
