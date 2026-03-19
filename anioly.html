@@ -51,67 +51,13 @@
 
 			<h1 class="gallery-title">Anioły</h1>
 
-			<div class="gallery-grid">
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/angels/01.jpg" alt="Anioły — 1" loading="lazy" width="600" height="600">
-				</figure>
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/angels/02.jpg" alt="Anioły — 2" loading="lazy" width="600" height="600">
-				</figure>
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/angels/03.jpg" alt="Anioły — 3" loading="lazy" width="600" height="600">
-				</figure>
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/angels/04.jpg" alt="Anioły — 4" loading="lazy" width="600" height="600">
-				</figure>
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/angels/05.jpg" alt="Anioły — 5" loading="lazy" width="600" height="600">
-				</figure>
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/angels/06.jpg" alt="Anioły — 6" loading="lazy" width="600" height="600">
-				</figure>
-			</div>
+			<script>if(!window.picflow){window.picflow=!0;var s=document.createElement("script");s.src="https://picflow.com/embed/main.js";s.type='module';s.defer=true;document.head.appendChild(s);}</script>
+			<picflow-gallery id="gal_HPNgKI2KuSsJxn1f" tenant="tnt_lyQ72k86cycvAQ97" lightbox="#00000080" no-padding="true" no-background="true"></picflow-gallery>
 
 		</div>
 	</main>
 
-	<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
-		<button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
-		<button class="lightbox-nav lightbox-prev" onclick="navLightbox(event, -1)">&#8249;</button>
-		<img src="" alt="" id="lightbox-img">
-		<button class="lightbox-nav lightbox-next" onclick="navLightbox(event, 1)">&#8250;</button>
-	</div>
 
-	<script>
-	var lbItems, lbIdx;
-	function openLightbox(el) {
-		lbItems = Array.from(document.querySelectorAll('.gallery-item img'));
-		lbIdx = lbItems.indexOf(el.querySelector('img'));
-		showLightboxImage();
-		document.getElementById('lightbox').classList.add('active');
-	}
-	function closeLightbox(e) {
-		if (e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')) {
-			document.getElementById('lightbox').classList.remove('active');
-		}
-	}
-	function navLightbox(e, dir) {
-		e.stopPropagation();
-		lbIdx = (lbIdx + dir + lbItems.length) % lbItems.length;
-		showLightboxImage();
-	}
-	function showLightboxImage() {
-		var img = lbItems[lbIdx];
-		document.getElementById('lightbox-img').src = img.src;
-		document.getElementById('lightbox-img').alt = img.alt;
-	}
-	document.addEventListener('keydown', function(e) {
-		if (!document.getElementById('lightbox').classList.contains('active')) return;
-		if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('active');
-		if (e.key === 'ArrowLeft') { lbIdx = (lbIdx - 1 + lbItems.length) % lbItems.length; showLightboxImage(); }
-		if (e.key === 'ArrowRight') { lbIdx = (lbIdx + 1) % lbItems.length; showLightboxImage(); }
-	});
-	</script>
 
 	<footer class="site-footer">
 		<div class="wrapper">

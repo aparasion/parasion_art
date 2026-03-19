@@ -23,6 +23,28 @@
 		document.querySelector('.site-nav').classList.toggle('open');
 	}
 	</script>
+	<script>
+	(function() {
+		var path = window.location.pathname;
+		var isHomepage = (path === '/' || path === '/index.html' ||
+			path === '/en/' || path === '/en/index.html' ||
+			path === '/de/' || path === '/de/index.html' ||
+			path === '/es/' || path === '/es/index.html');
+		if (!isHomepage) return;
+		if (/bot|crawl|spider|slurp|googlebot|bingbot|yandex/i.test(navigator.userAgent)) return;
+		if (localStorage.getItem('parasion_lang_chosen')) return;
+		var prefix = (navigator.language || navigator.userLanguage || '').toLowerCase().split('-')[0];
+		var langMap = { pl: '/', en: '/en/', de: '/de/', es: '/es/' };
+		var target = langMap[prefix] || '/en/';
+		var current;
+		if (path === '/' || path === '/index.html') current = '/';
+		else if (path.indexOf('/en/') === 0) current = '/en/';
+		else if (path.indexOf('/de/') === 0) current = '/de/';
+		else if (path.indexOf('/es/') === 0) current = '/es/';
+		else current = '/';
+		if (target !== current) window.location.replace(target);
+	})();
+	</script>
 </head>
 <body>
 
@@ -53,9 +75,9 @@
 				<img class="hero-portrait" src="/img/bpr.png" alt="Bolesław Parasion — artysta rzeźbiarz" width="160" height="160">
 
 				<div class="lang-selector">
-					<a href="/en/"><img src="/img/gb.png" alt="English" width="24"></a>
-					<a href="/de/"><img src="/img/de.png" alt="Deutsch" width="24"></a>
-					<a href="/es/"><img src="/img/es.png" alt="Español" width="24"></a>
+					<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English" width="24"></a>
+					<a href="/de/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/de.png" alt="Deutsch" width="24"></a>
+					<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español" width="24"></a>
 				</div>
 
 				<div class="contact-row">

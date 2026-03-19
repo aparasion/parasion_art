@@ -51,90 +51,17 @@
 
 			<h1 class="gallery-title">El Vía Crucis (versión tríptico)</h1>
 
-			<div class="gallery-grid">
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/way-of-the-cross-triptych/01.jpg" alt="El Vía Crucis (versión tríptico) — 1" loading="lazy" width="600" height="600">
-				</figure>
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/way-of-the-cross-triptych/02.jpg" alt="El Vía Crucis (versión tríptico) — 2" loading="lazy" width="600" height="600">
-				</figure>
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/way-of-the-cross-triptych/03.jpg" alt="El Vía Crucis (versión tríptico) — 3" loading="lazy" width="600" height="600">
-				</figure>
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/way-of-the-cross-triptych/04.jpg" alt="El Vía Crucis (versión tríptico) — 4" loading="lazy" width="600" height="600">
-				</figure>
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/way-of-the-cross-triptych/05.jpg" alt="El Vía Crucis (versión tríptico) — 5" loading="lazy" width="600" height="600">
-				</figure>
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/way-of-the-cross-triptych/06.jpg" alt="El Vía Crucis (versión tríptico) — 6" loading="lazy" width="600" height="600">
-				</figure>
-			</div>
+			<script>if(!window.picflow){window.picflow=!0;var s=document.createElement("script");s.src="https://picflow.com/embed/main.js";s.type='module';s.defer=true;document.head.appendChild(s);}</script>
+			<picflow-gallery id="gal_veEgIYzs6f4s4gBu" tenant="tnt_lyQ72k86cycvAQ97" lightbox="#00000080" no-padding="true" no-background="true"></picflow-gallery>
 
 			<h1 class="gallery-title" style="margin-top: 80px;">El Vía Crucis (tabletas individuales)</h1>
 
-			<div class="gallery-grid">
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/way-of-the-cross-single/01.jpg" alt="El Vía Crucis (tabletas individuales) — 1" loading="lazy" width="600" height="600">
-				</figure>
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/way-of-the-cross-single/02.jpg" alt="El Vía Crucis (tabletas individuales) — 2" loading="lazy" width="600" height="600">
-				</figure>
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/way-of-the-cross-single/03.jpg" alt="El Vía Crucis (tabletas individuales) — 3" loading="lazy" width="600" height="600">
-				</figure>
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/way-of-the-cross-single/04.jpg" alt="El Vía Crucis (tabletas individuales) — 4" loading="lazy" width="600" height="600">
-				</figure>
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/way-of-the-cross-single/05.jpg" alt="El Vía Crucis (tabletas individuales) — 5" loading="lazy" width="600" height="600">
-				</figure>
-				<figure class="gallery-item" onclick="openLightbox(this)">
-					<img src="/img/gallery/way-of-the-cross-single/06.jpg" alt="El Vía Crucis (tabletas individuales) — 6" loading="lazy" width="600" height="600">
-				</figure>
-			</div>
+			<picflow-gallery id="gal_QmhGApUDuVjLJ8vi" tenant="tnt_lyQ72k86cycvAQ97" lightbox="#00000080" no-padding="true" no-background="true"></picflow-gallery>
 
 		</div>
 	</main>
 
-	<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
-		<button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
-		<button class="lightbox-nav lightbox-prev" onclick="navLightbox(event, -1)">&#8249;</button>
-		<img src="" alt="" id="lightbox-img">
-		<button class="lightbox-nav lightbox-next" onclick="navLightbox(event, 1)">&#8250;</button>
-	</div>
 
-	<script>
-	var lbItems, lbIdx;
-	function openLightbox(el) {
-		lbItems = Array.from(document.querySelectorAll('.gallery-item img'));
-		lbIdx = lbItems.indexOf(el.querySelector('img'));
-		showLightboxImage();
-		document.getElementById('lightbox').classList.add('active');
-	}
-	function closeLightbox(e) {
-		if (e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')) {
-			document.getElementById('lightbox').classList.remove('active');
-		}
-	}
-	function navLightbox(e, dir) {
-		e.stopPropagation();
-		lbIdx = (lbIdx + dir + lbItems.length) % lbItems.length;
-		showLightboxImage();
-	}
-	function showLightboxImage() {
-		var img = lbItems[lbIdx];
-		document.getElementById('lightbox-img').src = img.src;
-		document.getElementById('lightbox-img').alt = img.alt;
-	}
-	document.addEventListener('keydown', function(e) {
-		if (!document.getElementById('lightbox').classList.contains('active')) return;
-		if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('active');
-		if (e.key === 'ArrowLeft') { lbIdx = (lbIdx - 1 + lbItems.length) % lbItems.length; showLightboxImage(); }
-		if (e.key === 'ArrowRight') { lbIdx = (lbIdx + 1) % lbItems.length; showLightboxImage(); }
-	});
-	</script>
 
 	<footer class="site-footer">
 		<div class="wrapper">
