@@ -128,6 +128,7 @@ function buildGalleryPage(navItem, lang) {
 	const html = fill(templates.gallery, {
 		lang: lang,
 		clicky_id: data.site.clicky_id,
+		ga_id: data.site.ga_id,
 		title: 'Bolesław Parasion — ' + pageData.title[lang],
 		description: pageData.description[lang],
 		ogImage: pageData.ogImage,
@@ -164,6 +165,7 @@ function buildIndexPage(lang) {
 	const html = fill(templates.index, {
 		lang: lang,
 		clicky_id: data.site.clicky_id,
+		ga_id: data.site.ga_id,
 		title: i18n.indexTitle,
 		description: i18n.indexDescription,
 		ogDescription: i18n.indexOgDescription,
@@ -193,6 +195,7 @@ function buildIndexPage(lang) {
 function build404Page() {
 	const html = fill(templates['404'], {
 		clicky_id: data.site.clicky_id,
+		ga_id: data.site.ga_id,
 		navLinks_pl: navLinks('pl')
 	});
 	writeOutput('404.html', html);
