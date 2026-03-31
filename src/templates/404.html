@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<script async data-id="{{clicky_id}}" src="//static.getclicky.com/js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bolesław Parasion — 404</title>
+	<meta name="description" content="Strona nie została znaleziona">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="icon" href="/img/favicon.png" type="image/png">
+	<script>
+	function toggleMenu() {
+		document.querySelector('.site-nav').classList.toggle('open');
+	}
+	</script>
+</head>
+<body>
+
+	<header class="site-header">
+		<div class="wrapper">
+			<a class="site-title" href="/">Bolesław Parasion</a>
+			<nav class="site-nav">
+				<button class="nav-trigger" onclick="toggleMenu()">Galeria <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></button>
+				<div class="dropdown">
+{{navLinks_pl}}
+				</div>
+			</nav>
+		</div>
+	</header>
+
+	<main class="page-content">
+		<div class="wrapper">
+
+			<div class="error-page">
+				<div class="error-code">404</div>
+				<p class="error-message">Strona nie została znaleziona. / Page not found.</p>
+
+				<div class="lang-selector" style="margin-bottom: 40px;">
+					<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski" width="24"></a>
+					<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English" width="24"></a>
+					<a href="/de/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/de.png" alt="Deutsch" width="24"></a>
+					<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español" width="24"></a>
+				</div>
+
+				<nav class="error-links">
+{{navLinks_pl}}
+				</nav>
+			</div>
+
+		</div>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrapper">
+			Copyright &copy; <span id="year"></span> <a href="/">Bolesław Parasion</a>
+			<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+		</div>
+	</footer>
+
+</body>
+</html>

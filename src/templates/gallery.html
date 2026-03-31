@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+	<script async data-id="{{clicky_id}}" src="//static.getclicky.com/js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{title}}</title>
+	<meta name="description" content="{{description}}">
+	<meta property="og:title" content="{{title}}">
+	<meta property="og:description" content="{{description}}">
+	<meta property="og:image" content="{{ogImage}}">
+	<meta property="og:url" content="{{ogUrl}}">
+	<meta property="og:type" content="website">
+{{hreflangTags}}
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="icon" href="/img/favicon.png" type="image/png">
+	<script>
+	function toggleMenu() {
+		document.querySelector('.site-nav').classList.toggle('open');
+	}
+	</script>
+</head>
+<body>
+
+	<header class="site-header">
+		<div class="wrapper">
+			<a class="site-title" href="{{homeUrl}}">Bolesław Parasion</a>
+			<nav class="site-nav">
+				<button class="nav-trigger" onclick="toggleMenu()">{{galleryButton}} <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></button>
+				<div class="dropdown">
+{{navLinks}}
+				</div>
+			</nav>
+		</div>
+	</header>
+
+	<main class="page-content">
+		<div class="wrapper">
+
+{{content}}
+
+		</div>
+	</main>
+
+
+
+	<footer class="site-footer">
+		<div class="wrapper">
+			Copyright &copy; <span id="year"></span> <a href="{{homeUrl}}">Bolesław Parasion</a>
+			<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+		</div>
+	</footer>
+
+{{jsonLd}}
+
+</body>
+</html>
