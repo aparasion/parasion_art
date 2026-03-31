@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+{{> head}}
+{{> nav-script}}
+{{> lang-redirect}}
+</head>
+<body>
+
+	<div class="scroll-sentinel"></div>
+
+{{> header}}
+
+	<main class="page-content">
+
+		<section class="hero">
+			<div class="hero-bg" style="background-image: url('/img/bp.jpg')"></div>
+			<div class="hero-overlay"></div>
+			<div class="hero-content">
+				<h1 class="hero-name">{{author}}</h1>
+				<p class="hero-subtitle">{{heroSubtitle}}</p>
+				<div class="lang-selector">
+{{langSelectorLinks}}
+				</div>
+			</div>
+			<div class="scroll-indicator" aria-hidden="true">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+			</div>
+		</section>
+
+		<section class="about fade-in" id="about">
+			<div class="wrapper">
+				<div class="about-grid">
+					<div class="about-portrait">
+						<img src="/img/bpr.png" alt="{{heroAlt}}" width="240" height="240">
+					</div>
+					<div class="about-text">
+						<p class="bio">{{bio}}</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="featured fade-in" id="gallery">
+			<div class="wrapper">
+				<h2 class="section-title">{{galleryButton}}</h2>
+				<div class="gallery-grid">
+{{galleryCards}}
+				</div>
+			</div>
+		</section>
+
+		<section class="contact fade-in" id="contact">
+			<div class="wrapper">
+				<div class="contact-row">
+					<span id="email"></span>
+					<script>
+					var u = "boleslaw", d = "parasion.art";
+					document.getElementById('email').innerHTML = '<a href="mailto:' + u + '@' + d + '">' + u + '@' + d + '</a>';
+					</script>
+					<span class="contact-divider">|</span>
+					<span>&#43;&#52;&#56;&nbsp;&#54;&#54;&#53;&nbsp;&#57;&#55;&#51;&nbsp;&#50;&#50;&#51;</span>
+					<span class="contact-divider">|</span>
+					<a href="{{facebook}}" class="social-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+{{> footer}}
+
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Artist",
+		"name": "{{author}}",
+		"url": "{{domain}}",
+		"image": "{{domain}}/img/bpr.png",
+		"description": "{{jsonLdDescription}}",
+		"sameAs": ["{{facebook}}"]
+	}
+	</script>
+
+{{> scroll-effects}}
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+{{> head}}
+{{> nav-script}}
+</head>
+<body>
+
+	<div class="scroll-sentinel"></div>
+
+{{> header}}
+
+	<main class="page-content">
+		<div class="wrapper">
+
+			<p class="breadcrumb"><a href="{{homeUrl}}">{{author}}</a> <span class="breadcrumb-sep">/</span> {{pageTitle}}</p>
+
+{{content}}
+
+			<nav class="gallery-nav">
+{{prevLink}}
+{{nextLink}}
+			</nav>
+
+		</div>
+	</main>
+
+{{> footer}}
+
+{{jsonLd}}
+
+{{> scroll-effects}}
+
+</body>
+</html>

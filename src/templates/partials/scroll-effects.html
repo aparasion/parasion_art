@@ -1,0 +1,24 @@
+	<script>
+	(function() {
+		var header = document.getElementById('site-header');
+		var sentinel = document.querySelector('.scroll-sentinel');
+		if (sentinel && header) {
+			var observer = new IntersectionObserver(function(entries) {
+				header.classList.toggle('scrolled', !entries[0].isIntersecting);
+			}, { threshold: 0 });
+			observer.observe(sentinel);
+		}
+		var fadeEls = document.querySelectorAll('.fade-in');
+		if (fadeEls.length) {
+			var fadeObserver = new IntersectionObserver(function(entries) {
+				entries.forEach(function(entry) {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+						fadeObserver.unobserve(entry.target);
+					}
+				});
+			}, { threshold: 0.1 });
+			fadeEls.forEach(function(el) { fadeObserver.observe(el); });
+		}
+	})();
+	</script>

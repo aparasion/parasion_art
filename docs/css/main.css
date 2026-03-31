@@ -1,0 +1,863 @@
+/* ============================================
+   Parasion.art — Artist Portfolio Styles
+   Modern, clean portfolio layout
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
+
+/* --- 1. Custom Properties --- */
+:root {
+  --color-bg: #faf8f5;
+  --color-text: #2c2420;
+  --color-text-secondary: #6b5e57;
+  --color-accent: #b8512a;
+  --color-accent-hover: #9a4423;
+  --color-border: #e8e0d8;
+  --color-dropdown-bg: #2c2420;
+  --color-dropdown-text: #faf8f5;
+  --color-hero-overlay: rgba(44, 36, 32, 0.55);
+  --color-section-alt: #f5f1ec;
+  --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Montserrat', 'Helvetica Neue', sans-serif;
+  --max-width-wide: 1280px;
+  --max-width-narrow: 780px;
+  --spacing-section: 80px;
+  --transition-smooth: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* --- 2. Reset & Global --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.85;
+  font-weight: 300;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- 3. Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 0 0 20px;
+}
+
+h1 {
+  font-size: 36px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+p {
+  margin: 0 0 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- 4. Links --- */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-smooth);
+}
+
+a:visited {
+  color: var(--color-accent);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* --- 5. Layout --- */
+.wrapper {
+  max-width: var(--max-width-wide);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.wrapper--narrow {
+  max-width: var(--max-width-narrow);
+}
+
+.scroll-sentinel {
+  position: absolute;
+  top: 0;
+  height: 1px;
+  width: 100%;
+}
+
+/* --- 6. Header & Navigation --- */
+.site-header {
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 248, 245, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.site-header.scrolled {
+  border-bottom-color: var(--color-border);
+  box-shadow: 0 2px 20px rgba(44, 36, 32, 0.06);
+}
+
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.site-title:visited,
+.site-title:hover {
+  color: var(--color-text);
+}
+
+.site-nav {
+  position: relative;
+}
+
+.nav-trigger {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 8px 0;
+  transition: color var(--transition-smooth);
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-trigger:hover {
+  color: var(--color-text);
+}
+
+/* Hamburger icon */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 18px;
+}
+
+.hamburger span {
+  display: block;
+  height: 1.5px;
+  width: 100%;
+  background: currentColor;
+  transition: transform var(--transition-smooth), opacity var(--transition-smooth);
+  transform-origin: center;
+}
+
+.site-nav.open .hamburger span:nth-child(1) {
+  transform: translateY(5.5px) rotate(45deg);
+}
+
+.site-nav.open .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-nav.open .hamburger span:nth-child(3) {
+  transform: translateY(-5.5px) rotate(-45deg);
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 16px);
+  right: 0;
+  background-color: var(--color-dropdown-bg);
+  min-width: 260px;
+  box-shadow: 0 12px 40px rgba(44, 36, 32, 0.18);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity var(--transition-smooth), transform var(--transition-smooth), visibility var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  right: 0;
+  height: 16px;
+}
+
+.dropdown a {
+  color: var(--color-dropdown-text);
+  padding: 12px 24px;
+  text-decoration: none;
+  display: block;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s ease, padding-left 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dropdown a:last-child {
+  border-bottom: none;
+}
+
+.dropdown a:hover {
+  background-color: var(--color-accent);
+  color: #fff;
+  padding-left: 30px;
+}
+
+.dropdown a:visited {
+  color: var(--color-dropdown-text);
+}
+
+.dropdown a:visited:hover {
+  color: #fff;
+}
+
+.site-nav:hover .dropdown,
+.site-nav.open .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* --- 7. Page Content --- */
+.page-content {
+  min-height: 50vh;
+}
+
+.page-content a:hover {
+  border-bottom: 1px solid var(--color-accent);
+}
+
+/* --- 8. Hero Section (Homepage) --- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: -59px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--color-hero-overlay);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero-name {
+  font-family: var(--font-heading);
+  font-size: 64px;
+  font-weight: 400;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 12px;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 40px;
+  letter-spacing: 2px;
+}
+
+.hero .lang-selector {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.hero .lang-selector a {
+  display: inline-block;
+  opacity: 0.65;
+  transition: opacity var(--transition-smooth);
+}
+
+.hero .lang-selector a:hover {
+  opacity: 1;
+  border-bottom: none;
+}
+
+.hero .lang-selector img {
+  width: 26px;
+  height: auto;
+  display: block;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+.scroll-indicator svg {
+  width: 24px;
+  height: 24px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* --- 9. About Section (Homepage) --- */
+.about {
+  padding: var(--spacing-section) 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 60px;
+  align-items: start;
+  max-width: var(--max-width-wide);
+}
+
+.about-portrait img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.about-text {
+  max-width: var(--max-width-narrow);
+}
+
+.bio {
+  text-align: justify;
+  text-indent: 40px;
+  margin: 0;
+  line-height: 1.9;
+}
+
+/* --- 10. Featured Gallery Section (Homepage) --- */
+.featured {
+  padding: var(--spacing-section) 0;
+  background-color: var(--color-section-alt);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: var(--color-accent);
+  margin: 16px auto 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.gallery-card {
+  position: relative;
+  display: block;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.gallery-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(44, 36, 32, 0.15);
+  border-bottom: none;
+}
+
+.gallery-card-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+
+.gallery-card:hover .gallery-card-img {
+  transform: scale(1.05);
+}
+
+.gallery-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(44, 36, 32, 0.7) 0%, transparent 60%);
+  z-index: 1;
+}
+
+.gallery-card-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+/* --- 11. Contact Section (Homepage) --- */
+.contact {
+  padding: var(--spacing-section) 0;
+}
+
+.contact-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.contact-row a {
+  color: var(--color-text-secondary);
+  transition: color var(--transition-smooth);
+}
+
+.contact-row a:hover {
+  color: var(--color-accent);
+  border-bottom: none;
+}
+
+.contact-divider {
+  color: var(--color-border);
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.social-link svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* --- 12. Gallery Page --- */
+.breadcrumb {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  padding-top: 40px;
+}
+
+.breadcrumb a {
+  color: var(--color-text-secondary);
+}
+
+.breadcrumb a:hover {
+  color: var(--color-accent);
+  border-bottom: none;
+}
+
+.breadcrumb-sep {
+  margin: 0 8px;
+  color: var(--color-border);
+}
+
+.gallery-title {
+  text-align: center;
+  margin-bottom: 16px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.gallery-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background-color: var(--color-accent);
+}
+
+.gallery-description {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  margin-bottom: 40px;
+  letter-spacing: 0.3px;
+}
+
+/* Gallery Prev/Next Navigation */
+.gallery-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 0 20px;
+  margin-top: 40px;
+  border-top: 1px solid var(--color-border);
+}
+
+.gallery-nav a {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-smooth);
+}
+
+.gallery-nav a:hover {
+  color: var(--color-accent);
+  border-bottom: none;
+}
+
+.gallery-nav-next {
+  margin-left: auto;
+}
+
+/* --- 13. Picflow Gallery Override --- */
+picflow-gallery .custom-button.center-button,
+picflow-gallery app-button-menu-item.featured .center-button.custom-button,
+picflow-root .custom-button.center-button,
+picflow-root app-button-menu-item.featured .center-button.custom-button {
+  margin-left: auto;
+  margin-right: auto;
+  visibility: hidden;
+}
+
+/* --- 14. Footer --- */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 30px 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.5px;
+}
+
+.site-footer a {
+  color: var(--color-text-secondary);
+}
+
+.site-footer a:hover {
+  color: var(--color-accent);
+}
+
+/* --- 15. 404 Page --- */
+.error-page {
+  text-align: center;
+  padding: 60px 0;
+}
+
+.error-code {
+  font-family: var(--font-heading);
+  font-size: 120px;
+  font-weight: 400;
+  color: var(--color-border);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  margin-bottom: 40px;
+}
+
+.error-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px 30px;
+}
+
+.error-links a {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* --- 16. Language Selector (404, general) --- */
+.lang-selector {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.lang-selector a {
+  display: inline-block;
+  opacity: 0.6;
+  transition: opacity var(--transition-smooth);
+}
+
+.lang-selector a:hover {
+  opacity: 1;
+  border-bottom: none;
+}
+
+.lang-selector img {
+  width: 24px;
+  height: auto;
+  display: block;
+}
+
+/* --- 17. Animations --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- 18. Accessibility --- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+/* --- Tablet (1024px) --- */
+@media screen and (max-width: 1024px) {
+  :root {
+    --spacing-section: 60px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-grid {
+    gap: 40px;
+  }
+
+  .hero-name {
+    font-size: 52px;
+    letter-spacing: 4px;
+  }
+}
+
+/* --- Mobile (768px) --- */
+@media screen and (max-width: 768px) {
+  :root {
+    --spacing-section: 50px;
+  }
+
+  .wrapper {
+    padding: 0 20px;
+  }
+
+  .site-header {
+    padding: 14px 0;
+  }
+
+  .site-title {
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+
+  h1 {
+    font-size: 28px;
+    letter-spacing: 2px;
+  }
+
+  .hero {
+    margin-top: -51px;
+  }
+
+  .hero-name {
+    font-size: 38px;
+    letter-spacing: 3px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .about-portrait img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .about-text {
+    max-width: 100%;
+  }
+
+  .bio {
+    text-align: left;
+    text-indent: 0;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .gallery-title {
+    margin-bottom: 12px;
+  }
+
+  .contact-row {
+    gap: 10px 15px;
+    font-size: 13px;
+  }
+
+  .gallery-card-label {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .breadcrumb {
+    padding-top: 20px;
+  }
+}
+
+/* --- Small Mobile (480px) --- */
+@media screen and (max-width: 480px) {
+  .hero-name {
+    font-size: 30px;
+    letter-spacing: 2px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-label {
+    display: none;
+  }
+
+  .dropdown {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    justify-content: center;
+    padding: 60px 20px;
+    transform: none;
+  }
+
+  .site-nav.open .dropdown {
+    transform: none;
+  }
+
+  .dropdown a {
+    padding: 14px 24px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .gallery-nav {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .gallery-nav-next {
+    margin-left: 0;
+  }
+}

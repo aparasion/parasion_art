@@ -1,0 +1,16 @@
+	<header class="site-header" id="site-header">
+		<div class="wrapper">
+			<a class="site-title" href="{{homeUrl}}">{{author}}</a>
+			<nav class="site-nav" id="site-nav">
+				<button class="nav-trigger" onclick="toggleMenu()" aria-label="{{galleryButton}}">
+					<span class="hamburger" id="hamburger">
+						<span></span><span></span><span></span>
+					</span>
+					<span class="nav-label">{{galleryButton}}</span>
+				</button>
+				<div class="dropdown">
+{{navLinks}}
+				</div>
+			</nav>
+		</div>
+	</header>

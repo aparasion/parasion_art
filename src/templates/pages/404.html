@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+{{> analytics}}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{author}} — 404</title>
+	<meta name="description" content="Strona nie zostala znaleziona">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="icon" href="/img/favicon.png" type="image/png">
+{{> nav-script}}
+</head>
+<body>
+
+{{> header}}
+
+	<main class="page-content">
+		<div class="wrapper">
+
+			<div class="error-page">
+				<div class="error-code">404</div>
+				<p class="error-message">Strona nie zostala znaleziona. / Page not found.</p>
+
+				<div class="lang-selector" style="margin-bottom: 40px;">
+					<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski" width="24"></a>
+					<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English" width="24"></a>
+					<a href="/de/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/de.png" alt="Deutsch" width="24"></a>
+					<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español" width="24"></a>
+				</div>
+
+				<nav class="error-links">
+{{navLinks_pl}}
+				</nav>
+			</div>
+
+		</div>
+	</main>
+
+{{> footer}}
+
+</body>
+</html>

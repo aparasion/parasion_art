@@ -1,0 +1,22 @@
+	<script>
+	(function() {
+		var path = window.location.pathname;
+		var isHomepage = (path === '/' || path === '/index.html' ||
+			path === '/en/' || path === '/en/index.html' ||
+			path === '/de/' || path === '/de/index.html' ||
+			path === '/es/' || path === '/es/index.html');
+		if (!isHomepage) return;
+		if (/bot|crawl|spider|slurp|googlebot|bingbot|yandex/i.test(navigator.userAgent)) return;
+		if (localStorage.getItem('parasion_lang_chosen')) return;
+		var prefix = (navigator.language || navigator.userLanguage || '').toLowerCase().split('-')[0];
+		var langMap = { pl: '/', en: '/en/', de: '/de/', es: '/es/' };
+		var target = langMap[prefix] || '/en/';
+		var current;
+		if (path === '/' || path === '/index.html') current = '/';
+		else if (path.indexOf('/en/') === 0) current = '/en/';
+		else if (path.indexOf('/de/') === 0) current = '/de/';
+		else if (path.indexOf('/es/') === 0) current = '/es/';
+		else current = '/';
+		if (target !== current) window.location.replace(target);
+	})();
+	</script>
