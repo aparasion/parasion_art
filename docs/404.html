@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<script async data-id="101478851" src="//static.getclicky.com/js"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DX0YFB57CL"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-DX0YFB57CL');
+	</script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bolesław Parasion — 404</title>
+	<meta name="description" content="Strona nie zostala znaleziona">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="icon" href="/img/favicon.png" type="image/png">
+	<script>
+	function toggleMenu() {
+		var nav = document.getElementById('site-nav');
+		nav.classList.toggle('open');
+	}
+	document.addEventListener('click', function(e) {
+		var nav = document.getElementById('site-nav');
+		if (nav.classList.contains('open') && !nav.contains(e.target)) {
+			nav.classList.remove('open');
+		}
+	});
+	document.addEventListener('keydown', function(e) {
+		if (e.key === 'Escape') {
+			document.getElementById('site-nav').classList.remove('open');
+		}
+	});
+	</script>
+</head>
+<body>
+
+	<header class="site-header" id="site-header">
+		<div class="wrapper">
+			<a class="site-title" href="/">Bolesław Parasion</a>
+			<nav class="site-nav" id="site-nav">
+				<button class="nav-trigger" onclick="toggleMenu()" aria-label="Galeria">
+					<span class="hamburger" id="hamburger">
+						<span></span><span></span><span></span>
+					</span>
+					<span class="nav-label">Galeria</span>
+				</button>
+				<div class="dropdown">
+					<a href="/anioly.html">Anioły</a>
+					<a href="/tryptyki.html">Tryptyki</a>
+					<a href="/madonny.html">Madonny</a>
+					<a href="/stworzenie-swiata.html">Stworzenie Świata</a>
+					<a href="/ostatnia-wieczerza.html">Ostatnia Wieczerza</a>
+					<a href="/droga-krzyzowa.html">Droga Krzyżowa</a>
+					<a href="/szopka-bozonarodzeniowa.html">Szopka Bożonarodzeniowa</a>
+					<a href="/pozostale.html">Pozostałe</a>
+					<a href="/atelier.html">Atelier</a>
+				</div>
+			</nav>
+		</div>
+	</header>
+
+	<main class="page-content">
+		<div class="wrapper">
+
+			<div class="error-page">
+				<div class="error-code">404</div>
+				<p class="error-message">Strona nie zostala znaleziona. / Page not found.</p>
+
+				<div class="lang-selector" style="margin-bottom: 40px;">
+					<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski" width="24"></a>
+					<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English" width="24"></a>
+					<a href="/de/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/de.png" alt="Deutsch" width="24"></a>
+					<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español" width="24"></a>
+				</div>
+
+				<nav class="error-links">
+					<a href="/anioly.html">Anioły</a>
+					<a href="/tryptyki.html">Tryptyki</a>
+					<a href="/madonny.html">Madonny</a>
+					<a href="/stworzenie-swiata.html">Stworzenie Świata</a>
+					<a href="/ostatnia-wieczerza.html">Ostatnia Wieczerza</a>
+					<a href="/droga-krzyzowa.html">Droga Krzyżowa</a>
+					<a href="/szopka-bozonarodzeniowa.html">Szopka Bożonarodzeniowa</a>
+					<a href="/pozostale.html">Pozostałe</a>
+					<a href="/atelier.html">Atelier</a>
+				</nav>
+			</div>
+
+		</div>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrapper">
+			Copyright &copy; <span id="year"></span> <a href="/">Bolesław Parasion</a>
+			<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+		</div>
+	</footer>
+
+</body>
+</html>
