@@ -449,14 +449,17 @@ a:hover {
 
 .gallery-card-img {
   position: absolute;
-  inset: 0;
+  inset: -10%;
+  width: 120%;
+  height: 120%;
   background-size: cover;
   background-position: center;
-  transition: transform 0.5s ease;
+  background-repeat: no-repeat;
+  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .gallery-card:hover .gallery-card-img {
-  transform: scale(1.05);
+  filter: brightness(1.05);
 }
 
 .gallery-card::after {

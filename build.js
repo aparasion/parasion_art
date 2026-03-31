@@ -94,8 +94,12 @@ function resolveBioLinks(bio, lang) {
 function galleryCards(lang) {
 	return data.galleries.map(function(gal) {
 		var href = pageUrl(lang, gal.slug[lang]);
+		var img = gal.thumbImage || gal.ogImage;
+		var pos = gal.thumbPosition || 'center center';
+		var scale = gal.thumbScale || 1;
+		var imgStyle = 'background-image: url(\'' + img + '\'); background-position: ' + pos + '; transform: scale(' + scale + ')';
 		return '\t\t\t\t\t<a href="' + href + '" class="gallery-card">' +
-			'\n\t\t\t\t\t\t<div class="gallery-card-img" style="background-image: url(\'' + gal.ogImage + '\')"></div>' +
+			'\n\t\t\t\t\t\t<div class="gallery-card-img" style="' + imgStyle + '"></div>' +
 			'\n\t\t\t\t\t\t<span class="gallery-card-label">' + gal.label[lang] + '</span>' +
 			'\n\t\t\t\t\t</a>';
 	}).join('\n');
