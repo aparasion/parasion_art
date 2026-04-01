@@ -130,6 +130,12 @@ a:hover {
   justify-content: space-between;
 }
 
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .site-title {
   font-family: var(--font-heading);
   font-size: 24px;
@@ -298,12 +304,6 @@ a:hover {
 /* --- 9. About Section (Homepage) --- */
 .about {
   padding: 60px 0 var(--spacing-section);
-}
-
-.about-portrait .lang-selector {
-  margin-top: 16px;
-  margin-bottom: 0;
-  max-width: 220px;
 }
 
 .about-grid {
@@ -693,6 +693,15 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   flex-shrink: 0;
 }
 
+.lang-selector--header {
+  margin: 0;
+  gap: 10px;
+}
+
+.lang-selector--header a {
+  opacity: 0.75;
+}
+
 /* --- 17. Animations --- */
 .fade-in {
   opacity: 0;
@@ -757,6 +766,19 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   .site-title {
     font-size: 18px;
     letter-spacing: 1px;
+  }
+
+  .header-controls {
+    gap: 12px;
+  }
+
+  .lang-selector--header {
+    gap: 8px;
+  }
+
+  .lang-selector--header img {
+    width: 20px;
+    height: 15px;
   }
 
   h1 {

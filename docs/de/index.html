@@ -72,14 +72,20 @@
 	<header class="site-header" id="site-header">
 		<div class="wrapper">
 			<a class="site-title" href="/de/">Bolesław Parasion</a>
-			<nav class="site-nav" id="site-nav">
-				<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menü">
-					<span class="hamburger" id="hamburger">
-						<span></span><span></span><span></span>
-					</span>
-					<span class="nav-label">Menü</span>
-				</button>
-				<div class="dropdown">
+			<div class="header-controls">
+				<div class="lang-selector lang-selector--header">
+					<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski" width="24"></a>
+					<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English" width="24"></a>
+					<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español" width="24"></a>
+				</div>
+				<nav class="site-nav" id="site-nav">
+					<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menü">
+						<span class="hamburger" id="hamburger">
+							<span></span><span></span><span></span>
+						</span>
+						<span class="nav-label">Menü</span>
+					</button>
+					<div class="dropdown">
 					<a href="/de/engel.html">Engel</a>
 					<a href="/de/triptychen.html">Triptychen</a>
 					<a href="/de/madonnen.html">Madonnen</a>
@@ -90,10 +96,12 @@
 					<a href="/de/verschiedene-holzfiguren.html">Verschiedene Holzfiguren</a>
 					<a href="/de/atelier.html">Atelier</a>
 					<a href="/de/kontakt.html">Kontakt</a>
-				</div>
-			</nav>
+					</div>
+				</nav>
+			</div>
 		</div>
 	</header>
+
 
 	<main class="page-content">
 
@@ -102,16 +110,11 @@
 				<div class="about-grid">
 					<div class="about-portrait">
 						<img src="/img/bpr.png" alt="Bolesław Parasion — Volkskunst Bildhauer" width="240" height="240">
-						<div class="lang-selector">
-					<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski" width="24"></a>
-					<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English" width="24"></a>
-					<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español" width="24"></a>
+					</div>
+						<div class="about-text">
+							<p class="bio">Mein Name ist Bolesław Parasion und ich bin Bildhauer. Meine Arbeiten konzentrieren sich auf sakrale und volkstümliche Themen. Ich erschaffe <a href="/de/triptychen.html">Triptychen</a>, <a href="/de/engel.html">bunte Engel</a>, <a href="/de/madonnen.html">Madonnen</a>, <a href="/de/weihnachtskrippe.html">Weihnachtskrippen</a> und monumentale religiöse Skulpturen, wie zum Beispiel <a href="/de/die-erschaffung-der-welt.html">Die Erschaffung der Welt</a>, <a href="/de/das-letzte-abendmahl.html">Das letzte Abendmahl</a> oder <a href="/de/der-kreuzweg.html">Der Kreuzweg</a>. Einige meiner Arbeiten zum Kreuzweg befinden sich in Kirchen in Polen und in den USA. Meine Arbeiten wurden in Ausstellungen im In- und Ausland präsentiert und bei Kunstwettbewerben ausgezeichnet. Ich arbeite ununterbrochen und erfülle Aufträge für Sammler, private Kunden und Kunstgalerien. Die Bildhauerei bleibt meine größte Leidenschaft und ein untrennbarer Teil meines Lebens. Ich lade Sie ein, meine Galerie mit Arbeiten zu besuchen.</p>
 						</div>
 					</div>
-					<div class="about-text">
-						<p class="bio">Mein Name ist Bolesław Parasion und ich bin Bildhauer. Meine Arbeiten konzentrieren sich auf sakrale und volkstümliche Themen. Ich erschaffe <a href="/de/triptychen.html">Triptychen</a>, <a href="/de/engel.html">bunte Engel</a>, <a href="/de/madonnen.html">Madonnen</a>, <a href="/de/weihnachtskrippe.html">Weihnachtskrippen</a> und monumentale religiöse Skulpturen, wie zum Beispiel <a href="/de/die-erschaffung-der-welt.html">Die Erschaffung der Welt</a>, <a href="/de/das-letzte-abendmahl.html">Das letzte Abendmahl</a> oder <a href="/de/der-kreuzweg.html">Der Kreuzweg</a>. Einige meiner Arbeiten zum Kreuzweg befinden sich in Kirchen in Polen und in den USA. Meine Arbeiten wurden in Ausstellungen im In- und Ausland präsentiert und bei Kunstwettbewerben ausgezeichnet. Ich arbeite ununterbrochen und erfülle Aufträge für Sammler, private Kunden und Kunstgalerien. Die Bildhauerei bleibt meine größte Leidenschaft und ein untrennbarer Teil meines Lebens. Ich lade Sie ein, meine Galerie mit Arbeiten zu besuchen.</p>
-					</div>
-				</div>
 			</div>
 		</section>
 

@@ -50,14 +50,20 @@
 	<header class="site-header" id="site-header">
 		<div class="wrapper">
 			<a class="site-title" href="/en/">Bolesław Parasion</a>
-			<nav class="site-nav" id="site-nav">
-				<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menu">
-					<span class="hamburger" id="hamburger">
-						<span></span><span></span><span></span>
-					</span>
-					<span class="nav-label">Menu</span>
-				</button>
-				<div class="dropdown">
+			<div class="header-controls">
+				<div class="lang-selector lang-selector--header">
+					<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski" width="24"></a>
+					<a href="/de/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/de.png" alt="Deutsch" width="24"></a>
+					<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español" width="24"></a>
+				</div>
+				<nav class="site-nav" id="site-nav">
+					<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menu">
+						<span class="hamburger" id="hamburger">
+							<span></span><span></span><span></span>
+						</span>
+						<span class="nav-label">Menu</span>
+					</button>
+					<div class="dropdown">
 					<a href="/en/angels.html">Angels</a>
 					<a href="/en/triptychs.html">Triptychs</a>
 					<a href="/en/madonnas.html">Madonnas</a>
@@ -68,10 +74,12 @@
 					<a href="/en/other-figures.html">Other figures</a>
 					<a href="/en/atelier.html">Atelier</a>
 					<a href="/en/contact.html">Contact</a>
-				</div>
-			</nav>
+					</div>
+				</nav>
+			</div>
 		</div>
 	</header>
+
 
 	<main class="page-content">
 		<div class="wrapper">
