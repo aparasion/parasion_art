@@ -136,6 +136,14 @@ a:hover {
   gap: 28px;
 }
 
+.header-divider {
+  color: var(--color-text-secondary);
+  opacity: 0.6;
+  font-size: 14px;
+  line-height: 1;
+  margin: 0 -10px;
+}
+
 .site-title {
   font-family: var(--font-heading);
   font-size: 24px;
@@ -795,6 +803,10 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   }
 
   .lang-selector--header {
+    display: none;
+  }
+
+  .header-divider {
     display: none;
   }
 
