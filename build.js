@@ -89,7 +89,7 @@ function langDropdownLinks(currentLang) {
 		.filter(function(l) { return l !== currentLang; })
 		.map(function(l) {
 			var flag = data.langFlags[l];
-			return '\t\t\t\t\t\t<a href="' + homeUrl(l) + '" onclick="localStorage.setItem(\'parasion_lang_chosen\',\'1\')"><img src="/img/' + flag.img + '" alt="' + flag.alt + '" width="24"></a>';
+			return '\t\t\t\t\t\t<a href="' + homeUrl(l) + '" onclick="localStorage.setItem(\'parasion_lang_chosen\',\'1\')"><img src="/img/' + flag.img + '" alt="' + flag.alt + '"></a>';
 		}).join('\n');
 }
 
