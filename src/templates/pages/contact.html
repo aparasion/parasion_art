@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+{{> head}}
+{{> nav-script}}
+</head>
+<body>
+
+	<div class="scroll-sentinel"></div>
+
+{{> header}}
+
+	<main class="page-content">
+		<div class="wrapper">
+
+			<div class="contact-page fade-in">
+				<h1 class="contact-title">{{contactTitle}}</h1>
+
+				<div class="contact-info">
+					<div class="contact-item">
+						<svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+						<div>
+							<span class="contact-label">Email</span>
+							<span id="email-contact"></span>
+							<script>
+							var u = "boleslaw", d = "parasion.art";
+							document.getElementById('email-contact').innerHTML = '<a href="mailto:' + u + '@' + d + '">' + u + '@' + d + '</a>';
+							</script>
+						</div>
+					</div>
+
+					<div class="contact-item">
+						<svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+						<div>
+							<span class="contact-label">{{phoneLabel}}</span>
+							<a href="tel:+48665973223">+48 665 973 223</a>
+						</div>
+					</div>
+
+					<div class="contact-item">
+						<svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+						<div>
+							<span class="contact-label">Facebook</span>
+							<a href="{{facebook}}" target="_blank" rel="noopener">{{facebookLabel}}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</main>
+
+{{> footer}}
+
+{{> scroll-effects}}
+
+</body>
+</html>

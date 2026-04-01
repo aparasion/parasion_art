@@ -73,11 +73,11 @@
 		<div class="wrapper">
 			<a class="site-title" href="/de/">Bolesław Parasion</a>
 			<nav class="site-nav" id="site-nav">
-				<button class="nav-trigger" onclick="toggleMenu()" aria-label="Galerie">
+				<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menü">
 					<span class="hamburger" id="hamburger">
 						<span></span><span></span><span></span>
 					</span>
-					<span class="nav-label">Galerie</span>
+					<span class="nav-label">Menü</span>
 				</button>
 				<div class="dropdown">
 					<a href="/de/engel.html">Engel</a>
@@ -89,6 +89,7 @@
 					<a href="/de/weihnachtskrippe.html">Weihnachtskrippe</a>
 					<a href="/de/verschiedene-holzfiguren.html">Verschiedene Holzfiguren</a>
 					<a href="/de/atelier.html">Atelier</a>
+					<a href="/de/kontakt.html">Kontakt</a>
 				</div>
 			</nav>
 		</div>
@@ -96,30 +97,20 @@
 
 	<main class="page-content">
 
-		<section class="hero">
-			<div class="hero-bg" style="background-image: url('/img/bp.jpg')"></div>
-			<div class="hero-overlay"></div>
-			<div class="hero-content">
-				<h1 class="hero-name">Bolesław Parasion</h1>
-				<p class="hero-subtitle">Volkskunst Bildhauer</p>
-				<div class="lang-selector">
-					<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski" width="24"></a>
-					<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English" width="24"></a>
-					<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español" width="24"></a>
-				</div>
-			</div>
-			<div class="scroll-indicator" aria-hidden="true">
-				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-			</div>
-		</section>
-
-		<section class="about fade-in" id="about">
+		<section class="about fade-in">
 			<div class="wrapper">
 				<div class="about-grid">
 					<div class="about-portrait">
 						<img src="/img/bpr.png" alt="Bolesław Parasion — Volkskunst Bildhauer" width="240" height="240">
+						<div class="lang-selector">
+					<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski" width="24"></a>
+					<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English" width="24"></a>
+					<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español" width="24"></a>
+						</div>
 					</div>
 					<div class="about-text">
+						<h1 class="about-name">Bolesław Parasion</h1>
+						<p class="about-subtitle">Volkskunst Bildhauer</p>
 						<p class="bio">Mein Name ist Bolesław Parasion und ich bin Bildhauer. Meine Arbeiten konzentrieren sich auf sakrale und volkstümliche Themen. Ich erschaffe <a href="/de/triptychen.html">Triptychen</a>, <a href="/de/engel.html">bunte Engel</a>, <a href="/de/madonnen.html">Madonnen</a>, <a href="/de/weihnachtskrippe.html">Weihnachtskrippen</a> und monumentale religiöse Skulpturen, wie zum Beispiel <a href="/de/die-erschaffung-der-welt.html">Die Erschaffung der Welt</a>, <a href="/de/das-letzte-abendmahl.html">Das letzte Abendmahl</a> oder <a href="/de/der-kreuzweg.html">Der Kreuzweg</a>. Einige meiner Arbeiten zum Kreuzweg befinden sich in Kirchen in Polen und in den USA. Meine Arbeiten wurden in Ausstellungen im In- und Ausland präsentiert und bei Kunstwettbewerben ausgezeichnet. Ich arbeite ununterbrochen und erfülle Aufträge für Sammler, private Kunden und Kunstgalerien. Die Bildhauerei bleibt meine größte Leidenschaft und ein untrennbarer Teil meines Lebens. Ich lade Sie ein, meine Galerie mit Arbeiten zu besuchen.</p>
 					</div>
 				</div>
@@ -128,7 +119,6 @@
 
 		<section class="featured fade-in" id="gallery">
 			<div class="wrapper">
-				<h2 class="section-title">Galerie</h2>
 				<div class="gallery-grid">
 					<a href="/de/engel.html" class="gallery-card">
 						<div class="gallery-card-img" style="background-image: url('/img/anioly.jpg'); background-position: center 20%; transform: scale(1.1)"></div>
@@ -166,22 +156,6 @@
 						<div class="gallery-card-img" style="background-image: url('/img/atelier.jpg'); background-position: center 30%; transform: scale(1.05)"></div>
 						<span class="gallery-card-label">Atelier</span>
 					</a>
-				</div>
-			</div>
-		</section>
-
-		<section class="contact fade-in" id="contact">
-			<div class="wrapper">
-				<div class="contact-row">
-					<span id="email"></span>
-					<script>
-					var u = "boleslaw", d = "parasion.art";
-					document.getElementById('email').innerHTML = '<a href="mailto:' + u + '@' + d + '">' + u + '@' + d + '</a>';
-					</script>
-					<span class="contact-divider">|</span>
-					<span>&#43;&#52;&#56;&nbsp;&#54;&#54;&#53;&nbsp;&#57;&#55;&#51;&nbsp;&#50;&#50;&#51;</span>
-					<span class="contact-divider">|</span>
-					<a href="https://fb.com/parasion" class="social-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a>
 				</div>
 			</div>
 		</section>

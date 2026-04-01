@@ -30,7 +30,7 @@ for (const file of fs.readdirSync(partialsDir)) {
 
 const templates = {};
 const pagesDir = path.join(ROOT, 'src/templates/pages');
-for (const name of ['gallery', 'index', '404']) {
+for (const name of ['gallery', 'index', 'contact', '404']) {
 	templates[name] = fs.readFileSync(path.join(pagesDir, name + '.html'), 'utf8');
 }
 
@@ -55,11 +55,18 @@ function homeUrl(lang) {
 	return data.langPrefix[lang];
 }
 
+function contactUrl(lang) {
+	return pageUrl(lang, data.contact.slug[lang]);
+}
+
 function navLinks(lang) {
-	return data.galleries.map(function(gal) {
+	var links = data.galleries.map(function(gal) {
 		var href = pageUrl(lang, gal.slug[lang]);
 		return '\t\t\t\t\t<a href="' + href + '">' + gal.label[lang] + '</a>';
-	}).join('\n');
+	});
+	// Add contact page link at the end
+	links.push('\t\t\t\t\t<a href="' + contactUrl(lang) + '">' + data.contact.title[lang] + '</a>');
+	return links.join('\n');
 }
 
 function hreflangTags(urls) {
@@ -233,7 +240,7 @@ function buildGalleryPage(gallery, galleryIndex, lang) {
 		ogUrl: fullUrl,
 		hreflangTags: hreflangTags(hreflangs),
 		homeUrl: homeUrl(lang),
-		galleryButton: data.i18n[lang].galleryButton,
+		menuButton: data.i18n[lang].menuButton,
 		navLinks: navLinks(lang),
 		pageTitle: gallery.title[lang],
 		content: content,
@@ -281,7 +288,7 @@ function buildIndexPage(lang) {
 		ogUrl: fullUrl,
 		hreflangTags: hreflangTags(hreflangs),
 		homeUrl: prefix,
-		galleryButton: i18n.galleryButton,
+		menuButton: i18n.menuButton,
 		navLinks: navLinks(lang),
 		heroAlt: i18n.heroAlt,
 		heroSubtitle: i18n.heroSubtitle,
@@ -309,11 +316,55 @@ function build404Page() {
 		ga_id: data.site.ga_id,
 		author: data.site.author,
 		homeUrl: '/',
-		galleryButton: data.i18n.pl.galleryButton,
+		menuButton: data.i18n.pl.menuButton,
 		navLinks: navLinks('pl'),
 		navLinks_pl: navLinks('pl')
 	});
 	writeOutput('404.html', html);
+}
+
+// ---------------------------------------------------------------------------
+// Build contact pages
+// ---------------------------------------------------------------------------
+
+function buildContactPage(lang) {
+	var author = data.site.author;
+	var slug = data.contact.slug[lang];
+	var url = pageUrl(lang, slug);
+	var fullUrl = data.site.domain + url;
+
+	var hreflangs = {};
+	for (var i = 0; i < data.languages.length; i++) {
+		var l = data.languages[i];
+		hreflangs[l] = data.site.domain + pageUrl(l, data.contact.slug[l]);
+	}
+
+	var html = fill(templates.contact, {
+		lang: lang,
+		clicky_id: data.site.clicky_id,
+		ga_id: data.site.ga_id,
+		author: author,
+		domain: data.site.domain,
+		title: author + ' — ' + data.contact.title[lang],
+		description: data.contact.description[lang],
+		ogDescription: data.contact.description[lang],
+		ogImage: data.site.domain + '/img/bpr.png',
+		ogUrl: fullUrl,
+		hreflangTags: hreflangTags(hreflangs),
+		homeUrl: homeUrl(lang),
+		menuButton: data.i18n[lang].menuButton,
+		navLinks: navLinks(lang),
+		contactTitle: data.contact.title[lang],
+		phoneLabel: data.contact.phoneLabel[lang],
+		facebook: data.site.facebook,
+		facebookLabel: data.contact.facebookLabel[lang]
+	});
+
+	var relPath = lang === 'pl'
+		? slug + '.html'
+		: lang + '/' + slug + '.html';
+
+	writeOutput(relPath, html);
 }
 
 // ---------------------------------------------------------------------------
@@ -396,6 +447,11 @@ function build() {
 		}
 	}
 
+	// Contact pages (all languages)
+	for (var ci = 0; ci < data.languages.length; ci++) {
+		buildContactPage(data.languages[ci]);
+	}
+
 	// 404 page
 	build404Page();
 
@@ -431,7 +487,7 @@ if (process.argv.indexOf('--watch') !== -1) {
 				}
 			}
 			// Reload page templates
-			for (var name of ['gallery', 'index', '404']) {
+			for (var name of ['gallery', 'index', 'contact', '404']) {
 				templates[name] = fs.readFileSync(path.join(pagesDir, name + '.html'), 'utf8');
 			}
 			build();
