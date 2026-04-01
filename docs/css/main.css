@@ -133,7 +133,7 @@ a:hover {
 .header-controls {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 28px;
 }
 
 .site-title {
@@ -704,6 +704,10 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
 
 .lang-selector--header a {
   opacity: 0.75;
+}
+
+.lang-selector--header img {
+  width: 18px;
 }
 
 .lang-mobile-dropdown {
