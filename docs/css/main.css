@@ -273,107 +273,36 @@ a:hover {
   border-bottom: 1px solid var(--color-accent);
 }
 
-/* --- 8. Hero Section (Homepage) --- */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  margin-top: -59px;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: var(--color-hero-overlay);
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.hero-name {
+/* --- 8. About Section Name & Subtitle --- */
+.about-name {
   font-family: var(--font-heading);
-  font-size: 64px;
+  font-size: 42px;
   font-weight: 400;
-  letter-spacing: 6px;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  color: #fff;
-  margin: 0 0 12px;
+  color: var(--color-text);
+  margin: 0 0 6px;
   line-height: 1.1;
 }
 
-.hero-subtitle {
+.about-subtitle {
   font-family: var(--font-heading);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   font-style: italic;
-  color: rgba(255, 255, 255, 0.75);
-  margin: 0 0 40px;
-  letter-spacing: 2px;
-}
-
-.hero .lang-selector {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-}
-
-.hero .lang-selector a {
-  display: inline-block;
-  opacity: 0.65;
-  transition: opacity var(--transition-smooth);
-}
-
-.hero .lang-selector a:hover {
-  opacity: 1;
-  border-bottom: none;
-}
-
-.hero .lang-selector img {
-  width: 26px;
-  height: auto;
-  display: block;
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  animation: scroll-bounce 2s ease-in-out infinite;
-}
-
-.scroll-indicator svg {
-  width: 24px;
-  height: 24px;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-@keyframes scroll-bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(8px); }
+  color: var(--color-text-secondary);
+  margin: 0 0 24px;
+  letter-spacing: 1px;
 }
 
 /* --- 9. About Section (Homepage) --- */
 .about {
-  padding: var(--spacing-section) 0;
+  padding: 60px 0 var(--spacing-section);
+}
+
+.about-portrait .lang-selector {
+  margin-top: 16px;
+  margin-bottom: 0;
 }
 
 .about-grid {
@@ -600,7 +529,77 @@ a:hover {
   margin-left: auto;
 }
 
-/* --- 13. Picflow Gallery Override --- */
+/* --- 13. Contact Page --- */
+.contact-page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 0 20px;
+}
+
+.contact-title {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.contact-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background-color: var(--color-accent);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.contact-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: var(--color-accent);
+  margin-top: 2px;
+}
+
+.contact-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contact-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.contact-item a {
+  font-size: 15px;
+  color: var(--color-text);
+  transition: color var(--transition-smooth);
+}
+
+.contact-item a:hover {
+  color: var(--color-accent);
+  border-bottom: none;
+}
+
+/* --- 14. Picflow Gallery Override --- */
 picflow-gallery .custom-button.center-button,
 picflow-gallery app-button-menu-item.featured .center-button.custom-button,
 picflow-root .custom-button.center-button,
@@ -730,9 +729,8 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
     gap: 40px;
   }
 
-  .hero-name {
-    font-size: 52px;
-    letter-spacing: 4px;
+  .about-name {
+    font-size: 36px;
   }
 }
 
@@ -760,17 +758,9 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
     letter-spacing: 2px;
   }
 
-  .hero {
-    margin-top: -51px;
-  }
-
-  .hero-name {
-    font-size: 38px;
-    letter-spacing: 3px;
-  }
-
-  .hero-subtitle {
-    font-size: 16px;
+  .about-name {
+    font-size: 30px;
+    letter-spacing: 2px;
   }
 
   .about-grid {
@@ -819,9 +809,9 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
 
 /* --- Small Mobile (480px) --- */
 @media screen and (max-width: 480px) {
-  .hero-name {
-    font-size: 30px;
-    letter-spacing: 2px;
+  .about-name {
+    font-size: 26px;
+    letter-spacing: 1px;
   }
 
   .gallery-grid {

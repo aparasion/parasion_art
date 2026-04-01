@@ -200,9 +200,22 @@
 		}
 	],
 
+	"contact": {
+		"slug": { "pl": "kontakt", "en": "contact", "de": "kontakt", "es": "contacto" },
+		"title": { "pl": "Kontakt", "en": "Contact", "de": "Kontakt", "es": "Contacto" },
+		"description": {
+			"pl": "Kontakt z artystą rzeźbiarzem Bolesławem Parasionem",
+			"en": "Contact sculptor Bolesław Parasion",
+			"de": "Kontakt zum Bildhauer Bolesław Parasion",
+			"es": "Contacto con el escultor Bolesław Parasion"
+		},
+		"phoneLabel": { "pl": "Telefon", "en": "Phone", "de": "Telefon", "es": "Teléfono" },
+		"facebookLabel": { "pl": "Bolesław Parasion", "en": "Bolesław Parasion", "de": "Bolesław Parasion", "es": "Bolesław Parasion" }
+	},
+
 	"i18n": {
 		"pl": {
-			"galleryButton": "Galeria",
+			"menuButton": "Menu",
 			"heroAlt": "Bolesław Parasion — artysta rzeźbiarz",
 			"heroSubtitle": "artysta rzeźbiarz",
 			"indexTitle": "Bolesław Parasion — artysta rzeźbiarz",
@@ -212,7 +225,7 @@
 			"bio": "Nazywam się {{author}} i jestem rzeźbiarzem. Moja twórczość koncentruje się na tematyce sakralnej i ludowej. Tworzę {{link:triptychs}}, {{link:angels|barwne anioły}}, {{link:madonnas|madonny}}, {{link:nativity|szopki bożonarodzeniowe}} oraz monumentalne rzeźby religijne, takie jak np. {{link:creation}}, {{link:last-supper|Ostatnia Wieczerza}} czy {{link:way-of-the-cross|Droga Krzyżowa}}. Kilka z moich prac Drogi Krzyżowej znajduje się w kościołach w Polsce i w USA. Moje prace były prezentowane na wystawach w kraju i za granicą, a także wyróżniane w konkursach artystycznych. Tworzę nieprzerwanie, realizując zamówienia dla kolekcjonerów, prywatnych odbiorców i galerii sztuki. Rzeźbiarstwo pozostaje moją największą pasją i nieodłączną częścią życia. Zapraszam do obejrzenia mojej galerii prac."
 		},
 		"en": {
-			"galleryButton": "Gallery",
+			"menuButton": "Menu",
 			"heroAlt": "Bolesław Parasion — sculptor artist",
 			"heroSubtitle": "sculptor artist",
 			"indexTitle": "Bolesław Parasion — sculptor artist",
@@ -222,7 +235,7 @@
 			"bio": "My name is {{author}}, and I am a sculptor. My work focuses on sacred and folk themes. I create {{link:triptychs}}, {{link:angels|colorful angels}}, {{link:madonnas|Madonnas}}, {{link:nativity|Christmas nativity scenes}}, and monumental religious sculptures, such as {{link:creation}}, {{link:last-supper|The Last Supper}}, and {{link:way-of-the-cross|The Way of the Cross}}. Several of my Way of the Cross works are displayed in churches in Poland and the USA. My works have been exhibited both in Poland and abroad and have been recognized in art competitions. I continuously create, fulfilling commissions for collectors, private clients, and art galleries. Sculpture remains my greatest passion and an inseparable part of my life. I invite you to explore my gallery of works."
 		},
 		"de": {
-			"galleryButton": "Galerie",
+			"menuButton": "Menü",
 			"heroAlt": "Bolesław Parasion — Volkskunst Bildhauer",
 			"heroSubtitle": "Volkskunst Bildhauer",
 			"indexTitle": "Bolesław Parasion — Volkskunst Bildhauer",
@@ -232,7 +245,7 @@
 			"bio": "Mein Name ist {{author}} und ich bin Bildhauer. Meine Arbeiten konzentrieren sich auf sakrale und volkstümliche Themen. Ich erschaffe {{link:triptychs|Triptychen}}, {{link:angels|bunte Engel}}, {{link:madonnas|Madonnen}}, {{link:nativity|Weihnachtskrippen}} und monumentale religiöse Skulpturen, wie zum Beispiel {{link:creation}}, {{link:last-supper|Das letzte Abendmahl}} oder {{link:way-of-the-cross|Der Kreuzweg}}. Einige meiner Arbeiten zum Kreuzweg befinden sich in Kirchen in Polen und in den USA. Meine Arbeiten wurden in Ausstellungen im In- und Ausland präsentiert und bei Kunstwettbewerben ausgezeichnet. Ich arbeite ununterbrochen und erfülle Aufträge für Sammler, private Kunden und Kunstgalerien. Die Bildhauerei bleibt meine größte Leidenschaft und ein untrennbarer Teil meines Lebens. Ich lade Sie ein, meine Galerie mit Arbeiten zu besuchen."
 		},
 		"es": {
-			"galleryButton": "Galería",
+			"menuButton": "Menú",
 			"heroAlt": "Bolesław Parasion — artista escultor",
 			"heroSubtitle": "artista escultor",
 			"indexTitle": "Bolesław Parasion — artista escultor",
