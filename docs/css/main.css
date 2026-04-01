@@ -802,7 +802,7 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   }
 
   .header-controls {
-    gap: 8px;
+    gap: 28px;
     flex-shrink: 0;
   }
 
