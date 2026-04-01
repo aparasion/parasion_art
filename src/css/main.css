@@ -806,25 +806,12 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
     flex-shrink: 0;
   }
 
-  .lang-selector--header {
-    display: none;
-  }
-
-  .header-divider {
-    display: none;
-  }
-
   .lang-mobile-dropdown {
-    display: block;
-    position: relative;
+    display: none;
   }
 
   .header-divider-mobile {
-    display: inline;
-    color: var(--color-text-secondary);
-    opacity: 0.4;
-    font-size: 13px;
-    line-height: 1;
+    display: none;
   }
 
   .lang-mobile-trigger {
