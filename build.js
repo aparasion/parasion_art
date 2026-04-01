@@ -84,6 +84,15 @@ function langSelectorLinks(currentLang) {
 		}).join('\n');
 }
 
+function langDropdownLinks(currentLang) {
+	return data.languages
+		.filter(function(l) { return l !== currentLang; })
+		.map(function(l) {
+			var flag = data.langFlags[l];
+			return '\t\t\t\t\t\t<a href="' + homeUrl(l) + '" onclick="localStorage.setItem(\'parasion_lang_chosen\',\'1\')"><img src="/img/' + flag.img + '" alt="' + flag.alt + '" width="24"></a>';
+		}).join('\n');
+}
+
 function resolveBioLinks(bio, lang) {
 	// Replace {{link:id}} or {{link:id|custom text}} with anchor tags
 	return bio.replace(/\{\{link:([^|}]+)(?:\|([^}]*))?\}\}/g, function(_, id, customText) {
@@ -243,6 +252,9 @@ function buildGalleryPage(gallery, galleryIndex, lang) {
 		menuButton: data.i18n[lang].menuButton,
 		navLinks: navLinks(lang),
 		langSelectorLinks: langSelectorLinks(lang),
+		langDropdownLinks: langDropdownLinks(lang),
+		languageMenuLabel: data.i18n[lang].languageMenuLabel,
+		mobileBrand: data.site.mobileBrand,
 		pageTitle: gallery.title[lang],
 		content: content,
 		jsonLd: jsonLd,
@@ -291,6 +303,9 @@ function buildIndexPage(lang) {
 		homeUrl: prefix,
 		menuButton: i18n.menuButton,
 		navLinks: navLinks(lang),
+		langDropdownLinks: langDropdownLinks(lang),
+		languageMenuLabel: i18n.languageMenuLabel,
+		mobileBrand: data.site.mobileBrand,
 		heroAlt: i18n.heroAlt,
 		heroSubtitle: i18n.heroSubtitle,
 		langSelectorLinks: langSelectorLinks(lang),
@@ -319,6 +334,10 @@ function build404Page() {
 		homeUrl: '/',
 		menuButton: data.i18n.pl.menuButton,
 		navLinks: navLinks('pl'),
+		langSelectorLinks: langSelectorLinks('pl'),
+		langDropdownLinks: langDropdownLinks('pl'),
+		languageMenuLabel: data.i18n.pl.languageMenuLabel,
+		mobileBrand: data.site.mobileBrand,
 		navLinks_pl: navLinks('pl')
 	});
 	writeOutput('404.html', html);
@@ -356,6 +375,9 @@ function buildContactPage(lang) {
 		menuButton: data.i18n[lang].menuButton,
 		navLinks: navLinks(lang),
 		langSelectorLinks: langSelectorLinks(lang),
+		langDropdownLinks: langDropdownLinks(lang),
+		languageMenuLabel: data.i18n[lang].languageMenuLabel,
+		mobileBrand: data.site.mobileBrand,
 		contactTitle: data.contact.title[lang],
 		phoneLabel: data.contact.phoneLabel[lang],
 		facebook: data.site.facebook,

@@ -30,18 +30,33 @@
 		var nav = document.getElementById('site-nav');
 		nav.classList.toggle('open');
 	}
+	function toggleLangMenu() {
+		var langMenu = document.getElementById('lang-mobile-dropdown');
+		if (langMenu) {
+			langMenu.classList.toggle('open');
+		}
+	}
 	document.addEventListener('click', function(e) {
 		var nav = document.getElementById('site-nav');
 		if (nav.classList.contains('open') && !nav.contains(e.target)) {
 			nav.classList.remove('open');
 		}
+		var langMenu = document.getElementById('lang-mobile-dropdown');
+		if (langMenu && langMenu.classList.contains('open') && !langMenu.contains(e.target)) {
+			langMenu.classList.remove('open');
+		}
 	});
 	document.addEventListener('keydown', function(e) {
 		if (e.key === 'Escape') {
 			document.getElementById('site-nav').classList.remove('open');
+			var langMenu = document.getElementById('lang-mobile-dropdown');
+			if (langMenu) {
+				langMenu.classList.remove('open');
+			}
 		}
 	});
 	</script>
+
 </head>
 <body>
 
@@ -49,12 +64,22 @@
 
 	<header class="site-header" id="site-header">
 		<div class="wrapper">
-			<a class="site-title" href="/de/">Bolesław Parasion</a>
+			<a class="site-title" href="/de/"><span class="site-title-full">Bolesław Parasion</span><span class="site-title-mobile">PARASION.art</span></a>
 			<div class="header-controls">
 				<div class="lang-selector lang-selector--header">
 					<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski" width="24"></a>
 					<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English" width="24"></a>
 					<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español" width="24"></a>
+				</div>
+				<div class="lang-mobile-dropdown" id="lang-mobile-dropdown">
+					<button class="lang-mobile-trigger" type="button" onclick="toggleLangMenu()" aria-label="Sprache">
+						<span>Sprache</span>
+					</button>
+					<div class="lang-mobile-menu">
+						<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski" width="24"></a>
+						<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English" width="24"></a>
+						<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español" width="24"></a>
+					</div>
 				</div>
 				<nav class="site-nav" id="site-nav">
 					<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menü">

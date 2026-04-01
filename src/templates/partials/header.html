@@ -1,9 +1,17 @@
 	<header class="site-header" id="site-header">
 		<div class="wrapper">
-			<a class="site-title" href="{{homeUrl}}">{{author}}</a>
+			<a class="site-title" href="{{homeUrl}}"><span class="site-title-full">{{author}}</span><span class="site-title-mobile">{{mobileBrand}}</span></a>
 			<div class="header-controls">
 				<div class="lang-selector lang-selector--header">
 {{langSelectorLinks}}
+				</div>
+				<div class="lang-mobile-dropdown" id="lang-mobile-dropdown">
+					<button class="lang-mobile-trigger" type="button" onclick="toggleLangMenu()" aria-label="{{languageMenuLabel}}">
+						<span>{{languageMenuLabel}}</span>
+					</button>
+					<div class="lang-mobile-menu">
+{{langDropdownLinks}}
+					</div>
 				</div>
 				<nav class="site-nav" id="site-nav">
 					<button class="nav-trigger" onclick="toggleMenu()" aria-label="{{menuButton}}">

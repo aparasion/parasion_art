@@ -148,6 +148,10 @@ a:hover {
   line-height: 1.2;
 }
 
+.site-title-mobile {
+  display: none;
+}
+
 .site-title:visited,
 .site-title:hover {
   color: var(--color-text);
@@ -263,7 +267,6 @@ a:hover {
   color: #fff;
 }
 
-.site-nav:hover .dropdown,
 .site-nav.open .dropdown {
   opacity: 1;
   visibility: visible;
@@ -702,6 +705,10 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   opacity: 0.75;
 }
 
+.lang-mobile-dropdown {
+  display: none;
+}
+
 /* --- 17. Animations --- */
 .fade-in {
   opacity: 0;
@@ -764,12 +771,17 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   }
 
   .site-title {
-    font-size: 16px;
+    font-size: 17px;
     letter-spacing: 1px;
-    max-width: 42vw;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    max-width: none;
+  }
+
+  .site-title-full {
+    display: none;
+  }
+
+  .site-title-mobile {
+    display: inline;
   }
 
   .header-controls {
@@ -778,10 +790,52 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   }
 
   .lang-selector--header {
-    gap: 8px;
+    display: none;
   }
 
-  .lang-selector--header img {
+  .lang-mobile-dropdown {
+    display: block;
+    position: relative;
+  }
+
+  .lang-mobile-trigger {
+    border: none;
+    background: none;
+    padding: 8px 0;
+    color: var(--color-text-secondary);
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .lang-mobile-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    display: flex;
+    gap: 8px;
+    background: var(--color-dropdown-bg);
+    padding: 10px;
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity var(--transition-smooth), transform var(--transition-smooth), visibility var(--transition-smooth);
+  }
+
+  .lang-mobile-dropdown.open .lang-mobile-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .lang-mobile-menu a {
+    opacity: 1;
+  }
+
+  .lang-mobile-menu img {
     width: 20px;
     height: 15px;
   }

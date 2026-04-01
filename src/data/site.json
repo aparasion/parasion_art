@@ -5,25 +5,39 @@
 		"tenant": "tnt_lyQ72k86cycvAQ97",
 		"clicky_id": "101478851",
 		"ga_id": "G-DX0YFB57CL",
-		"facebook": "https://fb.com/parasion"
+		"facebook": "https://fb.com/parasion",
+		"mobileBrand": "PARASION.art"
 	},
-
-	"languages": ["pl", "en", "de", "es"],
-
+	"languages": [
+		"pl",
+		"en",
+		"de",
+		"es"
+	],
 	"langPrefix": {
 		"pl": "/",
 		"en": "/en/",
 		"de": "/de/",
 		"es": "/es/"
 	},
-
 	"langFlags": {
-		"pl": { "img": "pl.png", "alt": "Polski" },
-		"en": { "img": "gb.png", "alt": "English" },
-		"de": { "img": "de.png", "alt": "Deutsch" },
-		"es": { "img": "es.png", "alt": "Español" }
+		"pl": {
+			"img": "pl.png",
+			"alt": "Polski"
+		},
+		"en": {
+			"img": "gb.png",
+			"alt": "English"
+		},
+		"de": {
+			"img": "de.png",
+			"alt": "Deutsch"
+		},
+		"es": {
+			"img": "es.png",
+			"alt": "Español"
+		}
 	},
-
 	"galleries": [
 		{
 			"id": "angels",
@@ -32,9 +46,24 @@
 			"thumbImage": "/img/anioly.jpg",
 			"thumbPosition": "center 20%",
 			"thumbScale": 1.1,
-			"slug": { "pl": "anioly", "en": "angels", "de": "engel", "es": "angeles" },
-			"label": { "pl": "Anioły", "en": "Angels", "de": "Engel", "es": "Ángeles" },
-			"title": { "pl": "Anioły", "en": "Angels", "de": "Engel", "es": "Ángeles" },
+			"slug": {
+				"pl": "anioly",
+				"en": "angels",
+				"de": "engel",
+				"es": "angeles"
+			},
+			"label": {
+				"pl": "Anioły",
+				"en": "Angels",
+				"de": "Engel",
+				"es": "Ángeles"
+			},
+			"title": {
+				"pl": "Anioły",
+				"en": "Angels",
+				"de": "Engel",
+				"es": "Ángeles"
+			},
 			"description": {
 				"pl": "Rzeźby aniołów autorstwa Bolesława Parasiona",
 				"en": "Angel sculptures by Bolesław Parasion",
@@ -49,9 +78,24 @@
 			"thumbImage": "/img/tryptyki.jpg",
 			"thumbPosition": "center center",
 			"thumbScale": 1.0,
-			"slug": { "pl": "tryptyki", "en": "triptychs", "de": "triptychen", "es": "tripticos" },
-			"label": { "pl": "Tryptyki", "en": "Triptychs", "de": "Triptychen", "es": "Trípticos" },
-			"title": { "pl": "Tryptyki", "en": "Triptychs", "de": "Triptychen", "es": "Trípticos" },
+			"slug": {
+				"pl": "tryptyki",
+				"en": "triptychs",
+				"de": "triptychen",
+				"es": "tripticos"
+			},
+			"label": {
+				"pl": "Tryptyki",
+				"en": "Triptychs",
+				"de": "Triptychen",
+				"es": "Trípticos"
+			},
+			"title": {
+				"pl": "Tryptyki",
+				"en": "Triptychs",
+				"de": "Triptychen",
+				"es": "Trípticos"
+			},
 			"description": {
 				"pl": "Tryptyki autorstwa Bolesława Parasiona",
 				"en": "Triptych sculptures by Bolesław Parasion",
@@ -66,9 +110,24 @@
 			"thumbImage": "/img/madonny.png",
 			"thumbPosition": "center 25%",
 			"thumbScale": 1.2,
-			"slug": { "pl": "madonny", "en": "madonnas", "de": "madonnen", "es": "madonas" },
-			"label": { "pl": "Madonny", "en": "Madonnas", "de": "Madonnen", "es": "Madonas" },
-			"title": { "pl": "Madonny", "en": "Madonnas", "de": "Madonnen", "es": "Madonas" },
+			"slug": {
+				"pl": "madonny",
+				"en": "madonnas",
+				"de": "madonnen",
+				"es": "madonas"
+			},
+			"label": {
+				"pl": "Madonny",
+				"en": "Madonnas",
+				"de": "Madonnen",
+				"es": "Madonas"
+			},
+			"title": {
+				"pl": "Madonny",
+				"en": "Madonnas",
+				"de": "Madonnen",
+				"es": "Madonas"
+			},
 			"description": {
 				"pl": "Rzeźby madonn autorstwa Bolesława Parasiona",
 				"en": "Madonna sculptures by Bolesław Parasion",
@@ -83,9 +142,24 @@
 			"thumbImage": "/img/stworzenie.jpg",
 			"thumbPosition": "center 30%",
 			"thumbScale": 1.1,
-			"slug": { "pl": "stworzenie-swiata", "en": "the-creation-of-the-world", "de": "die-erschaffung-der-welt", "es": "creacion-del-mundo" },
-			"label": { "pl": "Stworzenie Świata", "en": "The Creation of the World", "de": "Die Erschaffung der Welt", "es": "La Creación del Mundo" },
-			"title": { "pl": "Stworzenie Świata", "en": "The Creation of the World", "de": "Die Erschaffung der Welt", "es": "La Creación del Mundo" },
+			"slug": {
+				"pl": "stworzenie-swiata",
+				"en": "the-creation-of-the-world",
+				"de": "die-erschaffung-der-welt",
+				"es": "creacion-del-mundo"
+			},
+			"label": {
+				"pl": "Stworzenie Świata",
+				"en": "The Creation of the World",
+				"de": "Die Erschaffung der Welt",
+				"es": "La Creación del Mundo"
+			},
+			"title": {
+				"pl": "Stworzenie Świata",
+				"en": "The Creation of the World",
+				"de": "Die Erschaffung der Welt",
+				"es": "La Creación del Mundo"
+			},
 			"description": {
 				"pl": "Rzeźba Stworzenie Świata autorstwa Bolesława Parasiona",
 				"en": "The Creation of the World sculpture by Bolesław Parasion",
@@ -100,9 +174,24 @@
 			"thumbImage": "/img/ostatnia.jpg",
 			"thumbPosition": "center center",
 			"thumbScale": 1.0,
-			"slug": { "pl": "ostatnia-wieczerza", "en": "the-last-supper", "de": "das-letzte-abendmahl", "es": "ultima-cena" },
-			"label": { "pl": "Ostatnia Wieczerza", "en": "The Last Supper", "de": "Das letzte Abendmahl", "es": "La Última Cena" },
-			"title": { "pl": "Ostatnia Wieczerza", "en": "The Last Supper", "de": "Das letzte Abendmahl", "es": "La Última Cena" },
+			"slug": {
+				"pl": "ostatnia-wieczerza",
+				"en": "the-last-supper",
+				"de": "das-letzte-abendmahl",
+				"es": "ultima-cena"
+			},
+			"label": {
+				"pl": "Ostatnia Wieczerza",
+				"en": "The Last Supper",
+				"de": "Das letzte Abendmahl",
+				"es": "La Última Cena"
+			},
+			"title": {
+				"pl": "Ostatnia Wieczerza",
+				"en": "The Last Supper",
+				"de": "Das letzte Abendmahl",
+				"es": "La Última Cena"
+			},
 			"description": {
 				"pl": "Rzeźba Ostatnia Wieczerza autorstwa Bolesława Parasiona",
 				"en": "The Last Supper sculpture by Bolesław Parasion",
@@ -136,9 +225,24 @@
 				}
 			],
 			"ogImage": "https://parasion.art/img/gallery/way-of-the-cross-triptych/01.jpg",
-			"slug": { "pl": "droga-krzyzowa", "en": "the-way-of-the-cross", "de": "der-kreuzweg", "es": "via-crucis" },
-			"label": { "pl": "Droga Krzyżowa", "en": "The Way of the Cross", "de": "Der Kreuzweg", "es": "El Vía Crucis" },
-			"title": { "pl": "Droga Krzyżowa", "en": "The Way of the Cross", "de": "Der Kreuzweg", "es": "El Vía Crucis" },
+			"slug": {
+				"pl": "droga-krzyzowa",
+				"en": "the-way-of-the-cross",
+				"de": "der-kreuzweg",
+				"es": "via-crucis"
+			},
+			"label": {
+				"pl": "Droga Krzyżowa",
+				"en": "The Way of the Cross",
+				"de": "Der Kreuzweg",
+				"es": "El Vía Crucis"
+			},
+			"title": {
+				"pl": "Droga Krzyżowa",
+				"en": "The Way of the Cross",
+				"de": "Der Kreuzweg",
+				"es": "El Vía Crucis"
+			},
 			"description": {
 				"pl": "Droga Krzyżowa autorstwa Bolesława Parasiona",
 				"en": "The Way of the Cross sculptures by Bolesław Parasion",
@@ -153,9 +257,24 @@
 			"thumbImage": "/img/szopka.jpg",
 			"thumbPosition": "center 20%",
 			"thumbScale": 1.15,
-			"slug": { "pl": "szopka-bozonarodzeniowa", "en": "nativity-scene", "de": "weihnachtskrippe", "es": "nacimiento" },
-			"label": { "pl": "Szopka Bożonarodzeniowa", "en": "Nativity Scene", "de": "Weihnachtskrippe", "es": "Nacimiento" },
-			"title": { "pl": "Szopka Bożonarodzeniowa", "en": "Nativity Scene", "de": "Weihnachtskrippe", "es": "Nacimiento" },
+			"slug": {
+				"pl": "szopka-bozonarodzeniowa",
+				"en": "nativity-scene",
+				"de": "weihnachtskrippe",
+				"es": "nacimiento"
+			},
+			"label": {
+				"pl": "Szopka Bożonarodzeniowa",
+				"en": "Nativity Scene",
+				"de": "Weihnachtskrippe",
+				"es": "Nacimiento"
+			},
+			"title": {
+				"pl": "Szopka Bożonarodzeniowa",
+				"en": "Nativity Scene",
+				"de": "Weihnachtskrippe",
+				"es": "Nacimiento"
+			},
 			"description": {
 				"pl": "Szopka Bożonarodzeniowa autorstwa Bolesława Parasiona",
 				"en": "Nativity Scene sculpture by Bolesław Parasion",
@@ -170,9 +289,24 @@
 			"thumbImage": "/img/pozostale.jpg",
 			"thumbPosition": "center 15%",
 			"thumbScale": 1.15,
-			"slug": { "pl": "pozostale", "en": "other-figures", "de": "verschiedene-holzfiguren", "es": "otras-figuras" },
-			"label": { "pl": "Pozostałe", "en": "Other figures", "de": "Verschiedene Holzfiguren", "es": "Otras figuras" },
-			"title": { "pl": "Różne figury", "en": "Miscellaneous figures", "de": "Verschiedene Holzfiguren", "es": "Figuras diversas" },
+			"slug": {
+				"pl": "pozostale",
+				"en": "other-figures",
+				"de": "verschiedene-holzfiguren",
+				"es": "otras-figuras"
+			},
+			"label": {
+				"pl": "Pozostałe",
+				"en": "Other figures",
+				"de": "Verschiedene Holzfiguren",
+				"es": "Otras figuras"
+			},
+			"title": {
+				"pl": "Różne figury",
+				"en": "Miscellaneous figures",
+				"de": "Verschiedene Holzfiguren",
+				"es": "Figuras diversas"
+			},
 			"description": {
 				"pl": "Różne figury rzeźbiarskie autorstwa Bolesława Parasiona",
 				"en": "Miscellaneous figures by Bolesław Parasion",
@@ -188,9 +322,24 @@
 			"thumbImage": "/img/atelier.jpg",
 			"thumbPosition": "center 30%",
 			"thumbScale": 1.05,
-			"slug": { "pl": "atelier", "en": "atelier", "de": "atelier", "es": "taller" },
-			"label": { "pl": "Atelier", "en": "Atelier", "de": "Atelier", "es": "Taller" },
-			"title": { "pl": "Atelier", "en": "Atelier", "de": "Atelier", "es": "Taller" },
+			"slug": {
+				"pl": "atelier",
+				"en": "atelier",
+				"de": "atelier",
+				"es": "taller"
+			},
+			"label": {
+				"pl": "Atelier",
+				"en": "Atelier",
+				"de": "Atelier",
+				"es": "Taller"
+			},
+			"title": {
+				"pl": "Atelier",
+				"en": "Atelier",
+				"de": "Atelier",
+				"es": "Taller"
+			},
 			"description": {
 				"pl": "Atelier artysty rzeźbiarza Bolesława Parasiona",
 				"en": "Sculptor Bolesław Parasion's atelier",
@@ -199,20 +348,38 @@
 			}
 		}
 	],
-
 	"contact": {
-		"slug": { "pl": "kontakt", "en": "contact", "de": "kontakt", "es": "contacto" },
-		"title": { "pl": "Kontakt", "en": "Contact", "de": "Kontakt", "es": "Contacto" },
+		"slug": {
+			"pl": "kontakt",
+			"en": "contact",
+			"de": "kontakt",
+			"es": "contacto"
+		},
+		"title": {
+			"pl": "Kontakt",
+			"en": "Contact",
+			"de": "Kontakt",
+			"es": "Contacto"
+		},
 		"description": {
 			"pl": "Kontakt z artystą rzeźbiarzem Bolesławem Parasionem",
 			"en": "Contact sculptor Bolesław Parasion",
 			"de": "Kontakt zum Bildhauer Bolesław Parasion",
 			"es": "Contacto con el escultor Bolesław Parasion"
 		},
-		"phoneLabel": { "pl": "Telefon", "en": "Phone", "de": "Telefon", "es": "Teléfono" },
-		"facebookLabel": { "pl": "Bolesław Parasion", "en": "Bolesław Parasion", "de": "Bolesław Parasion", "es": "Bolesław Parasion" }
+		"phoneLabel": {
+			"pl": "Telefon",
+			"en": "Phone",
+			"de": "Telefon",
+			"es": "Teléfono"
+		},
+		"facebookLabel": {
+			"pl": "Bolesław Parasion",
+			"en": "Bolesław Parasion",
+			"de": "Bolesław Parasion",
+			"es": "Bolesław Parasion"
+		}
 	},
-
 	"i18n": {
 		"pl": {
 			"menuButton": "Menu",
@@ -222,7 +389,8 @@
 			"indexDescription": "Strona internetowa artysty rzeźbiarza Bolesława Parasiona. Rzeźby sakralne i ludowe: anioły, tryptyki, madonny, szopki bożonarodzeniowe.",
 			"indexOgDescription": "Rzeźby sakralne i ludowe: anioły, tryptyki, madonny, szopki bożonarodzeniowe.",
 			"indexJsonLdDescription": "Artysta rzeźbiarz. Rzeźby sakralne i ludowe.",
-			"bio": "Nazywam się {{author}} i jestem rzeźbiarzem. Moja twórczość koncentruje się na tematyce sakralnej i ludowej. Tworzę {{link:triptychs}}, {{link:angels|barwne anioły}}, {{link:madonnas|madonny}}, {{link:nativity|szopki bożonarodzeniowe}} oraz monumentalne rzeźby religijne, takie jak np. {{link:creation}}, {{link:last-supper|Ostatnia Wieczerza}} czy {{link:way-of-the-cross|Droga Krzyżowa}}. Kilka z moich prac Drogi Krzyżowej znajduje się w kościołach w Polsce i w USA. Moje prace były prezentowane na wystawach w kraju i za granicą, a także wyróżniane w konkursach artystycznych. Tworzę nieprzerwanie, realizując zamówienia dla kolekcjonerów, prywatnych odbiorców i galerii sztuki. Rzeźbiarstwo pozostaje moją największą pasją i nieodłączną częścią życia. Zapraszam do obejrzenia mojej galerii prac."
+			"bio": "Nazywam się {{author}} i jestem rzeźbiarzem. Moja twórczość koncentruje się na tematyce sakralnej i ludowej. Tworzę {{link:triptychs}}, {{link:angels|barwne anioły}}, {{link:madonnas|madonny}}, {{link:nativity|szopki bożonarodzeniowe}} oraz monumentalne rzeźby religijne, takie jak np. {{link:creation}}, {{link:last-supper|Ostatnia Wieczerza}} czy {{link:way-of-the-cross|Droga Krzyżowa}}. Kilka z moich prac Drogi Krzyżowej znajduje się w kościołach w Polsce i w USA. Moje prace były prezentowane na wystawach w kraju i za granicą, a także wyróżniane w konkursach artystycznych. Tworzę nieprzerwanie, realizując zamówienia dla kolekcjonerów, prywatnych odbiorców i galerii sztuki. Rzeźbiarstwo pozostaje moją największą pasją i nieodłączną częścią życia. Zapraszam do obejrzenia mojej galerii prac.",
+			"languageMenuLabel": "Język"
 		},
 		"en": {
 			"menuButton": "Menu",
@@ -232,7 +400,8 @@
 			"indexDescription": "The website of sculptor Bolesław Parasion. Sacred and folk sculptures: angels, triptychs, madonnas, nativity scenes.",
 			"indexOgDescription": "Sacred and folk sculptures: angels, triptychs, madonnas, nativity scenes.",
 			"indexJsonLdDescription": "Sculptor artist. Sacred and folk sculptures.",
-			"bio": "My name is {{author}}, and I am a sculptor. My work focuses on sacred and folk themes. I create {{link:triptychs}}, {{link:angels|colorful angels}}, {{link:madonnas|Madonnas}}, {{link:nativity|Christmas nativity scenes}}, and monumental religious sculptures, such as {{link:creation}}, {{link:last-supper|The Last Supper}}, and {{link:way-of-the-cross|The Way of the Cross}}. Several of my Way of the Cross works are displayed in churches in Poland and the USA. My works have been exhibited both in Poland and abroad and have been recognized in art competitions. I continuously create, fulfilling commissions for collectors, private clients, and art galleries. Sculpture remains my greatest passion and an inseparable part of my life. I invite you to explore my gallery of works."
+			"bio": "My name is {{author}}, and I am a sculptor. My work focuses on sacred and folk themes. I create {{link:triptychs}}, {{link:angels|colorful angels}}, {{link:madonnas|Madonnas}}, {{link:nativity|Christmas nativity scenes}}, and monumental religious sculptures, such as {{link:creation}}, {{link:last-supper|The Last Supper}}, and {{link:way-of-the-cross|The Way of the Cross}}. Several of my Way of the Cross works are displayed in churches in Poland and the USA. My works have been exhibited both in Poland and abroad and have been recognized in art competitions. I continuously create, fulfilling commissions for collectors, private clients, and art galleries. Sculpture remains my greatest passion and an inseparable part of my life. I invite you to explore my gallery of works.",
+			"languageMenuLabel": "Language"
 		},
 		"de": {
 			"menuButton": "Menü",
@@ -242,7 +411,8 @@
 			"indexDescription": "Die Website des volkstümlichen Bildhauers Bolesław Parasion. Sakrale und volkstümliche Skulpturen: Engel, Triptychen, Madonnen, Weihnachtskrippen.",
 			"indexOgDescription": "Sakrale und volkstümliche Skulpturen: Engel, Triptychen, Madonnen, Weihnachtskrippen.",
 			"indexJsonLdDescription": "Bildhauer. Sakrale und volkstümliche Skulpturen.",
-			"bio": "Mein Name ist {{author}} und ich bin Bildhauer. Meine Arbeiten konzentrieren sich auf sakrale und volkstümliche Themen. Ich erschaffe {{link:triptychs|Triptychen}}, {{link:angels|bunte Engel}}, {{link:madonnas|Madonnen}}, {{link:nativity|Weihnachtskrippen}} und monumentale religiöse Skulpturen, wie zum Beispiel {{link:creation}}, {{link:last-supper|Das letzte Abendmahl}} oder {{link:way-of-the-cross|Der Kreuzweg}}. Einige meiner Arbeiten zum Kreuzweg befinden sich in Kirchen in Polen und in den USA. Meine Arbeiten wurden in Ausstellungen im In- und Ausland präsentiert und bei Kunstwettbewerben ausgezeichnet. Ich arbeite ununterbrochen und erfülle Aufträge für Sammler, private Kunden und Kunstgalerien. Die Bildhauerei bleibt meine größte Leidenschaft und ein untrennbarer Teil meines Lebens. Ich lade Sie ein, meine Galerie mit Arbeiten zu besuchen."
+			"bio": "Mein Name ist {{author}} und ich bin Bildhauer. Meine Arbeiten konzentrieren sich auf sakrale und volkstümliche Themen. Ich erschaffe {{link:triptychs|Triptychen}}, {{link:angels|bunte Engel}}, {{link:madonnas|Madonnen}}, {{link:nativity|Weihnachtskrippen}} und monumentale religiöse Skulpturen, wie zum Beispiel {{link:creation}}, {{link:last-supper|Das letzte Abendmahl}} oder {{link:way-of-the-cross|Der Kreuzweg}}. Einige meiner Arbeiten zum Kreuzweg befinden sich in Kirchen in Polen und in den USA. Meine Arbeiten wurden in Ausstellungen im In- und Ausland präsentiert und bei Kunstwettbewerben ausgezeichnet. Ich arbeite ununterbrochen und erfülle Aufträge für Sammler, private Kunden und Kunstgalerien. Die Bildhauerei bleibt meine größte Leidenschaft und ein untrennbarer Teil meines Lebens. Ich lade Sie ein, meine Galerie mit Arbeiten zu besuchen.",
+			"languageMenuLabel": "Sprache"
 		},
 		"es": {
 			"menuButton": "Menú",
@@ -252,7 +422,8 @@
 			"indexDescription": "El sitio web del escultor Bolesław Parasion. Esculturas sagradas y folclóricas: ángeles, trípticos, madonas, nacimientos.",
 			"indexOgDescription": "Esculturas sagradas y folclóricas: ángeles, trípticos, madonas, nacimientos.",
 			"indexJsonLdDescription": "Artista escultor. Esculturas sagradas y folclóricas.",
-			"bio": "Me llamo {{author}} y soy escultor. Mi trabajo se centra en temas sagrados y folclóricos. Creo {{link:triptychs|trípticos}}, {{link:angels|ángeles coloridos}}, {{link:madonnas|madonas}}, {{link:nativity|nacimientos}} y esculturas religiosas monumentales, como por ejemplo {{link:creation}}, {{link:last-supper|La Última Cena}} o {{link:way-of-the-cross|El Vía Crucis}}. Algunas de mis obras del Vía Crucis se encuentran en iglesias en Polonia y en EE. UU. Mis obras han sido presentadas en exposiciones en el país y en el extranjero, y también han sido reconocidas en concursos de arte. Trabajo continuamente, realizando pedidos para coleccionistas, clientes privados y galerías de arte. La escultura sigue siendo mi mayor pasión y una parte inseparable de mi vida. Te invito a visitar mi galería de obras."
+			"bio": "Me llamo {{author}} y soy escultor. Mi trabajo se centra en temas sagrados y folclóricos. Creo {{link:triptychs|trípticos}}, {{link:angels|ángeles coloridos}}, {{link:madonnas|madonas}}, {{link:nativity|nacimientos}} y esculturas religiosas monumentales, como por ejemplo {{link:creation}}, {{link:last-supper|La Última Cena}} o {{link:way-of-the-cross|El Vía Crucis}}. Algunas de mis obras del Vía Crucis se encuentran en iglesias en Polonia y en EE. UU. Mis obras han sido presentadas en exposiciones en el país y en el extranjero, y también han sido reconocidas en concursos de arte. Trabajo continuamente, realizando pedidos para coleccionistas, clientes privados y galerías de arte. La escultura sigue siendo mi mayor pasión y una parte inseparable de mi vida. Te invito a visitar mi galería de obras.",
+			"languageMenuLabel": "Idioma"
 		}
 	}
 }
