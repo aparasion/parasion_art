@@ -689,9 +689,10 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
 }
 
 .lang-selector img {
-  width: 24px;
-  height: 18px;
-  object-fit: contain;
+  width: 28px;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
   display: inline-block;
   flex-shrink: 0;
 }
@@ -801,11 +802,11 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   .lang-mobile-trigger {
     border: none;
     background: none;
-    padding: 8px 0;
+    padding: 10px 0;
     color: var(--color-text-secondary);
     font-family: var(--font-body);
-    font-size: 12px;
-    letter-spacing: 0.8px;
+    font-size: 13px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
   }
@@ -815,9 +816,9 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
     right: 0;
     top: calc(100% + 10px);
     display: flex;
-    gap: 8px;
+    gap: 10px;
     background: var(--color-dropdown-bg);
-    padding: 10px;
+    padding: 12px;
     border-radius: 8px;
     opacity: 0;
     visibility: hidden;
@@ -836,8 +837,34 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   }
 
   .lang-mobile-menu img {
-    width: 20px;
-    height: 15px;
+    width: 28px;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .nav-trigger {
+    font-size: 14px;
+    letter-spacing: 1.6px;
+    padding: 10px 0;
+    gap: 12px;
+  }
+
+  .hamburger {
+    width: 22px;
+    gap: 5px;
+  }
+
+  .hamburger span {
+    height: 2px;
+  }
+
+  .site-nav.open .hamburger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .site-nav.open .hamburger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
 
   h1 {
