@@ -722,6 +722,10 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   display: none;
 }
 
+.header-divider-mobile {
+  display: none;
+}
+
 /* --- 17. Animations --- */
 .fade-in {
   opacity: 0;
@@ -815,6 +819,14 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
     position: relative;
   }
 
+  .header-divider-mobile {
+    display: inline;
+    color: var(--color-text-secondary);
+    opacity: 0.4;
+    font-size: 13px;
+    line-height: 1;
+  }
+
   .lang-mobile-trigger {
     border: none;
     background: none;
@@ -822,7 +834,7 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
     color: var(--color-text-secondary);
     font-family: var(--font-body);
     font-size: 13px;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     cursor: pointer;
   }
@@ -832,9 +844,9 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
     right: 0;
     top: calc(100% + 10px);
     display: flex;
-    gap: 10px;
+    gap: 12px;
     background: var(--color-dropdown-bg);
-    padding: 12px;
+    padding: 14px 16px;
     border-radius: 8px;
     opacity: 0;
     visibility: hidden;
@@ -853,15 +865,15 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   }
 
   .lang-mobile-menu img {
-    width: 28px;
+    width: 48px;
     aspect-ratio: 4 / 3;
     height: auto;
     object-fit: cover;
   }
 
   .nav-trigger {
-    font-size: 14px;
-    letter-spacing: 1.6px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
     padding: 10px 0;
     gap: 12px;
   }
