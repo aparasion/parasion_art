@@ -72,14 +72,20 @@
 	<header class="site-header" id="site-header">
 		<div class="wrapper">
 			<a class="site-title" href="/en/">Bolesław Parasion</a>
-			<nav class="site-nav" id="site-nav">
-				<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menu">
-					<span class="hamburger" id="hamburger">
-						<span></span><span></span><span></span>
-					</span>
-					<span class="nav-label">Menu</span>
-				</button>
-				<div class="dropdown">
+			<div class="header-controls">
+				<div class="lang-selector lang-selector--header">
+					<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski" width="24"></a>
+					<a href="/de/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/de.png" alt="Deutsch" width="24"></a>
+					<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español" width="24"></a>
+				</div>
+				<nav class="site-nav" id="site-nav">
+					<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menu">
+						<span class="hamburger" id="hamburger">
+							<span></span><span></span><span></span>
+						</span>
+						<span class="nav-label">Menu</span>
+					</button>
+					<div class="dropdown">
 					<a href="/en/angels.html">Angels</a>
 					<a href="/en/triptychs.html">Triptychs</a>
 					<a href="/en/madonnas.html">Madonnas</a>
@@ -90,10 +96,12 @@
 					<a href="/en/other-figures.html">Other figures</a>
 					<a href="/en/atelier.html">Atelier</a>
 					<a href="/en/contact.html">Contact</a>
-				</div>
-			</nav>
+					</div>
+				</nav>
+			</div>
 		</div>
 	</header>
+
 
 	<main class="page-content">
 
@@ -102,13 +110,10 @@
 				<div class="about-grid">
 					<div class="about-portrait">
 						<img src="/img/bpr.png" alt="Bolesław Parasion — sculptor artist" width="240" height="240">
-						<div class="lang-selector">
-					<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski" width="24"></a>
-					<a href="/de/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/de.png" alt="Deutsch" width="24"></a>
-					<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español" width="24"></a>
-						</div>
 					</div>
 					<div class="about-text">
+						<h1 class="about-name">Bolesław Parasion</h1>
+						<p class="about-subtitle">sculptor artist</p>
 						<p class="bio">My name is Bolesław Parasion, and I am a sculptor. My work focuses on sacred and folk themes. I create <a href="/en/triptychs.html">Triptychs</a>, <a href="/en/angels.html">colorful angels</a>, <a href="/en/madonnas.html">Madonnas</a>, <a href="/en/nativity-scene.html">Christmas nativity scenes</a>, and monumental religious sculptures, such as <a href="/en/the-creation-of-the-world.html">The Creation of the World</a>, <a href="/en/the-last-supper.html">The Last Supper</a>, and <a href="/en/the-way-of-the-cross.html">The Way of the Cross</a>. Several of my Way of the Cross works are displayed in churches in Poland and the USA. My works have been exhibited both in Poland and abroad and have been recognized in art competitions. I continuously create, fulfilling commissions for collectors, private clients, and art galleries. Sculpture remains my greatest passion and an inseparable part of my life. I invite you to explore my gallery of works.</p>
 					</div>
 				</div>
