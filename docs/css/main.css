@@ -303,6 +303,7 @@ a:hover {
 .about-portrait .lang-selector {
   margin-top: 16px;
   margin-bottom: 0;
+  max-width: 220px;
 }
 
 .about-grid {
@@ -668,12 +669,15 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   justify-content: center;
   gap: 12px;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
 .lang-selector a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   opacity: 0.6;
   transition: opacity var(--transition-smooth);
+  flex-shrink: 0;
 }
 
 .lang-selector a:hover {
@@ -683,8 +687,10 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
 
 .lang-selector img {
   width: 24px;
-  height: auto;
-  display: block;
+  height: 18px;
+  object-fit: contain;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 /* --- 17. Animations --- */
