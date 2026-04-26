@@ -13,16 +13,24 @@
 
 	<main class="page-content">
 
-		<section class="about fade-in">
+		<section class="hero">
 			<div class="wrapper">
-				<div class="about-grid">
-					<div class="about-portrait">
-						<img src="/img/bpr.png" alt="{{heroAlt}}" width="240" height="240">
+				<div class="hero-inner">
+					<div class="hero-text">
+						<span class="hero-eyebrow">{{heroSubtitle}}</span>
+						<h1 class="hero-name">{{author}}</h1>
+						<a href="#gallery" class="hero-scroll" aria-label="scroll to gallery">scroll</a>
 					</div>
-						<div class="about-text">
-							<p class="bio">{{bio}}</p>
-						</div>
+					<div class="hero-portrait">
+						<img src="/img/bpr.png" alt="{{heroAlt}}" width="300" height="300">
 					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="about fade-in">
+			<div class="wrapper wrapper--narrow">
+				<p class="bio">{{bio}}</p>
 			</div>
 		</section>
 

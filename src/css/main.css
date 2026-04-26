@@ -1,22 +1,24 @@
 /* ============================================
    Parasion.art — Artist Portfolio Styles
-   Modern, clean portfolio layout
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap');
 
 /* --- 1. Custom Properties --- */
 :root {
-  --color-bg: #faf8f5;
-  --color-text: #2c2420;
-  --color-text-secondary: #6b5e57;
-  --color-accent: #b8512a;
-  --color-accent-hover: #9a4423;
-  --color-border: #e8e0d8;
-  --color-dropdown-bg: #2c2420;
-  --color-dropdown-text: #faf8f5;
-  --color-hero-overlay: rgba(44, 36, 32, 0.55);
-  --color-section-alt: #f5f1ec;
+  --color-bg: #f7f4ef;
+  --color-text: #17150f;
+  --color-text-secondary: #5a5048;
+  --color-accent: #c27c52;
+  --color-accent-hover: #a5633c;
+  --color-border: #ddd5c8;
+  --color-dropdown-bg: #17150f;
+  --color-dropdown-text: #f7f4ef;
+  --color-hero-bg: #111009;
+  --color-hero-text: #f0ebe3;
+  --color-hero-border: rgba(240, 235, 227, 0.10);
+  --color-section-dark: #111009;
+  --color-section-alt: #f0ece6;
   --font-heading: 'Cormorant Garamond', 'Georgia', serif;
   --font-body: 'Montserrat', 'Helvetica Neue', sans-serif;
   --max-width-wide: 1280px;
@@ -112,16 +114,16 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(250, 248, 245, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(247, 244, 239, 0.93);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid transparent;
   transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .site-header.scrolled {
   border-bottom-color: var(--color-border);
-  box-shadow: 0 2px 20px rgba(44, 36, 32, 0.06);
+  box-shadow: 0 2px 24px rgba(23, 21, 15, 0.07);
 }
 
 .site-header .wrapper {
@@ -138,7 +140,7 @@ a:hover {
 
 .header-divider {
   color: var(--color-text-secondary);
-  opacity: 0.6;
+  opacity: 0.4;
   font-size: 14px;
   line-height: 1;
   margin: 0 -10px;
@@ -146,9 +148,9 @@ a:hover {
 
 .site-title {
   font-family: var(--font-heading);
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 500;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--color-text);
   text-decoration: none;
@@ -190,12 +192,17 @@ a:hover {
   color: var(--color-text);
 }
 
+/* Always hide nav text label — hamburger alone is sufficient */
+.nav-label {
+  display: none;
+}
+
 /* Hamburger icon */
 .hamburger {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  width: 18px;
+  gap: 5px;
+  width: 20px;
 }
 
 .hamburger span {
@@ -203,12 +210,16 @@ a:hover {
   height: 1.5px;
   width: 100%;
   background: currentColor;
-  transition: transform var(--transition-smooth), opacity var(--transition-smooth);
+  transition: transform var(--transition-smooth), opacity var(--transition-smooth), width var(--transition-smooth);
   transform-origin: center;
 }
 
+.hamburger span:nth-child(3) {
+  width: 65%;
+}
+
 .site-nav.open .hamburger span:nth-child(1) {
-  transform: translateY(5.5px) rotate(45deg);
+  transform: translateY(6.5px) rotate(45deg);
 }
 
 .site-nav.open .hamburger span:nth-child(2) {
@@ -216,7 +227,8 @@ a:hover {
 }
 
 .site-nav.open .hamburger span:nth-child(3) {
-  transform: translateY(-5.5px) rotate(-45deg);
+  width: 100%;
+  transform: translateY(-6.5px) rotate(-45deg);
 }
 
 /* Dropdown Menu */
@@ -226,7 +238,7 @@ a:hover {
   right: 0;
   background-color: var(--color-dropdown-bg);
   min-width: 260px;
-  box-shadow: 0 12px 40px rgba(44, 36, 32, 0.18);
+  box-shadow: 0 16px 48px rgba(17, 16, 9, 0.25);
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
@@ -247,14 +259,15 @@ a:hover {
 
 .dropdown a {
   color: var(--color-dropdown-text);
-  padding: 12px 24px;
+  padding: 11px 24px;
   text-decoration: none;
   display: block;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 300;
-  letter-spacing: 0.5px;
-  transition: background-color 0.2s ease, padding-left 0.2s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .dropdown a:last-child {
@@ -264,7 +277,7 @@ a:hover {
 .dropdown a:hover {
   background-color: var(--color-accent);
   color: #fff;
-  padding-left: 30px;
+  padding-left: 32px;
 }
 
 .dropdown a:visited {
@@ -290,63 +303,126 @@ a:hover {
   border-bottom: 1px solid var(--color-accent);
 }
 
-/* --- 8. About Section Name & Subtitle --- */
-.about-name {
-  font-family: var(--font-heading);
-  font-size: 42px;
-  font-weight: 400;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--color-text);
-  margin: 0 0 6px;
-  line-height: 1.1;
+/* --- 8. Hero Section (Homepage) --- */
+.hero {
+  background-color: var(--color-hero-bg);
+  color: var(--color-hero-text);
+  padding: 96px 0 104px;
+  overflow: hidden;
+  position: relative;
 }
 
-.about-subtitle {
-  font-family: var(--font-heading);
-  font-size: 18px;
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 10px;
   font-weight: 400;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 18px;
+}
+
+.hero-name {
+  font-family: var(--font-heading);
+  font-size: clamp(52px, 6.5vw, 88px);
+  font-weight: 400;
+  letter-spacing: clamp(3px, 0.5vw, 6px);
+  text-transform: uppercase;
+  color: var(--color-hero-text);
+  line-height: 1.0;
+  margin: 0;
+}
+
+.hero-name em {
   font-style: italic;
-  color: var(--color-text-secondary);
-  margin: 0 0 24px;
-  letter-spacing: 1px;
+  font-weight: 400;
+  display: block;
+  font-size: 0.62em;
+  letter-spacing: clamp(2px, 0.4vw, 5px);
+  opacity: 0.7;
+  margin-top: 6px;
+}
+
+.hero-scroll {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 52px;
+  text-decoration: none;
+  color: rgba(240, 235, 227, 0.3);
+  font-family: var(--font-body);
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  transition: color var(--transition-smooth);
+  width: fit-content;
+}
+
+.hero-scroll::before {
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  width: 40px;
+  height: 1px;
+  background: currentColor;
+}
+
+.hero-scroll:hover {
+  color: var(--color-accent);
+  border-bottom: none;
+}
+
+.hero-portrait {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-portrait::before {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  border: 1px solid rgba(194, 124, 82, 0.18);
+}
+
+.hero-portrait img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(194, 124, 82, 0.25);
+  box-shadow: 0 0 80px rgba(194, 124, 82, 0.06), 0 32px 80px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1;
 }
 
 /* --- 9. About Section (Homepage) --- */
 .about {
-  padding: 60px 0 var(--spacing-section);
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 60px;
-  align-items: start;
-  max-width: var(--max-width-wide);
-}
-
-.about-portrait img {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.about-text {
-  max-width: var(--max-width-narrow);
+  padding: 88px 0 80px;
 }
 
 .bio {
+  font-size: 15.5px;
   text-align: justify;
-  text-indent: 40px;
+  text-indent: 36px;
   margin: 0;
-  line-height: 1.9;
+  line-height: 1.95;
+  color: var(--color-text);
 }
 
 /* --- 10. Featured Gallery Section (Homepage) --- */
 .featured {
   padding: var(--spacing-section) 0;
-  background-color: var(--color-section-alt);
+  background-color: var(--color-section-dark);
 }
 
 .section-title {
@@ -361,7 +437,7 @@ a:hover {
 .section-title::after {
   content: '';
   display: block;
-  width: 60px;
+  width: 40px;
   height: 1px;
   background: var(--color-accent);
   margin: 16px auto 0;
@@ -370,21 +446,21 @@ a:hover {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 16px;
 }
 
 .gallery-card {
   position: relative;
   display: block;
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
   transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .gallery-card:hover {
   transform: scale(1.02);
-  box-shadow: 0 12px 40px rgba(44, 36, 32, 0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
   border-bottom: none;
 }
 
@@ -396,18 +472,19 @@ a:hover {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .gallery-card:hover .gallery-card-img {
-  filter: brightness(1.05);
+  transform: scale(1.04);
+  filter: brightness(1.08);
 }
 
 .gallery-card::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(44, 36, 32, 0.7) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(17, 16, 9, 0.78) 0%, rgba(17, 16, 9, 0.1) 55%, transparent 75%);
   z-index: 1;
 }
 
@@ -416,63 +493,29 @@ a:hover {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20px;
-  color: #fff;
+  padding: 22px 20px 18px;
+  color: #f0ebe3;
   font-family: var(--font-heading);
   font-size: 20px;
-  font-weight: 500;
-  letter-spacing: 1px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.5px;
   z-index: 2;
+  transition: padding-bottom var(--transition-smooth);
 }
 
-/* --- 11. Contact Section (Homepage) --- */
-.contact {
-  padding: var(--spacing-section) 0;
+.gallery-card:hover .gallery-card-label {
+  padding-bottom: 22px;
 }
 
-.contact-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  font-size: 14px;
-  color: var(--color-text-secondary);
-}
-
-.contact-row a {
-  color: var(--color-text-secondary);
-  transition: color var(--transition-smooth);
-}
-
-.contact-row a:hover {
-  color: var(--color-accent);
-  border-bottom: none;
-}
-
-.contact-divider {
-  color: var(--color-border);
-}
-
-.social-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.social-link svg {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
-}
-
-/* --- 12. Gallery Page --- */
+/* --- 11. Gallery Page --- */
 .breadcrumb {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--color-text-secondary);
   margin-bottom: 10px;
   letter-spacing: 0.5px;
   padding-top: 40px;
+  opacity: 0.7;
 }
 
 .breadcrumb a {
@@ -492,7 +535,7 @@ a:hover {
 .gallery-title {
   text-align: center;
   margin-bottom: 16px;
-  padding-bottom: 20px;
+  padding-bottom: 24px;
   position: relative;
 }
 
@@ -502,7 +545,7 @@ a:hover {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
+  width: 40px;
   height: 1px;
   background-color: var(--color-accent);
 }
@@ -526,8 +569,9 @@ a:hover {
 }
 
 .gallery-nav a {
-  font-size: 14px;
-  letter-spacing: 0.5px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   color: var(--color-text-secondary);
   transition: color var(--transition-smooth);
 }
@@ -541,7 +585,7 @@ a:hover {
   margin-left: auto;
 }
 
-/* --- 13. Contact Page --- */
+/* --- 12. Contact Page --- */
 .contact-page {
   max-width: 600px;
   margin: 0 auto;
@@ -551,7 +595,7 @@ a:hover {
 .contact-title {
   text-align: center;
   margin-bottom: 50px;
-  padding-bottom: 20px;
+  padding-bottom: 24px;
   position: relative;
 }
 
@@ -561,7 +605,7 @@ a:hover {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
+  width: 40px;
   height: 1px;
   background-color: var(--color-accent);
 }
@@ -579,8 +623,8 @@ a:hover {
 }
 
 .contact-icon {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
   color: var(--color-accent);
   margin-top: 2px;
@@ -593,9 +637,9 @@ a:hover {
 }
 
 .contact-label {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--color-text-secondary);
 }
@@ -611,7 +655,7 @@ a:hover {
   border-bottom: none;
 }
 
-/* --- 14. Picflow Gallery Override --- */
+/* --- 13. Picflow Gallery Override --- */
 picflow-gallery .custom-button.center-button,
 picflow-gallery app-button-menu-item.featured .center-button.custom-button,
 picflow-root .custom-button.center-button,
@@ -624,11 +668,13 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
 /* --- 14. Footer --- */
 .site-footer {
   border-top: 1px solid var(--color-border);
-  padding: 30px 0;
+  padding: 32px 0;
   text-align: center;
-  font-size: 12px;
+  font-size: 11px;
   color: var(--color-text-secondary);
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.65;
 }
 
 .site-footer a {
@@ -674,7 +720,7 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   letter-spacing: 0.5px;
 }
 
-/* --- 16. Language Selector (404, general) --- */
+/* --- 16. Language Selector --- */
 .lang-selector {
   display: flex;
   justify-content: center;
@@ -686,7 +732,7 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
 .lang-selector a {
   display: inline-flex;
   align-items: center;
-  opacity: 0.6;
+  opacity: 0.55;
   transition: opacity var(--transition-smooth);
   flex-shrink: 0;
 }
@@ -711,7 +757,7 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
 }
 
 .lang-selector--header a {
-  opacity: 0.75;
+  opacity: 0.65;
 }
 
 .lang-selector--header img {
@@ -729,8 +775,8 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
 /* --- 17. Animations --- */
 .fade-in {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .fade-in.visible {
@@ -757,26 +803,33 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
 /* --- Tablet (1024px) --- */
 @media screen and (max-width: 1024px) {
   :root {
-    --spacing-section: 60px;
+    --spacing-section: 64px;
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
   }
 
-  .about-grid {
-    gap: 40px;
+  .hero-inner {
+    gap: 56px;
+    grid-template-columns: 1fr 260px;
   }
 
-  .about-name {
-    font-size: 36px;
+  .hero-portrait img {
+    width: 240px;
+    height: 240px;
+  }
+
+  .hero-portrait::before {
+    inset: -12px;
   }
 }
 
 /* --- Mobile (768px) --- */
 @media screen and (max-width: 768px) {
   :root {
-    --spacing-section: 50px;
+    --spacing-section: 56px;
   }
 
   .wrapper {
@@ -788,9 +841,8 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   }
 
   .site-title {
-    font-size: 17px;
-    letter-spacing: 1px;
-    max-width: none;
+    font-size: 16px;
+    letter-spacing: 2px;
   }
 
   .site-title-full {
@@ -802,7 +854,7 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   }
 
   .header-controls {
-    gap: 28px;
+    gap: 24px;
     flex-shrink: 0;
   }
 
@@ -859,10 +911,7 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   }
 
   .nav-trigger {
-    font-size: 13px;
-    letter-spacing: 1.5px;
     padding: 10px 0;
-    gap: 12px;
   }
 
   .hamburger {
@@ -871,40 +920,54 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   }
 
   .hamburger span {
-    height: 2px;
+    height: 1.5px;
   }
 
   .site-nav.open .hamburger span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translateY(6.5px) rotate(45deg);
   }
 
   .site-nav.open .hamburger span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    width: 100%;
+    transform: translateY(-6.5px) rotate(-45deg);
   }
 
-  h1 {
-    font-size: 28px;
-    letter-spacing: 2px;
+  /* Hero — stack vertically, portrait first */
+  .hero {
+    padding: 64px 0 72px;
   }
 
-  .about-name {
-    font-size: 30px;
-    letter-spacing: 2px;
-  }
-
-  .about-grid {
+  .hero-inner {
     grid-template-columns: 1fr;
-    justify-items: center;
+    grid-template-rows: auto auto;
+    gap: 40px;
     text-align: center;
   }
 
-  .about-portrait img {
-    width: 180px;
-    height: 180px;
+  .hero-portrait {
+    order: -1;
   }
 
-  .about-text {
-    max-width: 100%;
+  .hero-portrait img {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .hero-portrait::before {
+    inset: -10px;
+  }
+
+  .hero-eyebrow {
+    text-align: center;
+  }
+
+  .hero-scroll {
+    margin: 40px auto 0;
+  }
+
+  .about {
+    padding: 64px 0 56px;
   }
 
   .bio {
@@ -914,21 +977,20 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
 
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 10px;
+  }
+
+  .gallery-card {
+    aspect-ratio: 2 / 3;
   }
 
   .gallery-title {
     margin-bottom: 12px;
   }
 
-  .contact-row {
-    gap: 10px 15px;
-    font-size: 13px;
-  }
-
   .gallery-card-label {
-    font-size: 16px;
-    padding: 14px;
+    font-size: 17px;
+    padding: 16px 14px 14px;
   }
 
   .breadcrumb {
@@ -938,17 +1000,22 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
 
 /* --- Small Mobile (480px) --- */
 @media screen and (max-width: 480px) {
-  .about-name {
-    font-size: 26px;
-    letter-spacing: 1px;
+  .hero {
+    padding: 52px 0 60px;
+  }
+
+  .hero-portrait img {
+    width: 170px;
+    height: 170px;
   }
 
   .gallery-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
 
-  .nav-label {
-    display: none;
+  .gallery-card {
+    aspect-ratio: 2 / 3;
   }
 
   .dropdown {
@@ -961,15 +1028,15 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
     max-height: calc(100vh - 90px);
     overflow-y: auto;
     justify-content: flex-start;
-    padding: 6px 0;
-    border-radius: 8px;
+    padding: 4px 0;
+    border-radius: 6px;
     background-color: var(--color-dropdown-bg);
     transform: translateY(-8px);
   }
 
   .dropdown a {
     padding: 12px 18px;
-    font-size: 14px;
+    font-size: 12px;
     text-align: left;
   }
 
