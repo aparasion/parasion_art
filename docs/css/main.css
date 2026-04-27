@@ -589,6 +589,32 @@ picflow-root app-button-menu-item.featured .center-button.custom-button {
   visibility: hidden;
 }
 
+/* Force transparent backgrounds — no-background attr is unreliable across versions */
+picflow-gallery,
+picflow-root {
+  background: transparent !important;
+  background-color: transparent !important;
+  --picflow-background: transparent;
+  --picflow-bg: transparent;
+  --background-color: transparent;
+}
+
+picflow-gallery::part(container),
+picflow-gallery::part(root),
+picflow-gallery::part(wrapper),
+picflow-gallery::part(grid),
+picflow-gallery::part(background),
+picflow-root::part(container),
+picflow-root::part(root) {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+picflow-gallery > *:not(img):not(video):not(picture),
+picflow-root > *:not(img):not(video):not(picture) {
+  background-color: transparent !important;
+}
+
 /* --- 13. Footer --- */
 .site-footer {
   border-top: 1px solid var(--border);
