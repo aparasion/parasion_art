@@ -1,0 +1,10 @@
+	<script>
+	(function() {
+		try {
+			var saved = localStorage.getItem('parasion_theme');
+			if (saved === 'dark' || saved === 'light') {
+				document.documentElement.setAttribute('data-theme', saved);
+			}
+		} catch (e) {}
+	})();
+	</script>

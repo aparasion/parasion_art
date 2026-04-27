@@ -107,6 +107,12 @@ function resolveBioLinks(bio, lang) {
 	});
 }
 
+function ogImageFor(gallery) {
+	// Prefer the local thumbnail (always exists) over the optional remote ogImage
+	if (gallery.thumbImage) return data.site.domain + gallery.thumbImage;
+	return gallery.ogImage || (data.site.domain + '/img/bpr.png');
+}
+
 function galleryCards(lang) {
 	return data.galleries.map(function(gal) {
 		var href = pageUrl(lang, gal.slug[lang]);
@@ -117,6 +123,29 @@ function galleryCards(lang) {
 		return '\t\t\t\t\t<a href="' + href + '" class="gallery-card">' +
 			'\n\t\t\t\t\t\t<div class="gallery-card-img" style="' + imgStyle + '"></div>' +
 			'\n\t\t\t\t\t\t<span class="gallery-card-label">' + gal.label[lang] + '</span>' +
+			'\n\t\t\t\t\t</a>';
+	}).join('\n');
+}
+
+function featuredCards(lang, i18n) {
+	var ids = data.featured || [];
+	var picks = ids.map(function(id) {
+		return data.galleries.find(function(g) { return g.id === id; });
+	}).filter(Boolean);
+	if (picks.length === 0) return '';
+	var tag = (i18n && i18n.galleriesLabel) || 'Gallery';
+	return picks.map(function(gal) {
+		var href = pageUrl(lang, gal.slug[lang]);
+		var img = gal.thumbImage || gal.ogImage;
+		var pos = gal.thumbPosition || 'center center';
+		var scale = gal.thumbScale || 1;
+		var imgStyle = 'background-image: url(\'' + img + '\'); background-position: ' + pos + '; transform: scale(' + scale + ')';
+		return '\t\t\t\t\t<a href="' + href + '" class="featured-card">' +
+			'\n\t\t\t\t\t\t<div class="featured-card-img" style="' + imgStyle + '"></div>' +
+			'\n\t\t\t\t\t\t<div class="featured-card-body">' +
+			'\n\t\t\t\t\t\t\t<span class="featured-card-tag">' + tag + '</span>' +
+			'\n\t\t\t\t\t\t\t<span class="featured-card-title">' + gal.label[lang] + '</span>' +
+			'\n\t\t\t\t\t\t</div>' +
 			'\n\t\t\t\t\t</a>';
 	}).join('\n');
 }
@@ -245,7 +274,7 @@ function buildGalleryPage(gallery, galleryIndex, lang) {
 		title: author + ' — ' + gallery.title[lang],
 		description: gallery.description[lang],
 		ogDescription: gallery.description[lang],
-		ogImage: gallery.ogImage,
+		ogImage: ogImageFor(gallery),
 		ogUrl: fullUrl,
 		hreflangTags: hreflangTags(hreflangs),
 		homeUrl: homeUrl(lang),
@@ -254,12 +283,14 @@ function buildGalleryPage(gallery, galleryIndex, lang) {
 		langSelectorLinks: langSelectorLinks(lang),
 		langDropdownLinks: langDropdownLinks(lang),
 		languageMenuLabel: data.i18n[lang].languageMenuLabel,
+		themeLabel: data.i18n[lang].themeLabel,
 		mobileBrand: data.site.mobileBrand,
 		pageTitle: gallery.title[lang],
 		content: content,
 		jsonLd: jsonLd,
 		prevLink: prevLink,
-		nextLink: nextLink
+		nextLink: nextLink,
+		footerTagline: data.i18n[lang].footerTagline
 	});
 
 	var relPath = lang === 'pl'
@@ -288,6 +319,8 @@ function buildIndexPage(lang) {
 	var bio = resolveBioLinks(i18n.bio, lang);
 	bio = bio.split('{{author}}').join(author);
 
+	var galleryCount = String(data.galleries.length).padStart(2, '0');
+
 	var html = fill(templates.index, {
 		lang: lang,
 		clicky_id: data.site.clicky_id,
@@ -312,7 +345,15 @@ function buildIndexPage(lang) {
 		facebook: data.site.facebook,
 		bio: bio,
 		jsonLdDescription: i18n.indexJsonLdDescription,
-		galleryCards: galleryCards(lang)
+		galleryCards: galleryCards(lang),
+		featuredCards: featuredCards(lang, i18n),
+		galleriesLabel: i18n.galleriesLabel,
+		featuredLabel: i18n.featuredLabel,
+		galleryCount: galleryCount,
+		filterPlaceholder: i18n.filterPlaceholder,
+		filterEmpty: i18n.filterEmpty,
+		themeLabel: i18n.themeLabel,
+		footerTagline: i18n.footerTagline
 	});
 
 	var relPath = lang === 'pl'
@@ -338,7 +379,9 @@ function build404Page() {
 		langDropdownLinks: langDropdownLinks('pl'),
 		languageMenuLabel: data.i18n.pl.languageMenuLabel,
 		mobileBrand: data.site.mobileBrand,
-		navLinks_pl: navLinks('pl')
+		themeLabel: data.i18n.pl.themeLabel,
+		navLinks_pl: navLinks('pl'),
+		footerTagline: data.i18n.pl.footerTagline
 	});
 	writeOutput('404.html', html);
 }
@@ -378,10 +421,20 @@ function buildContactPage(lang) {
 		langDropdownLinks: langDropdownLinks(lang),
 		languageMenuLabel: data.i18n[lang].languageMenuLabel,
 		mobileBrand: data.site.mobileBrand,
+		themeLabel: data.i18n[lang].themeLabel,
 		contactTitle: data.contact.title[lang],
+		contactSubtitle: data.i18n[lang].contactSubtitle,
+		contactFormHeading: data.i18n[lang].contactFormHeading,
+		formName: data.i18n[lang].formName,
+		formEmail: data.i18n[lang].formEmail,
+		formSubject: data.i18n[lang].formSubject,
+		formMessage: data.i18n[lang].formMessage,
+		formSend: data.i18n[lang].formSend,
+		contactEmail: data.site.contactEmail,
 		phoneLabel: data.contact.phoneLabel[lang],
 		facebook: data.site.facebook,
-		facebookLabel: data.contact.facebookLabel[lang]
+		facebookLabel: data.contact.facebookLabel[lang],
+		footerTagline: data.i18n[lang].footerTagline
 	});
 
 	var relPath = lang === 'pl'
@@ -389,6 +442,54 @@ function buildContactPage(lang) {
 		: lang + '/' + slug + '.html';
 
 	writeOutput(relPath, html);
+}
+
+// ---------------------------------------------------------------------------
+// Build RSS feed
+// ---------------------------------------------------------------------------
+
+function xmlEscape(s) {
+	return String(s)
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&apos;');
+}
+
+function buildFeed() {
+	var lang = 'pl';
+	var i18n = data.i18n[lang];
+	var domain = data.site.domain;
+	var pubDate = new Date().toUTCString();
+
+	var items = data.galleries.map(function(gal) {
+		var url = domain + pageUrl(lang, gal.slug[lang]);
+		var img = ogImageFor(gal);
+		return '\t\t<item>\n' +
+			'\t\t\t<title>' + xmlEscape(gal.title[lang]) + '</title>\n' +
+			'\t\t\t<link>' + xmlEscape(url) + '</link>\n' +
+			'\t\t\t<guid isPermaLink="true">' + xmlEscape(url) + '</guid>\n' +
+			'\t\t\t<description>' + xmlEscape(gal.description[lang]) + '</description>\n' +
+			'\t\t\t<enclosure url="' + xmlEscape(img) + '" type="image/jpeg"/>\n' +
+			'\t\t\t<pubDate>' + pubDate + '</pubDate>\n' +
+			'\t\t</item>';
+	}).join('\n');
+
+	var feed = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+		'<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n' +
+		'\t<channel>\n' +
+		'\t\t<title>' + xmlEscape(data.site.author) + '</title>\n' +
+		'\t\t<link>' + xmlEscape(domain) + '</link>\n' +
+		'\t\t<atom:link href="' + xmlEscape(domain + '/feed.xml') + '" rel="self" type="application/rss+xml"/>\n' +
+		'\t\t<description>' + xmlEscape(i18n.indexJsonLdDescription) + '</description>\n' +
+		'\t\t<language>' + lang + '</language>\n' +
+		'\t\t<lastBuildDate>' + pubDate + '</lastBuildDate>\n' +
+		items + '\n' +
+		'\t</channel>\n' +
+		'</rss>\n';
+
+	writeOutput('feed.xml', feed);
 }
 
 // ---------------------------------------------------------------------------
@@ -478,6 +579,9 @@ function build() {
 
 	// 404 page
 	build404Page();
+
+	// RSS feed
+	buildFeed();
 
 	console.log('\nDone! Generated all HTML files in docs/.');
 }

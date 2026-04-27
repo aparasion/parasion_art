@@ -12,6 +12,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+	<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
 	<title>Bolesław Parasion — Contacto</title>
 	<meta name="description" content="Contacto con el escultor Bolesław Parasion">
 	<meta property="og:title" content="Bolesław Parasion — Contacto">
@@ -25,20 +27,41 @@
 	<link rel="alternate" hreflang="es" href="https://parasion.art/es/contacto.html">
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="icon" href="/img/favicon.png" type="image/png">
+	<link rel="alternate" type="application/rss+xml" title="Bolesław Parasion" href="/feed.xml">
+	<script>
+	(function() {
+		try {
+			var saved = localStorage.getItem('parasion_theme');
+			if (saved === 'dark' || saved === 'light') {
+				document.documentElement.setAttribute('data-theme', saved);
+			}
+		} catch (e) {}
+	})();
+	</script>
+
+
 	<script>
 	function toggleMenu() {
-		var nav = document.getElementById('site-nav');
-		nav.classList.toggle('open');
+		document.getElementById('site-nav').classList.toggle('open');
 	}
 	function toggleLangMenu() {
 		var langMenu = document.getElementById('lang-mobile-dropdown');
-		if (langMenu) {
-			langMenu.classList.toggle('open');
-		}
+		if (langMenu) langMenu.classList.toggle('open');
 	}
+	function toggleTheme() {
+		var root = document.documentElement;
+		var current = root.getAttribute('data-theme');
+		if (!current) {
+			current = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		}
+		var next = current === 'dark' ? 'light' : 'dark';
+		root.setAttribute('data-theme', next);
+		try { localStorage.setItem('parasion_theme', next); } catch (e) {}
+	}
+
 	document.addEventListener('click', function(e) {
 		var nav = document.getElementById('site-nav');
-		if (nav.classList.contains('open') && !nav.contains(e.target)) {
+		if (nav && nav.classList.contains('open') && !nav.contains(e.target)) {
 			nav.classList.remove('open');
 		}
 		var langMenu = document.getElementById('lang-mobile-dropdown');
@@ -46,13 +69,36 @@
 			langMenu.classList.remove('open');
 		}
 	});
+
 	document.addEventListener('keydown', function(e) {
 		if (e.key === 'Escape') {
-			document.getElementById('site-nav').classList.remove('open');
+			var nav = document.getElementById('site-nav');
+			if (nav) nav.classList.remove('open');
 			var langMenu = document.getElementById('lang-mobile-dropdown');
-			if (langMenu) {
-				langMenu.classList.remove('open');
+			if (langMenu) langMenu.classList.remove('open');
+			return;
+		}
+
+		var tag = (e.target && e.target.tagName) || '';
+		var typing = tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable);
+
+		if (e.key === '/' && !typing && !e.metaKey && !e.ctrlKey && !e.altKey) {
+			var input = document.getElementById('gallery-filter');
+			if (input) {
+				e.preventDefault();
+				input.focus();
+				input.select();
 			}
+			return;
+		}
+
+		if (typing || e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+		if (e.key === 'ArrowLeft') {
+			var prev = document.querySelector('.gallery-nav-prev');
+			if (prev) { e.preventDefault(); window.location.href = prev.href; }
+		} else if (e.key === 'ArrowRight') {
+			var next = document.querySelector('.gallery-nav-next');
+			if (next) { e.preventDefault(); window.location.href = next.href; }
 		}
 	});
 	</script>
@@ -71,10 +117,10 @@
 					<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English" width="24"></a>
 					<a href="/de/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/de.png" alt="Deutsch" width="24"></a>
 				</div>
-				<span class="header-divider" aria-hidden="true">|</span>
+				<span class="header-divider" aria-hidden="true"></span>
 				<div class="lang-mobile-dropdown" id="lang-mobile-dropdown">
 					<button class="lang-mobile-trigger" type="button" onclick="toggleLangMenu()" aria-label="Idioma">
-						<span>Idioma</span>
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
 					</button>
 					<div class="lang-mobile-menu">
 						<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski"></a>
@@ -82,7 +128,10 @@
 						<a href="/de/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/de.png" alt="Deutsch"></a>
 					</div>
 				</div>
-				<span class="header-divider-mobile" aria-hidden="true">|</span>
+				<button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Tema">
+					<svg class="theme-icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+					<svg class="theme-icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+				</button>
 				<nav class="site-nav" id="site-nav">
 					<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menú">
 						<span class="hamburger" id="hamburger">
@@ -112,11 +161,12 @@
 
 			<div class="contact-page fade-in">
 				<h1 class="contact-title">Contacto</h1>
+				<p class="contact-subtitle">Ponte en contacto</p>
 
 				<div class="contact-info">
 					<div class="contact-item">
 						<svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-						<div>
+						<div class="contact-item-body">
 							<span class="contact-label">Email</span>
 							<span id="email-contact"></span>
 							<script>
@@ -128,20 +178,47 @@
 
 					<div class="contact-item">
 						<svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-						<div>
+						<div class="contact-item-body">
 							<span class="contact-label">Teléfono</span>
 							<a href="tel:+48665973223">+48 665 973 223</a>
 						</div>
 					</div>
 
 					<div class="contact-item">
-						<svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-						<div>
+						<svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+						<div class="contact-item-body">
 							<span class="contact-label">Facebook</span>
 							<a href="https://fb.com/parasion" target="_blank" rel="noopener">Bolesław Parasion</a>
 						</div>
 					</div>
 				</div>
+
+				<form class="contact-form" id="contact-form" action="mailto:boleslaw@parasion.art" method="post" enctype="text/plain">
+					<span class="contact-form-heading">Mensaje</span>
+
+					<div class="field-row">
+						<div class="field">
+							<label class="field-label" for="cf-name">Nombre</label>
+							<input id="cf-name" name="name" type="text" autocomplete="name" required>
+						</div>
+						<div class="field">
+							<label class="field-label" for="cf-email">Email</label>
+							<input id="cf-email" name="email" type="email" autocomplete="email" required>
+						</div>
+					</div>
+
+					<div class="field">
+						<label class="field-label" for="cf-subject">Asunto</label>
+						<input id="cf-subject" name="subject" type="text" required>
+					</div>
+
+					<div class="field">
+						<label class="field-label" for="cf-message">Mensaje</label>
+						<textarea id="cf-message" name="message" rows="5" required></textarea>
+					</div>
+
+					<button class="contact-submit" type="submit">Enviar mensaje</button>
+				</form>
 			</div>
 
 		</div>
@@ -149,10 +226,32 @@
 
 	<footer class="site-footer">
 		<div class="wrapper">
-			Copyright &copy; <span id="year"></span> <a href="/es/">Bolesław Parasion</a>
+			<span>&copy; <span id="year"></span> <a href="/es/">Bolesław Parasion</a></span>
+			<span>artista escultor</span>
 			<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 		</div>
 	</footer>
+
+
+	<script>
+	(function() {
+		var form = document.getElementById('contact-form');
+		if (!form) return;
+		form.addEventListener('submit', function(e) {
+			e.preventDefault();
+			var name = (form.elements['name'].value || '').trim();
+			var email = (form.elements['email'].value || '').trim();
+			var subject = (form.elements['subject'].value || '').trim();
+			var message = (form.elements['message'].value || '').trim();
+			var body = message + '\n\n— ' + name + ' <' + email + '>';
+			var to = form.getAttribute('action').replace(/^mailto:/, '');
+			var url = 'mailto:' + to +
+				'?subject=' + encodeURIComponent(subject) +
+				'&body=' + encodeURIComponent(body);
+			window.location.href = url;
+		});
+	})();
+	</script>
 
 	<script>
 	(function() {

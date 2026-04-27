@@ -12,6 +12,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+	<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
 	<title>Bolesław Parasion — artista escultor</title>
 	<meta name="description" content="El sitio web del escultor Bolesław Parasion. Esculturas sagradas y folclóricas: ángeles, trípticos, madonas, nacimientos.">
 	<meta property="og:title" content="Bolesław Parasion — artista escultor">
@@ -25,20 +27,41 @@
 	<link rel="alternate" hreflang="es" href="https://parasion.art/es/">
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="icon" href="/img/favicon.png" type="image/png">
+	<link rel="alternate" type="application/rss+xml" title="Bolesław Parasion" href="/feed.xml">
+	<script>
+	(function() {
+		try {
+			var saved = localStorage.getItem('parasion_theme');
+			if (saved === 'dark' || saved === 'light') {
+				document.documentElement.setAttribute('data-theme', saved);
+			}
+		} catch (e) {}
+	})();
+	</script>
+
+
 	<script>
 	function toggleMenu() {
-		var nav = document.getElementById('site-nav');
-		nav.classList.toggle('open');
+		document.getElementById('site-nav').classList.toggle('open');
 	}
 	function toggleLangMenu() {
 		var langMenu = document.getElementById('lang-mobile-dropdown');
-		if (langMenu) {
-			langMenu.classList.toggle('open');
-		}
+		if (langMenu) langMenu.classList.toggle('open');
 	}
+	function toggleTheme() {
+		var root = document.documentElement;
+		var current = root.getAttribute('data-theme');
+		if (!current) {
+			current = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		}
+		var next = current === 'dark' ? 'light' : 'dark';
+		root.setAttribute('data-theme', next);
+		try { localStorage.setItem('parasion_theme', next); } catch (e) {}
+	}
+
 	document.addEventListener('click', function(e) {
 		var nav = document.getElementById('site-nav');
-		if (nav.classList.contains('open') && !nav.contains(e.target)) {
+		if (nav && nav.classList.contains('open') && !nav.contains(e.target)) {
 			nav.classList.remove('open');
 		}
 		var langMenu = document.getElementById('lang-mobile-dropdown');
@@ -46,13 +69,36 @@
 			langMenu.classList.remove('open');
 		}
 	});
+
 	document.addEventListener('keydown', function(e) {
 		if (e.key === 'Escape') {
-			document.getElementById('site-nav').classList.remove('open');
+			var nav = document.getElementById('site-nav');
+			if (nav) nav.classList.remove('open');
 			var langMenu = document.getElementById('lang-mobile-dropdown');
-			if (langMenu) {
-				langMenu.classList.remove('open');
+			if (langMenu) langMenu.classList.remove('open');
+			return;
+		}
+
+		var tag = (e.target && e.target.tagName) || '';
+		var typing = tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable);
+
+		if (e.key === '/' && !typing && !e.metaKey && !e.ctrlKey && !e.altKey) {
+			var input = document.getElementById('gallery-filter');
+			if (input) {
+				e.preventDefault();
+				input.focus();
+				input.select();
 			}
+			return;
+		}
+
+		if (typing || e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+		if (e.key === 'ArrowLeft') {
+			var prev = document.querySelector('.gallery-nav-prev');
+			if (prev) { e.preventDefault(); window.location.href = prev.href; }
+		} else if (e.key === 'ArrowRight') {
+			var next = document.querySelector('.gallery-nav-next');
+			if (next) { e.preventDefault(); window.location.href = next.href; }
 		}
 	});
 	</script>
@@ -93,10 +139,10 @@
 					<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English" width="24"></a>
 					<a href="/de/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/de.png" alt="Deutsch" width="24"></a>
 				</div>
-				<span class="header-divider" aria-hidden="true">|</span>
+				<span class="header-divider" aria-hidden="true"></span>
 				<div class="lang-mobile-dropdown" id="lang-mobile-dropdown">
 					<button class="lang-mobile-trigger" type="button" onclick="toggleLangMenu()" aria-label="Idioma">
-						<span>Idioma</span>
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
 					</button>
 					<div class="lang-mobile-menu">
 						<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski"></a>
@@ -104,7 +150,10 @@
 						<a href="/de/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/de.png" alt="Deutsch"></a>
 					</div>
 				</div>
-				<span class="header-divider-mobile" aria-hidden="true">|</span>
+				<button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Tema">
+					<svg class="theme-icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+					<svg class="theme-icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+				</button>
 				<nav class="site-nav" id="site-nav">
 					<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menú">
 						<span class="hamburger" id="hamburger">
@@ -131,30 +180,71 @@
 
 	<main class="page-content">
 
-		<section class="hero">
+		<section class="hero fade-in">
 			<div class="wrapper">
 				<div class="hero-inner">
+					<div class="hero-portrait">
+						<img src="/img/bpr.png" alt="Bolesław Parasion — artista escultor" width="200" height="200">
+					</div>
 					<div class="hero-text">
 						<span class="hero-eyebrow">artista escultor</span>
 						<h1 class="hero-name">Bolesław Parasion</h1>
-						<a href="#gallery" class="hero-scroll" aria-label="scroll to gallery">scroll</a>
-					</div>
-					<div class="hero-portrait">
-						<img src="/img/bpr.png" alt="Bolesław Parasion — artista escultor" width="300" height="300">
+						<p class="bio">Me llamo Bolesław Parasion y soy escultor. Mi trabajo se centra en temas sagrados y folclóricos. Creo <a href="/es/tripticos.html">trípticos</a>, <a href="/es/angeles.html">ángeles coloridos</a>, <a href="/es/madonas.html">madonas</a>, <a href="/es/nacimiento.html">nacimientos</a> y esculturas religiosas monumentales, como por ejemplo <a href="/es/creacion-del-mundo.html">La Creación del Mundo</a>, <a href="/es/ultima-cena.html">La Última Cena</a> o <a href="/es/via-crucis.html">El Vía Crucis</a>. Algunas de mis obras del Vía Crucis se encuentran en iglesias en Polonia y en EE. UU. Mis obras han sido presentadas en exposiciones en el país y en el extranjero, y también han sido reconocidas en concursos de arte. Trabajo continuamente, realizando pedidos para coleccionistas, clientes privados y galerías de arte. La escultura sigue siendo mi mayor pasión y una parte inseparable de mi vida. Te invito a visitar mi galería de obras.</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="about fade-in">
-			<div class="wrapper wrapper--narrow">
-				<p class="bio">Me llamo Bolesław Parasion y soy escultor. Mi trabajo se centra en temas sagrados y folclóricos. Creo <a href="/es/tripticos.html">trípticos</a>, <a href="/es/angeles.html">ángeles coloridos</a>, <a href="/es/madonas.html">madonas</a>, <a href="/es/nacimiento.html">nacimientos</a> y esculturas religiosas monumentales, como por ejemplo <a href="/es/creacion-del-mundo.html">La Creación del Mundo</a>, <a href="/es/ultima-cena.html">La Última Cena</a> o <a href="/es/via-crucis.html">El Vía Crucis</a>. Algunas de mis obras del Vía Crucis se encuentran en iglesias en Polonia y en EE. UU. Mis obras han sido presentadas en exposiciones en el país y en el extranjero, y también han sido reconocidas en concursos de arte. Trabajo continuamente, realizando pedidos para coleccionistas, clientes privados y galerías de arte. La escultura sigue siendo mi mayor pasión y una parte inseparable de mi vida. Te invito a visitar mi galería de obras.</p>
+		<section class="featured-strip fade-in">
+			<div class="wrapper">
+				<div class="section-head">
+					<span class="section-eyebrow">Obras seleccionadas</span>
+				</div>
+				<div class="featured-grid">
+					<a href="/es/ultima-cena.html" class="featured-card">
+						<div class="featured-card-img" style="background-image: url('/img/ostatnia.jpg'); background-position: center center; transform: scale(1)"></div>
+						<div class="featured-card-body">
+							<span class="featured-card-tag">Galerías</span>
+							<span class="featured-card-title">La Última Cena</span>
+						</div>
+					</a>
+					<a href="/es/creacion-del-mundo.html" class="featured-card">
+						<div class="featured-card-img" style="background-image: url('/img/stworzenie.jpg'); background-position: center 30%; transform: scale(1.1)"></div>
+						<div class="featured-card-body">
+							<span class="featured-card-tag">Galerías</span>
+							<span class="featured-card-title">La Creación del Mundo</span>
+						</div>
+					</a>
+					<a href="/es/via-crucis.html" class="featured-card">
+						<div class="featured-card-img" style="background-image: url('/img/droga.jpg'); background-position: center center; transform: scale(1)"></div>
+						<div class="featured-card-body">
+							<span class="featured-card-tag">Galerías</span>
+							<span class="featured-card-title">El Vía Crucis</span>
+						</div>
+					</a>
+					<a href="/es/madonas.html" class="featured-card">
+						<div class="featured-card-img" style="background-image: url('/img/madonny.png'); background-position: center 25%; transform: scale(1.2)"></div>
+						<div class="featured-card-body">
+							<span class="featured-card-tag">Galerías</span>
+							<span class="featured-card-title">Madonas</span>
+						</div>
+					</a>
+				</div>
 			</div>
 		</section>
 
 		<section class="featured fade-in" id="gallery">
 			<div class="wrapper">
-				<div class="gallery-grid">
+				<div class="section-head">
+					<span class="section-eyebrow">Galerías</span>
+					<span class="section-count">09</span>
+				</div>
+				<div class="gallery-filter">
+					<svg class="gallery-filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+					<input id="gallery-filter" class="gallery-filter-input" type="search" placeholder="Filtrar galerías" aria-label="Filtrar galerías">
+					<span class="gallery-filter-shortcut">/</span>
+				</div>
+				<div class="gallery-grid" id="gallery-grid">
 					<a href="/es/angeles.html" class="gallery-card">
 						<div class="gallery-card-img" style="background-image: url('/img/anioly.jpg'); background-position: center 20%; transform: scale(1.1)"></div>
 						<span class="gallery-card-label">Ángeles</span>
@@ -192,6 +282,7 @@
 						<span class="gallery-card-label">Taller</span>
 					</a>
 				</div>
+				<p class="gallery-empty">Sin resultados</p>
 			</div>
 		</section>
 
@@ -199,10 +290,12 @@
 
 	<footer class="site-footer">
 		<div class="wrapper">
-			Copyright &copy; <span id="year"></span> <a href="/es/">Bolesław Parasion</a>
+			<span>&copy; <span id="year"></span> <a href="/es/">Bolesław Parasion</a></span>
+			<span>artista escultor</span>
 			<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 		</div>
 	</footer>
+
 
 	<script type="application/ld+json">
 	{
@@ -214,6 +307,26 @@
 		"description": "Artista escultor. Esculturas sagradas y folclóricas.",
 		"sameAs": ["https://fb.com/parasion"]
 	}
+	</script>
+
+	<script>
+	(function() {
+		var input = document.getElementById('gallery-filter');
+		var grid = document.getElementById('gallery-grid');
+		if (!input || !grid) return;
+		var cards = grid.querySelectorAll('.gallery-card');
+		input.addEventListener('input', function() {
+			var q = input.value.trim().toLowerCase();
+			var visible = 0;
+			cards.forEach(function(card) {
+				var label = (card.textContent || '').toLowerCase();
+				var match = !q || label.indexOf(q) !== -1;
+				card.classList.toggle('is-hidden', !match);
+				if (match) visible++;
+			});
+			grid.classList.toggle('is-empty', visible === 0);
+		});
+	})();
 	</script>
 
 	<script>

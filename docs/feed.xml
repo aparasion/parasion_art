@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Bolesław Parasion</title>
+		<link>https://parasion.art</link>
+		<atom:link href="https://parasion.art/feed.xml" rel="self" type="application/rss+xml"/>
+		<description>Artysta rzeźbiarz. Rzeźby sakralne i ludowe.</description>
+		<language>pl</language>
+		<lastBuildDate>Mon, 27 Apr 2026 08:10:01 GMT</lastBuildDate>
+		<item>
+			<title>Anioły</title>
+			<link>https://parasion.art/anioly.html</link>
+			<guid isPermaLink="true">https://parasion.art/anioly.html</guid>
+			<description>Rzeźby aniołów autorstwa Bolesława Parasiona</description>
+			<enclosure url="https://parasion.art/img/anioly.jpg" type="image/jpeg"/>
+			<pubDate>Mon, 27 Apr 2026 08:10:01 GMT</pubDate>
+		</item>
+		<item>
+			<title>Tryptyki</title>
+			<link>https://parasion.art/tryptyki.html</link>
+			<guid isPermaLink="true">https://parasion.art/tryptyki.html</guid>
+			<description>Tryptyki autorstwa Bolesława Parasiona</description>
+			<enclosure url="https://parasion.art/img/tryptyki.jpg" type="image/jpeg"/>
+			<pubDate>Mon, 27 Apr 2026 08:10:01 GMT</pubDate>
+		</item>
+		<item>
+			<title>Madonny</title>
+			<link>https://parasion.art/madonny.html</link>
+			<guid isPermaLink="true">https://parasion.art/madonny.html</guid>
+			<description>Rzeźby madonn autorstwa Bolesława Parasiona</description>
+			<enclosure url="https://parasion.art/img/madonny.png" type="image/jpeg"/>
+			<pubDate>Mon, 27 Apr 2026 08:10:01 GMT</pubDate>
+		</item>
+		<item>
+			<title>Stworzenie Świata</title>
+			<link>https://parasion.art/stworzenie-swiata.html</link>
+			<guid isPermaLink="true">https://parasion.art/stworzenie-swiata.html</guid>
+			<description>Rzeźba Stworzenie Świata autorstwa Bolesława Parasiona</description>
+			<enclosure url="https://parasion.art/img/stworzenie.jpg" type="image/jpeg"/>
+			<pubDate>Mon, 27 Apr 2026 08:10:01 GMT</pubDate>
+		</item>
+		<item>
+			<title>Ostatnia Wieczerza</title>
+			<link>https://parasion.art/ostatnia-wieczerza.html</link>
+			<guid isPermaLink="true">https://parasion.art/ostatnia-wieczerza.html</guid>
+			<description>Rzeźba Ostatnia Wieczerza autorstwa Bolesława Parasiona</description>
+			<enclosure url="https://parasion.art/img/ostatnia.jpg" type="image/jpeg"/>
+			<pubDate>Mon, 27 Apr 2026 08:10:01 GMT</pubDate>
+		</item>
+		<item>
+			<title>Droga Krzyżowa</title>
+			<link>https://parasion.art/droga-krzyzowa.html</link>
+			<guid isPermaLink="true">https://parasion.art/droga-krzyzowa.html</guid>
+			<description>Droga Krzyżowa autorstwa Bolesława Parasiona</description>
+			<enclosure url="https://parasion.art/img/droga.jpg" type="image/jpeg"/>
+			<pubDate>Mon, 27 Apr 2026 08:10:01 GMT</pubDate>
+		</item>
+		<item>
+			<title>Szopka Bożonarodzeniowa</title>
+			<link>https://parasion.art/szopka-bozonarodzeniowa.html</link>
+			<guid isPermaLink="true">https://parasion.art/szopka-bozonarodzeniowa.html</guid>
+			<description>Szopka Bożonarodzeniowa autorstwa Bolesława Parasiona</description>
+			<enclosure url="https://parasion.art/img/szopka.jpg" type="image/jpeg"/>
+			<pubDate>Mon, 27 Apr 2026 08:10:01 GMT</pubDate>
+		</item>
+		<item>
+			<title>Różne figury</title>
+			<link>https://parasion.art/pozostale.html</link>
+			<guid isPermaLink="true">https://parasion.art/pozostale.html</guid>
+			<description>Różne figury rzeźbiarskie autorstwa Bolesława Parasiona</description>
+			<enclosure url="https://parasion.art/img/pozostale.jpg" type="image/jpeg"/>
+			<pubDate>Mon, 27 Apr 2026 08:10:01 GMT</pubDate>
+		</item>
+		<item>
+			<title>Atelier</title>
+			<link>https://parasion.art/atelier.html</link>
+			<guid isPermaLink="true">https://parasion.art/atelier.html</guid>
+			<description>Atelier artysty rzeźbiarza Bolesława Parasiona</description>
+			<enclosure url="https://parasion.art/img/atelier.jpg" type="image/jpeg"/>
+			<pubDate>Mon, 27 Apr 2026 08:10:01 GMT</pubDate>
+		</item>
+	</channel>
+</rss>
