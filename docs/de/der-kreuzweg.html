@@ -12,11 +12,13 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+	<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
 	<title>Bolesław Parasion — Der Kreuzweg</title>
 	<meta name="description" content="Der Kreuzweg von Bolesław Parasion">
 	<meta property="og:title" content="Bolesław Parasion — Der Kreuzweg">
 	<meta property="og:description" content="Der Kreuzweg von Bolesław Parasion">
-	<meta property="og:image" content="https://parasion.art/img/gallery/way-of-the-cross-triptych/01.jpg">
+	<meta property="og:image" content="https://parasion.art/img/droga.jpg">
 	<meta property="og:url" content="https://parasion.art/de/der-kreuzweg.html">
 	<meta property="og:type" content="website">
 	<link rel="alternate" hreflang="pl" href="https://parasion.art/droga-krzyzowa.html">
@@ -25,20 +27,41 @@
 	<link rel="alternate" hreflang="es" href="https://parasion.art/es/via-crucis.html">
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="icon" href="/img/favicon.png" type="image/png">
+	<link rel="alternate" type="application/rss+xml" title="Bolesław Parasion" href="/feed.xml">
+	<script>
+	(function() {
+		try {
+			var saved = localStorage.getItem('parasion_theme');
+			if (saved === 'dark' || saved === 'light') {
+				document.documentElement.setAttribute('data-theme', saved);
+			}
+		} catch (e) {}
+	})();
+	</script>
+
+
 	<script>
 	function toggleMenu() {
-		var nav = document.getElementById('site-nav');
-		nav.classList.toggle('open');
+		document.getElementById('site-nav').classList.toggle('open');
 	}
 	function toggleLangMenu() {
 		var langMenu = document.getElementById('lang-mobile-dropdown');
-		if (langMenu) {
-			langMenu.classList.toggle('open');
-		}
+		if (langMenu) langMenu.classList.toggle('open');
 	}
+	function toggleTheme() {
+		var root = document.documentElement;
+		var current = root.getAttribute('data-theme');
+		if (!current) {
+			current = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		}
+		var next = current === 'dark' ? 'light' : 'dark';
+		root.setAttribute('data-theme', next);
+		try { localStorage.setItem('parasion_theme', next); } catch (e) {}
+	}
+
 	document.addEventListener('click', function(e) {
 		var nav = document.getElementById('site-nav');
-		if (nav.classList.contains('open') && !nav.contains(e.target)) {
+		if (nav && nav.classList.contains('open') && !nav.contains(e.target)) {
 			nav.classList.remove('open');
 		}
 		var langMenu = document.getElementById('lang-mobile-dropdown');
@@ -46,13 +69,36 @@
 			langMenu.classList.remove('open');
 		}
 	});
+
 	document.addEventListener('keydown', function(e) {
 		if (e.key === 'Escape') {
-			document.getElementById('site-nav').classList.remove('open');
+			var nav = document.getElementById('site-nav');
+			if (nav) nav.classList.remove('open');
 			var langMenu = document.getElementById('lang-mobile-dropdown');
-			if (langMenu) {
-				langMenu.classList.remove('open');
+			if (langMenu) langMenu.classList.remove('open');
+			return;
+		}
+
+		var tag = (e.target && e.target.tagName) || '';
+		var typing = tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable);
+
+		if (e.key === '/' && !typing && !e.metaKey && !e.ctrlKey && !e.altKey) {
+			var input = document.getElementById('gallery-filter');
+			if (input) {
+				e.preventDefault();
+				input.focus();
+				input.select();
 			}
+			return;
+		}
+
+		if (typing || e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+		if (e.key === 'ArrowLeft') {
+			var prev = document.querySelector('.gallery-nav-prev');
+			if (prev) { e.preventDefault(); window.location.href = prev.href; }
+		} else if (e.key === 'ArrowRight') {
+			var next = document.querySelector('.gallery-nav-next');
+			if (next) { e.preventDefault(); window.location.href = next.href; }
 		}
 	});
 	</script>
@@ -82,6 +128,10 @@
 						<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español"></a>
 					</div>
 				</div>
+				<button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Thema">
+					<svg class="theme-icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+					<svg class="theme-icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+				</button>
 				<nav class="site-nav" id="site-nav">
 					<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menü">
 						<span class="hamburger" id="hamburger">

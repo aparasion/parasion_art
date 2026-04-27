@@ -46,12 +46,59 @@
 						</div>
 					</div>
 				</div>
+
+				<form class="contact-form" id="contact-form" action="mailto:{{contactEmail}}" method="post" enctype="text/plain">
+					<span class="contact-form-heading">{{contactFormHeading}}</span>
+
+					<div class="field-row">
+						<div class="field">
+							<label class="field-label" for="cf-name">{{formName}}</label>
+							<input id="cf-name" name="name" type="text" autocomplete="name" required>
+						</div>
+						<div class="field">
+							<label class="field-label" for="cf-email">{{formEmail}}</label>
+							<input id="cf-email" name="email" type="email" autocomplete="email" required>
+						</div>
+					</div>
+
+					<div class="field">
+						<label class="field-label" for="cf-subject">{{formSubject}}</label>
+						<input id="cf-subject" name="subject" type="text" required>
+					</div>
+
+					<div class="field">
+						<label class="field-label" for="cf-message">{{formMessage}}</label>
+						<textarea id="cf-message" name="message" rows="5" required></textarea>
+					</div>
+
+					<button class="contact-submit" type="submit">{{formSend}}</button>
+				</form>
 			</div>
 
 		</div>
 	</main>
 
 {{> footer}}
+
+	<script>
+	(function() {
+		var form = document.getElementById('contact-form');
+		if (!form) return;
+		form.addEventListener('submit', function(e) {
+			e.preventDefault();
+			var name = (form.elements['name'].value || '').trim();
+			var email = (form.elements['email'].value || '').trim();
+			var subject = (form.elements['subject'].value || '').trim();
+			var message = (form.elements['message'].value || '').trim();
+			var body = message + '\n\n— ' + name + ' <' + email + '>';
+			var to = form.getAttribute('action').replace(/^mailto:/, '');
+			var url = 'mailto:' + to +
+				'?subject=' + encodeURIComponent(subject) +
+				'&body=' + encodeURIComponent(body);
+			window.location.href = url;
+		});
+	})();
+	</script>
 
 {{> scroll-effects}}
 

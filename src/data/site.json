@@ -6,8 +6,10 @@
 		"clicky_id": "101478851",
 		"ga_id": "G-DX0YFB57CL",
 		"facebook": "https://fb.com/parasion",
-		"mobileBrand": "PARASION.art"
+		"mobileBrand": "PARASION.art",
+		"contactEmail": "boleslaw@parasion.art"
 	},
+	"featured": ["last-supper", "creation", "way-of-the-cross", "madonnas"],
 	"languages": [
 		"pl",
 		"en",
@@ -392,8 +394,20 @@
 			"bio": "Nazywam się {{author}} i jestem rzeźbiarzem. Moja twórczość koncentruje się na tematyce sakralnej i ludowej. Tworzę {{link:triptychs}}, {{link:angels|barwne anioły}}, {{link:madonnas|madonny}}, {{link:nativity|szopki bożonarodzeniowe}} oraz monumentalne rzeźby religijne, takie jak np. {{link:creation}}, {{link:last-supper|Ostatnia Wieczerza}} czy {{link:way-of-the-cross|Droga Krzyżowa}}. Kilka z moich prac Drogi Krzyżowej znajduje się w kościołach w Polsce i w USA. Moje prace były prezentowane na wystawach w kraju i za granicą, a także wyróżniane w konkursach artystycznych. Tworzę nieprzerwanie, realizując zamówienia dla kolekcjonerów, prywatnych odbiorców i galerii sztuki. Rzeźbiarstwo pozostaje moją największą pasją i nieodłączną częścią życia. Zapraszam do obejrzenia mojej galerii prac.",
 			"languageMenuLabel": "Język",
 			"galleriesLabel": "Galerie",
+			"featuredLabel": "Wybrane prace",
+			"allLabel": "Wszystkie",
+			"filterPlaceholder": "Filtruj galerie",
+			"filterEmpty": "Brak wyników",
 			"contactSubtitle": "Skontaktuj się ze mną",
-			"footerTagline": "artysta rzeźbiarz"
+			"contactFormHeading": "Wiadomość",
+			"formName": "Imię",
+			"formEmail": "Email",
+			"formSubject": "Temat",
+			"formMessage": "Wiadomość",
+			"formSend": "Wyślij wiadomość",
+			"footerTagline": "artysta rzeźbiarz",
+			"themeLabel": "Motyw",
+			"feedLabel": "Kanał RSS"
 		},
 		"en": {
 			"menuButton": "Menu",
@@ -406,8 +420,20 @@
 			"bio": "My name is {{author}}, and I am a sculptor. My work focuses on sacred and folk themes. I create {{link:triptychs}}, {{link:angels|colorful angels}}, {{link:madonnas|Madonnas}}, {{link:nativity|Christmas nativity scenes}}, and monumental religious sculptures, such as {{link:creation}}, {{link:last-supper|The Last Supper}}, and {{link:way-of-the-cross|The Way of the Cross}}. Several of my Way of the Cross works are displayed in churches in Poland and the USA. My works have been exhibited both in Poland and abroad and have been recognized in art competitions. I continuously create, fulfilling commissions for collectors, private clients, and art galleries. Sculpture remains my greatest passion and an inseparable part of my life. I invite you to explore my gallery of works.",
 			"languageMenuLabel": "Language",
 			"galleriesLabel": "Galleries",
+			"featuredLabel": "Selected works",
+			"allLabel": "All",
+			"filterPlaceholder": "Filter galleries",
+			"filterEmpty": "No matches",
 			"contactSubtitle": "Get in touch",
-			"footerTagline": "sculptor artist"
+			"contactFormHeading": "Message",
+			"formName": "Name",
+			"formEmail": "Email",
+			"formSubject": "Subject",
+			"formMessage": "Message",
+			"formSend": "Send message",
+			"footerTagline": "sculptor artist",
+			"themeLabel": "Theme",
+			"feedLabel": "RSS feed"
 		},
 		"de": {
 			"menuButton": "Menü",
@@ -420,8 +446,20 @@
 			"bio": "Mein Name ist {{author}} und ich bin Bildhauer. Meine Arbeiten konzentrieren sich auf sakrale und volkstümliche Themen. Ich erschaffe {{link:triptychs|Triptychen}}, {{link:angels|bunte Engel}}, {{link:madonnas|Madonnen}}, {{link:nativity|Weihnachtskrippen}} und monumentale religiöse Skulpturen, wie zum Beispiel {{link:creation}}, {{link:last-supper|Das letzte Abendmahl}} oder {{link:way-of-the-cross|Der Kreuzweg}}. Einige meiner Arbeiten zum Kreuzweg befinden sich in Kirchen in Polen und in den USA. Meine Arbeiten wurden in Ausstellungen im In- und Ausland präsentiert und bei Kunstwettbewerben ausgezeichnet. Ich arbeite ununterbrochen und erfülle Aufträge für Sammler, private Kunden und Kunstgalerien. Die Bildhauerei bleibt meine größte Leidenschaft und ein untrennbarer Teil meines Lebens. Ich lade Sie ein, meine Galerie mit Arbeiten zu besuchen.",
 			"languageMenuLabel": "Sprache",
 			"galleriesLabel": "Galerien",
+			"featuredLabel": "Ausgewählte Arbeiten",
+			"allLabel": "Alle",
+			"filterPlaceholder": "Galerien filtern",
+			"filterEmpty": "Keine Treffer",
 			"contactSubtitle": "Kontakt aufnehmen",
-			"footerTagline": "Volkskunst Bildhauer"
+			"contactFormHeading": "Nachricht",
+			"formName": "Name",
+			"formEmail": "E-Mail",
+			"formSubject": "Betreff",
+			"formMessage": "Nachricht",
+			"formSend": "Nachricht senden",
+			"footerTagline": "Volkskunst Bildhauer",
+			"themeLabel": "Thema",
+			"feedLabel": "RSS-Feed"
 		},
 		"es": {
 			"menuButton": "Menú",
@@ -434,8 +472,20 @@
 			"bio": "Me llamo {{author}} y soy escultor. Mi trabajo se centra en temas sagrados y folclóricos. Creo {{link:triptychs|trípticos}}, {{link:angels|ángeles coloridos}}, {{link:madonnas|madonas}}, {{link:nativity|nacimientos}} y esculturas religiosas monumentales, como por ejemplo {{link:creation}}, {{link:last-supper|La Última Cena}} o {{link:way-of-the-cross|El Vía Crucis}}. Algunas de mis obras del Vía Crucis se encuentran en iglesias en Polonia y en EE. UU. Mis obras han sido presentadas en exposiciones en el país y en el extranjero, y también han sido reconocidas en concursos de arte. Trabajo continuamente, realizando pedidos para coleccionistas, clientes privados y galerías de arte. La escultura sigue siendo mi mayor pasión y una parte inseparable de mi vida. Te invito a visitar mi galería de obras.",
 			"languageMenuLabel": "Idioma",
 			"galleriesLabel": "Galerías",
+			"featuredLabel": "Obras seleccionadas",
+			"allLabel": "Todas",
+			"filterPlaceholder": "Filtrar galerías",
+			"filterEmpty": "Sin resultados",
 			"contactSubtitle": "Ponte en contacto",
-			"footerTagline": "artista escultor"
+			"contactFormHeading": "Mensaje",
+			"formName": "Nombre",
+			"formEmail": "Email",
+			"formSubject": "Asunto",
+			"formMessage": "Mensaje",
+			"formSend": "Enviar mensaje",
+			"footerTagline": "artista escultor",
+			"themeLabel": "Tema",
+			"feedLabel": "Canal RSS"
 		}
 	}
 }

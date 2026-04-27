@@ -28,15 +28,32 @@
 			</div>
 		</section>
 
+		<section class="featured-strip fade-in">
+			<div class="wrapper">
+				<div class="section-head">
+					<span class="section-eyebrow">{{featuredLabel}}</span>
+				</div>
+				<div class="featured-grid">
+{{featuredCards}}
+				</div>
+			</div>
+		</section>
+
 		<section class="featured fade-in" id="gallery">
 			<div class="wrapper">
 				<div class="section-head">
 					<span class="section-eyebrow">{{galleriesLabel}}</span>
 					<span class="section-count">{{galleryCount}}</span>
 				</div>
-				<div class="gallery-grid">
+				<div class="gallery-filter">
+					<svg class="gallery-filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+					<input id="gallery-filter" class="gallery-filter-input" type="search" placeholder="{{filterPlaceholder}}" aria-label="{{filterPlaceholder}}">
+					<span class="gallery-filter-shortcut">/</span>
+				</div>
+				<div class="gallery-grid" id="gallery-grid">
 {{galleryCards}}
 				</div>
+				<p class="gallery-empty">{{filterEmpty}}</p>
 			</div>
 		</section>
 
@@ -54,6 +71,26 @@
 		"description": "{{jsonLdDescription}}",
 		"sameAs": ["{{facebook}}"]
 	}
+	</script>
+
+	<script>
+	(function() {
+		var input = document.getElementById('gallery-filter');
+		var grid = document.getElementById('gallery-grid');
+		if (!input || !grid) return;
+		var cards = grid.querySelectorAll('.gallery-card');
+		input.addEventListener('input', function() {
+			var q = input.value.trim().toLowerCase();
+			var visible = 0;
+			cards.forEach(function(card) {
+				var label = (card.textContent || '').toLowerCase();
+				var match = !q || label.indexOf(q) !== -1;
+				card.classList.toggle('is-hidden', !match);
+				if (match) visible++;
+			});
+			grid.classList.toggle('is-empty', visible === 0);
+		});
+	})();
 	</script>
 
 {{> scroll-effects}}
