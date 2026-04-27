@@ -71,10 +71,10 @@
 					<a href="/de/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/de.png" alt="Deutsch" width="24"></a>
 					<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español" width="24"></a>
 				</div>
-				<span class="header-divider" aria-hidden="true">|</span>
+				<span class="header-divider" aria-hidden="true"></span>
 				<div class="lang-mobile-dropdown" id="lang-mobile-dropdown">
 					<button class="lang-mobile-trigger" type="button" onclick="toggleLangMenu()" aria-label="Język">
-						<span>Język</span>
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
 					</button>
 					<div class="lang-mobile-menu">
 						<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English"></a>
@@ -82,7 +82,6 @@
 						<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español"></a>
 					</div>
 				</div>
-				<span class="header-divider-mobile" aria-hidden="true">|</span>
 				<nav class="site-nav" id="site-nav">
 					<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menu">
 						<span class="hamburger" id="hamburger">
@@ -133,10 +132,12 @@
 
 	<footer class="site-footer">
 		<div class="wrapper">
-			Copyright &copy; <span id="year"></span> <a href="/">Bolesław Parasion</a>
+			<span>&copy; <span id="year"></span> <a href="/">Bolesław Parasion</a></span>
+			<span>artysta rzeźbiarz</span>
 			<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 		</div>
 	</footer>
+
 
 	<script type="application/ld+json">
 	{

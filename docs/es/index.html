@@ -93,10 +93,10 @@
 					<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English" width="24"></a>
 					<a href="/de/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/de.png" alt="Deutsch" width="24"></a>
 				</div>
-				<span class="header-divider" aria-hidden="true">|</span>
+				<span class="header-divider" aria-hidden="true"></span>
 				<div class="lang-mobile-dropdown" id="lang-mobile-dropdown">
 					<button class="lang-mobile-trigger" type="button" onclick="toggleLangMenu()" aria-label="Idioma">
-						<span>Idioma</span>
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
 					</button>
 					<div class="lang-mobile-menu">
 						<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski"></a>
@@ -104,7 +104,6 @@
 						<a href="/de/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/de.png" alt="Deutsch"></a>
 					</div>
 				</div>
-				<span class="header-divider-mobile" aria-hidden="true">|</span>
 				<nav class="site-nav" id="site-nav">
 					<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menú">
 						<span class="hamburger" id="hamburger">
@@ -131,29 +130,27 @@
 
 	<main class="page-content">
 
-		<section class="hero">
+		<section class="hero fade-in">
 			<div class="wrapper">
 				<div class="hero-inner">
+					<div class="hero-portrait">
+						<img src="/img/bpr.png" alt="Bolesław Parasion — artista escultor" width="200" height="200">
+					</div>
 					<div class="hero-text">
 						<span class="hero-eyebrow">artista escultor</span>
 						<h1 class="hero-name">Bolesław Parasion</h1>
-						<a href="#gallery" class="hero-scroll" aria-label="scroll to gallery">scroll</a>
-					</div>
-					<div class="hero-portrait">
-						<img src="/img/bpr.png" alt="Bolesław Parasion — artista escultor" width="300" height="300">
+						<p class="bio">Me llamo Bolesław Parasion y soy escultor. Mi trabajo se centra en temas sagrados y folclóricos. Creo <a href="/es/tripticos.html">trípticos</a>, <a href="/es/angeles.html">ángeles coloridos</a>, <a href="/es/madonas.html">madonas</a>, <a href="/es/nacimiento.html">nacimientos</a> y esculturas religiosas monumentales, como por ejemplo <a href="/es/creacion-del-mundo.html">La Creación del Mundo</a>, <a href="/es/ultima-cena.html">La Última Cena</a> o <a href="/es/via-crucis.html">El Vía Crucis</a>. Algunas de mis obras del Vía Crucis se encuentran en iglesias en Polonia y en EE. UU. Mis obras han sido presentadas en exposiciones en el país y en el extranjero, y también han sido reconocidas en concursos de arte. Trabajo continuamente, realizando pedidos para coleccionistas, clientes privados y galerías de arte. La escultura sigue siendo mi mayor pasión y una parte inseparable de mi vida. Te invito a visitar mi galería de obras.</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="about fade-in">
-			<div class="wrapper wrapper--narrow">
-				<p class="bio">Me llamo Bolesław Parasion y soy escultor. Mi trabajo se centra en temas sagrados y folclóricos. Creo <a href="/es/tripticos.html">trípticos</a>, <a href="/es/angeles.html">ángeles coloridos</a>, <a href="/es/madonas.html">madonas</a>, <a href="/es/nacimiento.html">nacimientos</a> y esculturas religiosas monumentales, como por ejemplo <a href="/es/creacion-del-mundo.html">La Creación del Mundo</a>, <a href="/es/ultima-cena.html">La Última Cena</a> o <a href="/es/via-crucis.html">El Vía Crucis</a>. Algunas de mis obras del Vía Crucis se encuentran en iglesias en Polonia y en EE. UU. Mis obras han sido presentadas en exposiciones en el país y en el extranjero, y también han sido reconocidas en concursos de arte. Trabajo continuamente, realizando pedidos para coleccionistas, clientes privados y galerías de arte. La escultura sigue siendo mi mayor pasión y una parte inseparable de mi vida. Te invito a visitar mi galería de obras.</p>
-			</div>
-		</section>
-
 		<section class="featured fade-in" id="gallery">
 			<div class="wrapper">
+				<div class="section-head">
+					<span class="section-eyebrow">Galerías</span>
+					<span class="section-count">09</span>
+				</div>
 				<div class="gallery-grid">
 					<a href="/es/angeles.html" class="gallery-card">
 						<div class="gallery-card-img" style="background-image: url('/img/anioly.jpg'); background-position: center 20%; transform: scale(1.1)"></div>
@@ -199,10 +196,12 @@
 
 	<footer class="site-footer">
 		<div class="wrapper">
-			Copyright &copy; <span id="year"></span> <a href="/es/">Bolesław Parasion</a>
+			<span>&copy; <span id="year"></span> <a href="/es/">Bolesław Parasion</a></span>
+			<span>artista escultor</span>
 			<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 		</div>
 	</footer>
+
 
 	<script type="application/ld+json">
 	{

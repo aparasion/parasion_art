@@ -93,10 +93,10 @@
 					<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English" width="24"></a>
 					<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español" width="24"></a>
 				</div>
-				<span class="header-divider" aria-hidden="true">|</span>
+				<span class="header-divider" aria-hidden="true"></span>
 				<div class="lang-mobile-dropdown" id="lang-mobile-dropdown">
 					<button class="lang-mobile-trigger" type="button" onclick="toggleLangMenu()" aria-label="Sprache">
-						<span>Sprache</span>
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
 					</button>
 					<div class="lang-mobile-menu">
 						<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski"></a>
@@ -104,7 +104,6 @@
 						<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español"></a>
 					</div>
 				</div>
-				<span class="header-divider-mobile" aria-hidden="true">|</span>
 				<nav class="site-nav" id="site-nav">
 					<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menü">
 						<span class="hamburger" id="hamburger">
@@ -131,29 +130,27 @@
 
 	<main class="page-content">
 
-		<section class="hero">
+		<section class="hero fade-in">
 			<div class="wrapper">
 				<div class="hero-inner">
+					<div class="hero-portrait">
+						<img src="/img/bpr.png" alt="Bolesław Parasion — Volkskunst Bildhauer" width="200" height="200">
+					</div>
 					<div class="hero-text">
 						<span class="hero-eyebrow">Volkskunst Bildhauer</span>
 						<h1 class="hero-name">Bolesław Parasion</h1>
-						<a href="#gallery" class="hero-scroll" aria-label="scroll to gallery">scroll</a>
-					</div>
-					<div class="hero-portrait">
-						<img src="/img/bpr.png" alt="Bolesław Parasion — Volkskunst Bildhauer" width="300" height="300">
+						<p class="bio">Mein Name ist Bolesław Parasion und ich bin Bildhauer. Meine Arbeiten konzentrieren sich auf sakrale und volkstümliche Themen. Ich erschaffe <a href="/de/triptychen.html">Triptychen</a>, <a href="/de/engel.html">bunte Engel</a>, <a href="/de/madonnen.html">Madonnen</a>, <a href="/de/weihnachtskrippe.html">Weihnachtskrippen</a> und monumentale religiöse Skulpturen, wie zum Beispiel <a href="/de/die-erschaffung-der-welt.html">Die Erschaffung der Welt</a>, <a href="/de/das-letzte-abendmahl.html">Das letzte Abendmahl</a> oder <a href="/de/der-kreuzweg.html">Der Kreuzweg</a>. Einige meiner Arbeiten zum Kreuzweg befinden sich in Kirchen in Polen und in den USA. Meine Arbeiten wurden in Ausstellungen im In- und Ausland präsentiert und bei Kunstwettbewerben ausgezeichnet. Ich arbeite ununterbrochen und erfülle Aufträge für Sammler, private Kunden und Kunstgalerien. Die Bildhauerei bleibt meine größte Leidenschaft und ein untrennbarer Teil meines Lebens. Ich lade Sie ein, meine Galerie mit Arbeiten zu besuchen.</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="about fade-in">
-			<div class="wrapper wrapper--narrow">
-				<p class="bio">Mein Name ist Bolesław Parasion und ich bin Bildhauer. Meine Arbeiten konzentrieren sich auf sakrale und volkstümliche Themen. Ich erschaffe <a href="/de/triptychen.html">Triptychen</a>, <a href="/de/engel.html">bunte Engel</a>, <a href="/de/madonnen.html">Madonnen</a>, <a href="/de/weihnachtskrippe.html">Weihnachtskrippen</a> und monumentale religiöse Skulpturen, wie zum Beispiel <a href="/de/die-erschaffung-der-welt.html">Die Erschaffung der Welt</a>, <a href="/de/das-letzte-abendmahl.html">Das letzte Abendmahl</a> oder <a href="/de/der-kreuzweg.html">Der Kreuzweg</a>. Einige meiner Arbeiten zum Kreuzweg befinden sich in Kirchen in Polen und in den USA. Meine Arbeiten wurden in Ausstellungen im In- und Ausland präsentiert und bei Kunstwettbewerben ausgezeichnet. Ich arbeite ununterbrochen und erfülle Aufträge für Sammler, private Kunden und Kunstgalerien. Die Bildhauerei bleibt meine größte Leidenschaft und ein untrennbarer Teil meines Lebens. Ich lade Sie ein, meine Galerie mit Arbeiten zu besuchen.</p>
-			</div>
-		</section>
-
 		<section class="featured fade-in" id="gallery">
 			<div class="wrapper">
+				<div class="section-head">
+					<span class="section-eyebrow">Galerien</span>
+					<span class="section-count">09</span>
+				</div>
 				<div class="gallery-grid">
 					<a href="/de/engel.html" class="gallery-card">
 						<div class="gallery-card-img" style="background-image: url('/img/anioly.jpg'); background-position: center 20%; transform: scale(1.1)"></div>
@@ -199,10 +196,12 @@
 
 	<footer class="site-footer">
 		<div class="wrapper">
-			Copyright &copy; <span id="year"></span> <a href="/de/">Bolesław Parasion</a>
+			<span>&copy; <span id="year"></span> <a href="/de/">Bolesław Parasion</a></span>
+			<span>Volkskunst Bildhauer</span>
 			<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 		</div>
 	</footer>
+
 
 	<script type="application/ld+json">
 	{

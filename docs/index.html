@@ -93,10 +93,10 @@
 					<a href="/de/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/de.png" alt="Deutsch" width="24"></a>
 					<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español" width="24"></a>
 				</div>
-				<span class="header-divider" aria-hidden="true">|</span>
+				<span class="header-divider" aria-hidden="true"></span>
 				<div class="lang-mobile-dropdown" id="lang-mobile-dropdown">
 					<button class="lang-mobile-trigger" type="button" onclick="toggleLangMenu()" aria-label="Język">
-						<span>Język</span>
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
 					</button>
 					<div class="lang-mobile-menu">
 						<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English"></a>
@@ -104,7 +104,6 @@
 						<a href="/es/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/es.png" alt="Español"></a>
 					</div>
 				</div>
-				<span class="header-divider-mobile" aria-hidden="true">|</span>
 				<nav class="site-nav" id="site-nav">
 					<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menu">
 						<span class="hamburger" id="hamburger">
@@ -131,29 +130,27 @@
 
 	<main class="page-content">
 
-		<section class="hero">
+		<section class="hero fade-in">
 			<div class="wrapper">
 				<div class="hero-inner">
+					<div class="hero-portrait">
+						<img src="/img/bpr.png" alt="Bolesław Parasion — artysta rzeźbiarz" width="200" height="200">
+					</div>
 					<div class="hero-text">
 						<span class="hero-eyebrow">artysta rzeźbiarz</span>
 						<h1 class="hero-name">Bolesław Parasion</h1>
-						<a href="#gallery" class="hero-scroll" aria-label="scroll to gallery">scroll</a>
-					</div>
-					<div class="hero-portrait">
-						<img src="/img/bpr.png" alt="Bolesław Parasion — artysta rzeźbiarz" width="300" height="300">
+						<p class="bio">Nazywam się Bolesław Parasion i jestem rzeźbiarzem. Moja twórczość koncentruje się na tematyce sakralnej i ludowej. Tworzę <a href="/tryptyki.html">Tryptyki</a>, <a href="/anioly.html">barwne anioły</a>, <a href="/madonny.html">madonny</a>, <a href="/szopka-bozonarodzeniowa.html">szopki bożonarodzeniowe</a> oraz monumentalne rzeźby religijne, takie jak np. <a href="/stworzenie-swiata.html">Stworzenie Świata</a>, <a href="/ostatnia-wieczerza.html">Ostatnia Wieczerza</a> czy <a href="/droga-krzyzowa.html">Droga Krzyżowa</a>. Kilka z moich prac Drogi Krzyżowej znajduje się w kościołach w Polsce i w USA. Moje prace były prezentowane na wystawach w kraju i za granicą, a także wyróżniane w konkursach artystycznych. Tworzę nieprzerwanie, realizując zamówienia dla kolekcjonerów, prywatnych odbiorców i galerii sztuki. Rzeźbiarstwo pozostaje moją największą pasją i nieodłączną częścią życia. Zapraszam do obejrzenia mojej galerii prac.</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="about fade-in">
-			<div class="wrapper wrapper--narrow">
-				<p class="bio">Nazywam się Bolesław Parasion i jestem rzeźbiarzem. Moja twórczość koncentruje się na tematyce sakralnej i ludowej. Tworzę <a href="/tryptyki.html">Tryptyki</a>, <a href="/anioly.html">barwne anioły</a>, <a href="/madonny.html">madonny</a>, <a href="/szopka-bozonarodzeniowa.html">szopki bożonarodzeniowe</a> oraz monumentalne rzeźby religijne, takie jak np. <a href="/stworzenie-swiata.html">Stworzenie Świata</a>, <a href="/ostatnia-wieczerza.html">Ostatnia Wieczerza</a> czy <a href="/droga-krzyzowa.html">Droga Krzyżowa</a>. Kilka z moich prac Drogi Krzyżowej znajduje się w kościołach w Polsce i w USA. Moje prace były prezentowane na wystawach w kraju i za granicą, a także wyróżniane w konkursach artystycznych. Tworzę nieprzerwanie, realizując zamówienia dla kolekcjonerów, prywatnych odbiorców i galerii sztuki. Rzeźbiarstwo pozostaje moją największą pasją i nieodłączną częścią życia. Zapraszam do obejrzenia mojej galerii prac.</p>
-			</div>
-		</section>
-
 		<section class="featured fade-in" id="gallery">
 			<div class="wrapper">
+				<div class="section-head">
+					<span class="section-eyebrow">Galerie</span>
+					<span class="section-count">09</span>
+				</div>
 				<div class="gallery-grid">
 					<a href="/anioly.html" class="gallery-card">
 						<div class="gallery-card-img" style="background-image: url('/img/anioly.jpg'); background-position: center 20%; transform: scale(1.1)"></div>
@@ -199,10 +196,12 @@
 
 	<footer class="site-footer">
 		<div class="wrapper">
-			Copyright &copy; <span id="year"></span> <a href="/">Bolesław Parasion</a>
+			<span>&copy; <span id="year"></span> <a href="/">Bolesław Parasion</a></span>
+			<span>artysta rzeźbiarz</span>
 			<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 		</div>
 	</footer>
+
 
 	<script type="application/ld+json">
 	{

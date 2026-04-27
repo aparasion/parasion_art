@@ -259,7 +259,8 @@ function buildGalleryPage(gallery, galleryIndex, lang) {
 		content: content,
 		jsonLd: jsonLd,
 		prevLink: prevLink,
-		nextLink: nextLink
+		nextLink: nextLink,
+		footerTagline: data.i18n[lang].footerTagline
 	});
 
 	var relPath = lang === 'pl'
@@ -288,6 +289,8 @@ function buildIndexPage(lang) {
 	var bio = resolveBioLinks(i18n.bio, lang);
 	bio = bio.split('{{author}}').join(author);
 
+	var galleryCount = String(data.galleries.length).padStart(2, '0');
+
 	var html = fill(templates.index, {
 		lang: lang,
 		clicky_id: data.site.clicky_id,
@@ -312,7 +315,10 @@ function buildIndexPage(lang) {
 		facebook: data.site.facebook,
 		bio: bio,
 		jsonLdDescription: i18n.indexJsonLdDescription,
-		galleryCards: galleryCards(lang)
+		galleryCards: galleryCards(lang),
+		galleriesLabel: i18n.galleriesLabel,
+		galleryCount: galleryCount,
+		footerTagline: i18n.footerTagline
 	});
 
 	var relPath = lang === 'pl'
@@ -338,7 +344,8 @@ function build404Page() {
 		langDropdownLinks: langDropdownLinks('pl'),
 		languageMenuLabel: data.i18n.pl.languageMenuLabel,
 		mobileBrand: data.site.mobileBrand,
-		navLinks_pl: navLinks('pl')
+		navLinks_pl: navLinks('pl'),
+		footerTagline: data.i18n.pl.footerTagline
 	});
 	writeOutput('404.html', html);
 }
@@ -379,9 +386,11 @@ function buildContactPage(lang) {
 		languageMenuLabel: data.i18n[lang].languageMenuLabel,
 		mobileBrand: data.site.mobileBrand,
 		contactTitle: data.contact.title[lang],
+		contactSubtitle: data.i18n[lang].contactSubtitle,
 		phoneLabel: data.contact.phoneLabel[lang],
 		facebook: data.site.facebook,
-		facebookLabel: data.contact.facebookLabel[lang]
+		facebookLabel: data.contact.facebookLabel[lang],
+		footerTagline: data.i18n[lang].footerTagline
 	});
 
 	var relPath = lang === 'pl'
