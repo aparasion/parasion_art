@@ -1072,11 +1072,20 @@ textarea:focus-visible {
     padding: 6px;
     border-radius: var(--radius-sm);
     opacity: 1;
+    display: inline-flex;
+    align-items: center;
   }
 
   .lang-mobile-menu a:hover { background: var(--bg-hover); }
 
-  .lang-mobile-menu img { width: 24px; }
+  .lang-mobile-menu img {
+    width: 24px;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
+  }
 
   /* Hero — stacked */
   .hero { padding: 48px 0 48px; }
