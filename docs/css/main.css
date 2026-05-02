@@ -1015,6 +1015,49 @@ textarea:focus-visible {
 
 .contact-submit:hover { opacity: 0.85; }
 
+/* --- 22. Back to top --- */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity var(--transition), transform var(--transition), visibility var(--transition),
+    background-color var(--transition), border-color var(--transition), color var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.back-to-top svg {
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
 /* ============================================
    Responsive
    ============================================ */
