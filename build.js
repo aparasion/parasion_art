@@ -75,12 +75,13 @@ function hreflangTags(urls) {
 	}).join('\n');
 }
 
-function langSelectorLinks(currentLang) {
+function langSelectorLinks(currentLang, altUrls) {
 	return data.languages
 		.filter(function(l) { return l !== currentLang; })
 		.map(function(l) {
 			var flag = data.langFlags[l];
-			return '\t\t\t\t\t<a href="' + homeUrl(l) + '" onclick="localStorage.setItem(\'parasion_lang_chosen\',\'1\')"><img src="/img/' + flag.img + '" alt="' + flag.alt + '" width="24"></a>';
+			var href = (altUrls && altUrls[l]) ? altUrls[l] : homeUrl(l);
+			return '\t\t\t\t\t<a href="' + href + '" onclick="localStorage.setItem(\'parasion_lang_chosen\',\'1\')"><img src="/img/' + flag.img + '" alt="' + flag.alt + '" width="24"></a>';
 		}).join('\n');
 }
 
@@ -199,9 +200,12 @@ function buildGalleryPage(gallery, galleryIndex, lang) {
 
 	// hreflang URLs
 	var hreflangs = {};
+	var langAltUrls = {};
 	for (var i = 0; i < data.languages.length; i++) {
 		var l = data.languages[i];
-		hreflangs[l] = data.site.domain + pageUrl(l, gallery.slug[l]);
+		var altUrl = pageUrl(l, gallery.slug[l]);
+		hreflangs[l] = data.site.domain + altUrl;
+		langAltUrls[l] = altUrl;
 	}
 
 	// Build gallery content
@@ -271,7 +275,7 @@ function buildGalleryPage(gallery, galleryIndex, lang) {
 		homeUrl: homeUrl(lang),
 		menuButton: data.i18n[lang].menuButton,
 		navLinks: navLinks(lang),
-		langSelectorLinks: langSelectorLinks(lang),
+		langSelectorLinks: langSelectorLinks(lang, langAltUrls),
 		themeLabel: data.i18n[lang].themeLabel,
 		mobileBrand: data.site.mobileBrand,
 		pageTitle: gallery.title[lang],
@@ -300,9 +304,11 @@ function buildIndexPage(lang) {
 	var fullUrl = data.site.domain + prefix;
 
 	var hreflangs = {};
+	var langAltUrls = {};
 	for (var i = 0; i < data.languages.length; i++) {
 		var l = data.languages[i];
 		hreflangs[l] = data.site.domain + homeUrl(l);
+		langAltUrls[l] = homeUrl(l);
 	}
 
 	var bio = resolveBioLinks(i18n.bio, lang);
@@ -328,7 +334,7 @@ function buildIndexPage(lang) {
 		mobileBrand: data.site.mobileBrand,
 		heroAlt: i18n.heroAlt,
 		heroSubtitle: i18n.heroSubtitle,
-		langSelectorLinks: langSelectorLinks(lang),
+		langSelectorLinks: langSelectorLinks(lang, langAltUrls),
 		facebook: data.site.facebook,
 		bio: bio,
 		jsonLdDescription: i18n.indexJsonLdDescription,
@@ -382,9 +388,12 @@ function buildContactPage(lang) {
 	var fullUrl = data.site.domain + url;
 
 	var hreflangs = {};
+	var langAltUrls = {};
 	for (var i = 0; i < data.languages.length; i++) {
 		var l = data.languages[i];
-		hreflangs[l] = data.site.domain + pageUrl(l, data.contact.slug[l]);
+		var altUrl = pageUrl(l, data.contact.slug[l]);
+		hreflangs[l] = data.site.domain + altUrl;
+		langAltUrls[l] = altUrl;
 	}
 
 	var html = fill(templates.contact, {
@@ -402,7 +411,7 @@ function buildContactPage(lang) {
 		homeUrl: homeUrl(lang),
 		menuButton: data.i18n[lang].menuButton,
 		navLinks: navLinks(lang),
-		langSelectorLinks: langSelectorLinks(lang),
+		langSelectorLinks: langSelectorLinks(lang, langAltUrls),
 		mobileBrand: data.site.mobileBrand,
 		themeLabel: data.i18n[lang].themeLabel,
 		contactTitle: data.contact.title[lang],
