@@ -8,6 +8,15 @@
 			}, { threshold: 0 });
 			observer.observe(sentinel);
 		}
+		var backToTop = document.getElementById('back-to-top');
+		if (backToTop) {
+			backToTop.addEventListener('click', function() {
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			});
+			window.addEventListener('scroll', function() {
+				backToTop.classList.toggle('visible', window.scrollY > 300);
+			}, { passive: true });
+		}
 		var fadeEls = document.querySelectorAll('.fade-in');
 		if (fadeEls.length) {
 			var fadeObserver = new IntersectionObserver(function(entries) {
