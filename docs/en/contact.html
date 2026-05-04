@@ -173,7 +173,8 @@
 					</div>
 				</div>
 
-				<form class="contact-form" id="contact-form" action="mailto:boleslaw@parasion.art" method="post" enctype="text/plain">
+				<form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+					<input type="hidden" name="access_key" value="81f56f53-44f6-4dd3-a0a5-f01c049a21ec">
 					<span class="contact-form-heading">Message</span>
 
 					<div class="field-row">
@@ -188,17 +189,30 @@
 					</div>
 
 					<div class="field">
-						<label class="field-label" for="cf-subject">Subject</label>
-						<input id="cf-subject" name="subject" type="text" required>
-					</div>
-
-					<div class="field">
 						<label class="field-label" for="cf-message">Message</label>
 						<textarea id="cf-message" name="message" rows="5" required></textarea>
 					</div>
 
-					<button class="contact-submit" type="submit">Send message</button>
+					<button class="contact-submit" type="submit">Send message →</button>
 				</form>
+
+				<div class="contact-success" id="contact-success">
+					<p class="contact-success-title">Message sent. Thank you!</p>
+					<div class="contact-success-details">
+						<div class="contact-success-row">
+							<span class="contact-success-label">Name</span>
+							<span id="sent-name" class="contact-success-value"></span>
+						</div>
+						<div class="contact-success-row">
+							<span class="contact-success-label">Email</span>
+							<span id="sent-email" class="contact-success-value"></span>
+						</div>
+						<div class="contact-success-row contact-success-row--message">
+							<span class="contact-success-label">Message</span>
+							<span id="sent-message" class="contact-success-value"></span>
+						</div>
+					</div>
+				</div>
 			</div>
 
 		</div>
@@ -220,19 +234,34 @@
 	<script>
 	(function() {
 		var form = document.getElementById('contact-form');
+		var successEl = document.getElementById('contact-success');
 		if (!form) return;
 		form.addEventListener('submit', function(e) {
 			e.preventDefault();
 			var name = (form.elements['name'].value || '').trim();
 			var email = (form.elements['email'].value || '').trim();
-			var subject = (form.elements['subject'].value || '').trim();
 			var message = (form.elements['message'].value || '').trim();
-			var body = message + '\n\n— ' + name + ' <' + email + '>';
-			var to = form.getAttribute('action').replace(/^mailto:/, '');
-			var url = 'mailto:' + to +
-				'?subject=' + encodeURIComponent(subject) +
-				'&body=' + encodeURIComponent(body);
-			window.location.href = url;
+			var btn = form.querySelector('[type="submit"]');
+			if (btn) btn.disabled = true;
+			fetch('https://api.web3forms.com/submit', {
+				method: 'POST',
+				body: new FormData(form)
+			})
+			.then(function(r) { return r.json(); })
+			.then(function(json) {
+				if (json.success) {
+					document.getElementById('sent-name').textContent = name;
+					document.getElementById('sent-email').textContent = email;
+					document.getElementById('sent-message').textContent = message;
+					form.style.display = 'none';
+					if (successEl) successEl.classList.add('visible');
+				} else {
+					if (btn) btn.disabled = false;
+				}
+			})
+			.catch(function() {
+				if (btn) btn.disabled = false;
+			});
 		});
 	})();
 	</script>
