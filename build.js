@@ -422,6 +422,7 @@ function buildContactPage(lang) {
 		formSubject: data.i18n[lang].formSubject,
 		formMessage: data.i18n[lang].formMessage,
 		formSend: data.i18n[lang].formSend,
+		formSuccessTitle: data.i18n[lang].formSuccessTitle,
 		contactEmail: data.site.contactEmail,
 		phoneLabel: data.contact.phoneLabel[lang],
 		facebook: data.site.facebook,

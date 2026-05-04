@@ -405,6 +405,7 @@
 			"formSubject": "Temat",
 			"formMessage": "Wiadomość",
 			"formSend": "Wyślij wiadomość",
+			"formSuccessTitle": "Wiadomość wysłana. Dziękuję!",
 			"footerTagline": "artysta rzeźbiarz",
 			"themeLabel": "Motyw",
 			"feedLabel": "Kanał RSS"
@@ -431,6 +432,7 @@
 			"formSubject": "Subject",
 			"formMessage": "Message",
 			"formSend": "Send message",
+			"formSuccessTitle": "Message sent. Thank you!",
 			"footerTagline": "sculptor artist",
 			"themeLabel": "Theme",
 			"feedLabel": "RSS feed"
@@ -457,6 +459,7 @@
 			"formSubject": "Betreff",
 			"formMessage": "Nachricht",
 			"formSend": "Nachricht senden",
+			"formSuccessTitle": "Nachricht gesendet. Danke!",
 			"footerTagline": "Volkskunst Bildhauer",
 			"themeLabel": "Thema",
 			"feedLabel": "RSS-Feed"
@@ -483,6 +486,7 @@
 			"formSubject": "Asunto",
 			"formMessage": "Mensaje",
 			"formSend": "Enviar mensaje",
+			"formSuccessTitle": "Mensaje enviado. ¡Gracias!",
 			"footerTagline": "artista escultor",
 			"themeLabel": "Tema",
 			"feedLabel": "Canal RSS"

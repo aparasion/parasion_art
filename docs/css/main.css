@@ -1014,6 +1014,56 @@ textarea:focus-visible {
 }
 
 .contact-submit:hover { opacity: 0.85; }
+.contact-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.contact-success {
+  display: none;
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.contact-success.visible { display: block; }
+
+.contact-success-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 24px;
+}
+
+.contact-success-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contact-success-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.contact-success-row:last-child { border-bottom: none; }
+
+.contact-success-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.contact-success-value {
+  font-size: 15px;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
 
 /* --- 22. Back to top --- */
 .back-to-top {
