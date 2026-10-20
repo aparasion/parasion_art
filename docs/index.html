@@ -280,6 +280,96 @@
 		</div>
 	</footer>
 
+<dialog class="coloring-popup" id="coloring-popup" aria-labelledby="coloring-popup-title" aria-describedby="coloring-popup-description">
+	<button class="coloring-popup__close" type="button" aria-label="Zamknij okienko" autofocus>&times;</button>
+	<div class="coloring-popup__art">
+		<img src="/img/anioly-kolorowanka.jpg" width="1200" height="1545" alt="Okładka Anioły — kolorowanka dla dorosłych. 47 oryginalnych aniołów. Prace artysty: Bolesław Parasion." decoding="async">
+	</div>
+	<div class="coloring-popup__content">
+		<p class="coloring-popup__eyebrow">Sztuka, której nadasz własne kolory</p>
+		<h2 id="coloring-popup-title">Podaruj sobie chwilę<br>z aniołami.</h2>
+		<p class="coloring-popup__intro">Odłóż codzienny pośpiech. Sięgnij po kredki i wejdź w świat pełen skrzydeł, kwiatów i niezwykłych detali.</p>
+		<p id="coloring-popup-description"><strong>„Anioły” — kolorowanka dla dorosłych</strong> to 47 oryginalnych aniołów z prac Bolesława Parasiona. Wybierz ulubione barwy i nadaj każdemu z nich swój własny charakter.</p>
+		<p class="coloring-popup__gift">Dla siebie na spokojny wieczór. Albo w prezencie komuś, kto lubi tworzyć.</p>
+		<a class="coloring-popup__cta" href="https://amzn.eu/d/0fkqdUTv" target="_blank" rel="noopener noreferrer">Kup kolorowankę na Amazonie <span aria-hidden="true">↗</span><span class="coloring-popup__sr-only"> (otwiera się w nowej karcie)</span></a>
+		<p class="coloring-popup__note">47 aniołów. Twoje kolory. Twój czas.</p>
+		<button class="coloring-popup__later" type="button">Może później — wracam do galerii</button>
+	</div>
+</dialog>
+<script>
+(function () {
+	'use strict';
+	var dialog = document.getElementById('coloring-popup');
+	if (!dialog || document.documentElement.lang !== 'pl' || typeof dialog.showModal !== 'function') return;
+	var key = 'parasion_coloring_popup_seen_v1';
+	function wasSeen() {
+		try { return sessionStorage.getItem(key) === '1'; } catch (_) { return false; }
+	}
+	if (wasSeen()) return;
+	var image = dialog.querySelector('img');
+	var timer;
+	var finished = false;
+	var restoreScroll = null;
+	function restore() {
+		if (restoreScroll) { restoreScroll(); restoreScroll = null; }
+	}
+	function close() { dialog.close(); restore(); }
+	dialog.addEventListener('cancel', function (event) { event.preventDefault(); close(); });
+	dialog.querySelector('.coloring-popup__close').addEventListener('click', close);
+	dialog.querySelector('.coloring-popup__later').addEventListener('click', close);
+	dialog.querySelector('.coloring-popup__cta').addEventListener('click', close);
+	dialog.addEventListener('keydown', function (event) {
+		// Keep the site's gallery keyboard shortcuts from navigating behind the modal.
+		event.stopPropagation();
+		if (event.key !== 'Tab') return;
+		var first = dialog.querySelector('.coloring-popup__close');
+		var last = dialog.querySelector('.coloring-popup__later');
+		if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+		else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+	});
+	// Only dismiss an actual backdrop click, never a click on the card itself.
+	var backdropDown = false;
+	function outside(event) {
+		var rect = dialog.getBoundingClientRect();
+		return event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
+	}
+	dialog.addEventListener('pointerdown', function (event) { backdropDown = event.target === dialog && outside(event); });
+	dialog.addEventListener('click', function (event) {
+		if (backdropDown && event.target === dialog && outside(event)) close();
+		backdropDown = false;
+	});
+	dialog.addEventListener('close', restore);
+	function openWhenReady() {
+		if (finished || wasSeen()) return;
+		// A failed or missing cover must never produce a broken promotional card.
+		if (!image.complete) { timer = setTimeout(openWhenReady, 500); return; }
+		if (!image.naturalWidth) return;
+		var active = document.activeElement;
+		if (document.hidden || document.querySelector('dialog[open]') ||
+			(active && (active.matches('input, textarea, select') || active.isContentEditable))) {
+			timer = setTimeout(openWhenReady, 1000);
+			return;
+		}
+		var body = document.body;
+		var overflow = body.style.overflow;
+		var padding = body.style.paddingRight;
+		var gap = window.innerWidth - document.documentElement.clientWidth;
+		body.style.paddingRight = (parseFloat(getComputedStyle(body).paddingRight) + gap) + 'px';
+		body.style.overflow = 'hidden';
+		restoreScroll = function () { body.style.overflow = overflow; body.style.paddingRight = padding; };
+		try { dialog.showModal(); } catch (_) { restoreScroll(); restoreScroll = null; return; }
+		finished = true;
+		try { sessionStorage.setItem(key, '1'); } catch (_) { /* Storage may be disabled. */ }
+	}
+	timer = setTimeout(openWhenReady, 6000);
+	window.addEventListener('pagehide', function () { clearTimeout(timer); if (dialog.open) close(); });
+	window.addEventListener('pageshow', function (event) {
+		if (event.persisted && !finished && !wasSeen()) timer = setTimeout(openWhenReady, 6000);
+	});
+})();
+</script>
+
+
 
 	<script type="application/ld+json">
 	{

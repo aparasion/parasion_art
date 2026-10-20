@@ -145,6 +145,8 @@ function featuredCards(lang, i18n) {
 function fill(template, vars) {
 	// 1. Resolve partials first
 	var out = resolvePartials(template);
+	// Promotional content belongs only to actual Polish pages (not the shared 404).
+	out = out.split('{{coloringPopup}}').join(vars.lang === 'pl' ? '\n\n' + partials['coloring-popup'] : '');
 	// 2. Replace variables
 	for (var key in vars) {
 		if (vars.hasOwnProperty(key)) {
