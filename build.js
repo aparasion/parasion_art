@@ -47,8 +47,8 @@ function resolvePartials(template, depth) {
 }
 
 function pageUrl(lang, slug) {
-	if (lang === 'pl') return '/' + slug + '.html';
-	return '/' + lang + '/' + slug + '.html';
+	if (lang === 'pl') return '/' + slug;
+	return '/' + lang + '/' + slug;
 }
 
 function homeUrl(lang) {
