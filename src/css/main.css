@@ -1262,3 +1262,36 @@ textarea:focus-visible {
   .coloring-popup__eyebrow { font-size: 10px; }
 }
 @media (prefers-reduced-motion: reduce) { .coloring-popup[open] { animation: none; } }
+
+/* Keep the book available after the promotion is dismissed. */
+.coloring-launcher {
+  position: fixed;
+  z-index: 900;
+  left: max(18px, env(safe-area-inset-left));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100vw - 36px);
+  padding: 8px 14px 8px 8px;
+  border: 1px solid #d9bd81;
+  border-radius: 14px;
+  background: #fffaf1;
+  color: #173761;
+  box-shadow: 0 4px 20px #102c4726;
+  font: 12px/1.4 var(--font-sans);
+  text-align: left;
+  cursor: pointer;
+  transition: box-shadow .2s ease, background-color .2s ease;
+}
+.coloring-launcher[hidden] { display: none; }
+.coloring-launcher > img { flex: none; width: 34px; height: 44px; object-fit: contain; border-radius: 3px; }
+.coloring-launcher > span { display: grid; gap: 3px; }
+.coloring-launcher strong { font-weight: 600; }
+.coloring-launcher > span > span { color: #656050; font-size: 11px; }
+.coloring-launcher:hover { background: #fff4df; box-shadow: 0 6px 24px #102c473b; }
+.coloring-launcher:focus-visible { outline: 3px solid #ba7e19; outline-offset: 3px; }
+@media (max-width: 640px) {
+  .coloring-launcher { left: max(12px, env(safe-area-inset-left)); bottom: max(12px, env(safe-area-inset-bottom)); padding-right: 10px; font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) { .coloring-launcher { transition: none; } }
