@@ -1245,8 +1245,31 @@ textarea:focus-visible {
 .coloring-popup__content > p:not(.coloring-popup__eyebrow):not(.coloring-popup__note) { margin: 0 0 16px; color: #4f5360; font-size: 14px; line-height: 1.75; }
 .coloring-popup__content strong { color: #233958; font-weight: 600; }
 .coloring-popup__content > .coloring-popup__gift { padding-left: 14px; border-left: 2px solid #c99a40; }
-.coloring-popup__cta { display: flex; align-items: center; justify-content: center; gap: 14px; min-height: 50px; padding: 13px 16px; border-radius: 8px; background: #173761; color: #fff; font-size: 14px; font-weight: 600; line-height: 1.5; text-decoration: none; text-align: center; }
-.coloring-popup__cta:hover { background: #244c7d; color: #fff; text-decoration: none; }
+.coloring-popup__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 54px;
+  padding: 14px 18px;
+  border: 1px solid #244c7d;
+  border-radius: 9px;
+  background: #173761;
+  box-shadow: 0 4px 12px rgb(23 55 97 / 20%);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+}
+/* Preserve contrast even after visiting Amazon or hovering over the link. */
+.coloring-popup__cta,
+.coloring-popup__cta:visited,
+.coloring-popup__cta:hover,
+.coloring-popup__cta:focus-visible,
+.coloring-popup__cta:active { color: #fff; opacity: 1; text-decoration: none; }
+.coloring-popup__cta:hover { background: #244c7d; box-shadow: 0 6px 16px rgb(23 55 97 / 28%); }
+.coloring-popup__cta:active { background: #102b50; }
+.coloring-popup__cta svg { flex-shrink: 0; }
 .coloring-popup__note { margin: 11px 0 16px; color: #686455; font-size: 11px; text-align: center; }
 .coloring-popup__later { display: block; min-height: 44px; margin: 0 auto; padding: 8px 4px; border: 0; background: transparent; color: #5c6070; font: inherit; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
 .coloring-popup :is(button, a):focus-visible { outline: 3px solid #ba7e19; outline-offset: 4px; }
