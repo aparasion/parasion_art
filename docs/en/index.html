@@ -14,13 +14,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 	<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-	<title>Bolesław Parasion — sculptor artist</title>
-	<meta name="description" content="The website of sculptor Bolesław Parasion. Sacred and folk sculptures: angels, triptychs, madonnas, nativity scenes.">
-	<meta property="og:title" content="Bolesław Parasion — sculptor artist">
-	<meta property="og:description" content="Sacred and folk sculptures: angels, triptychs, madonnas, nativity scenes.">
+	<title>Bolesław Parasion — Sculptor &amp; Sacred Art</title>
+	<link rel="canonical" href="https://parasion.art/en/">
+	<meta name="description" content="Explore sacred and folk sculpture by Bolesław Parasion. Discover angels, Madonnas, triptychs, nativity scenes and the Stations of the Cross.">
+	<meta property="og:title" content="Bolesław Parasion — Sculptor &amp; Sacred Art">
+	<meta property="og:description" content="Explore sacred and folk sculpture by Bolesław Parasion. Discover angels, Madonnas, triptychs, nativity scenes and the Stations of the Cross.">
 	<meta property="og:image" content="https://parasion.art/img/bpr.png">
 	<meta property="og:url" content="https://parasion.art/en/">
 	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Bolesław Parasion">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Bolesław Parasion — Sculptor &amp; Sacred Art">
+	<meta name="twitter:description" content="Explore sacred and folk sculpture by Bolesław Parasion. Discover angels, Madonnas, triptychs, nativity scenes and the Stations of the Cross.">
+	<meta name="twitter:image" content="https://parasion.art/img/bpr.png">
 	<link rel="alternate" hreflang="pl" href="https://parasion.art/">
 	<link rel="alternate" hreflang="en" href="https://parasion.art/en/">
 	<link rel="alternate" hreflang="de" href="https://parasion.art/de/">
@@ -164,10 +170,10 @@
 			<div class="wrapper">
 				<div class="hero-inner">
 					<div class="hero-portrait">
-						<img src="/img/bpr.png" alt="Bolesław Parasion — sculptor artist" width="200" height="200">
+						<img src="/img/bpr.png" alt="Bolesław Parasion — Sculptor" width="200" height="200">
 					</div>
 					<div class="hero-text">
-						<span class="hero-eyebrow">sculptor artist</span>
+						<span class="hero-eyebrow">Sculptor</span>
 						<h1 class="hero-name">Bolesław Parasion</h1>
 						<p class="bio">My name is Bolesław Parasion, and I am a sculptor. My work focuses on sacred and folk themes. I create <a href="/en/triptychs">Triptychs</a>, <a href="/en/angels">colorful angels</a>, <a href="/en/madonnas">Madonnas</a>, <a href="/en/nativity-scene">Christmas nativity scenes</a>, and monumental religious sculptures, such as <a href="/en/the-creation-of-the-world">The Creation of the World</a>, <a href="/en/the-last-supper">The Last Supper</a>, and <a href="/en/the-way-of-the-cross">The Way of the Cross</a>. Several of my Way of the Cross works are displayed in churches in Poland and the USA. My works have been exhibited both in Poland and abroad and have been recognized in art competitions. I continuously create, fulfilling commissions for collectors, private clients, and art galleries. Sculpture remains my greatest passion and an inseparable part of my life. I invite you to explore my gallery of works.</p>
 					</div>
@@ -275,7 +281,7 @@
 	<footer class="site-footer">
 		<div class="wrapper">
 			<span>&copy; <span id="year"></span> <a href="/en/">Bolesław Parasion</a></span>
-			<span>sculptor artist</span>
+			<span>Sculptor</span>
 			<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 		</div>
 	</footer>
@@ -399,12 +405,25 @@
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
-		"@type": "Artist",
+		"@type": "Person",
+		"@id": "https://parasion.art/#artist",
+		"jobTitle": "Sculptor",
 		"name": "Bolesław Parasion",
 		"url": "https://parasion.art",
 		"image": "https://parasion.art/img/bpr.png",
-		"description": "Sculptor artist. Sacred and folk sculptures.",
+		"description": "Explore sacred and folk sculpture by Bolesław Parasion. Discover angels, Madonnas, triptychs, nativity scenes and the Stations of the Cross.",
 		"sameAs": ["https://fb.com/parasion"]
+	}
+	</script>
+
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"name": "Bolesław Parasion",
+		"url": "https://parasion.art/en/",
+		"inLanguage": "en",
+		"publisher": {"@id": "https://parasion.art/#artist"}
 	}
 	</script>
 

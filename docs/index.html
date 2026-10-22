@@ -14,13 +14,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 	<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-	<title>Bolesław Parasion — artysta rzeźbiarz</title>
-	<meta name="description" content="Strona internetowa artysty rzeźbiarza Bolesława Parasiona. Rzeźby sakralne i ludowe: anioły, tryptyki, madonny, szopki bożonarodzeniowe.">
-	<meta property="og:title" content="Bolesław Parasion — artysta rzeźbiarz">
-	<meta property="og:description" content="Rzeźby sakralne i ludowe: anioły, tryptyki, madonny, szopki bożonarodzeniowe.">
+	<title>Bolesław Parasion — Rzeźbiarz | Sztuka sakralna</title>
+	<link rel="canonical" href="https://parasion.art/">
+	<meta name="description" content="Poznaj twórczość Bolesława Parasiona, artysty rzeźbiarza. Odkryj rzeźby sakralne i ludowe: anioły, madonny, tryptyki, szopki i Drogę Krzyżową.">
+	<meta property="og:title" content="Bolesław Parasion — Rzeźbiarz | Sztuka sakralna">
+	<meta property="og:description" content="Poznaj twórczość Bolesława Parasiona, artysty rzeźbiarza. Odkryj rzeźby sakralne i ludowe: anioły, madonny, tryptyki, szopki i Drogę Krzyżową.">
 	<meta property="og:image" content="https://parasion.art/img/bpr.png">
 	<meta property="og:url" content="https://parasion.art/">
 	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Bolesław Parasion">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Bolesław Parasion — Rzeźbiarz | Sztuka sakralna">
+	<meta name="twitter:description" content="Poznaj twórczość Bolesława Parasiona, artysty rzeźbiarza. Odkryj rzeźby sakralne i ludowe: anioły, madonny, tryptyki, szopki i Drogę Krzyżową.">
+	<meta name="twitter:image" content="https://parasion.art/img/bpr.png">
 	<link rel="alternate" hreflang="pl" href="https://parasion.art/">
 	<link rel="alternate" hreflang="en" href="https://parasion.art/en/">
 	<link rel="alternate" hreflang="de" href="https://parasion.art/de/">
@@ -164,10 +170,10 @@
 			<div class="wrapper">
 				<div class="hero-inner">
 					<div class="hero-portrait">
-						<img src="/img/bpr.png" alt="Bolesław Parasion — artysta rzeźbiarz" width="200" height="200">
+						<img src="/img/bpr.png" alt="Bolesław Parasion — Artysta rzeźbiarz" width="200" height="200">
 					</div>
 					<div class="hero-text">
-						<span class="hero-eyebrow">artysta rzeźbiarz</span>
+						<span class="hero-eyebrow">Artysta rzeźbiarz</span>
 						<h1 class="hero-name">Bolesław Parasion</h1>
 						<p class="bio">Nazywam się Bolesław Parasion i jestem rzeźbiarzem. Moja twórczość koncentruje się na tematyce sakralnej i ludowej. Tworzę <a href="/tryptyki">Tryptyki</a>, <a href="/anioly">barwne anioły</a>, <a href="/madonny">madonny</a>, <a href="/szopka-bozonarodzeniowa">szopki bożonarodzeniowe</a> oraz monumentalne rzeźby religijne, takie jak np. <a href="/stworzenie-swiata">Stworzenie Świata</a>, <a href="/ostatnia-wieczerza">Ostatnia Wieczerza</a> czy <a href="/droga-krzyzowa">Droga Krzyżowa</a>. Kilka z moich prac Drogi Krzyżowej znajduje się w kościołach w Polsce i w USA. Moje prace były prezentowane na wystawach w kraju i za granicą, a także wyróżniane w konkursach artystycznych. Tworzę nieprzerwanie, realizując zamówienia dla kolekcjonerów, prywatnych odbiorców i galerii sztuki. Rzeźbiarstwo pozostaje moją największą pasją i nieodłączną częścią życia. Zapraszam do obejrzenia mojej galerii prac.</p>
 					</div>
@@ -275,7 +281,7 @@
 	<footer class="site-footer">
 		<div class="wrapper">
 			<span>&copy; <span id="year"></span> <a href="/">Bolesław Parasion</a></span>
-			<span>artysta rzeźbiarz</span>
+			<span>Artysta rzeźbiarz</span>
 			<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 		</div>
 	</footer>
@@ -399,12 +405,25 @@
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
-		"@type": "Artist",
+		"@type": "Person",
+		"@id": "https://parasion.art/#artist",
+		"jobTitle": "Artysta rzeźbiarz",
 		"name": "Bolesław Parasion",
 		"url": "https://parasion.art",
 		"image": "https://parasion.art/img/bpr.png",
-		"description": "Artysta rzeźbiarz. Rzeźby sakralne i ludowe.",
+		"description": "Poznaj twórczość Bolesława Parasiona, artysty rzeźbiarza. Odkryj rzeźby sakralne i ludowe: anioły, madonny, tryptyki, szopki i Drogę Krzyżową.",
 		"sameAs": ["https://fb.com/parasion"]
+	}
+	</script>
+
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"name": "Bolesław Parasion",
+		"url": "https://parasion.art/",
+		"inLanguage": "pl",
+		"publisher": {"@id": "https://parasion.art/#artist"}
 	}
 	</script>
 

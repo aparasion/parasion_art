@@ -14,13 +14,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 	<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-	<title>Bolesław Parasion — Volkskunst Bildhauer</title>
-	<meta name="description" content="Die Website des volkstümlichen Bildhauers Bolesław Parasion. Sakrale und volkstümliche Skulpturen: Engel, Triptychen, Madonnen, Weihnachtskrippen.">
-	<meta property="og:title" content="Bolesław Parasion — Volkskunst Bildhauer">
-	<meta property="og:description" content="Sakrale und volkstümliche Skulpturen: Engel, Triptychen, Madonnen, Weihnachtskrippen.">
+	<title>Bolesław Parasion — Bildhauer | Sakrale Kunst</title>
+	<link rel="canonical" href="https://parasion.art/de/">
+	<meta name="description" content="Entdecken Sie sakrale Skulpturen und Volkskunst von Bolesław Parasion: Engel, Madonnen, Triptychen, Weihnachtskrippen und Kreuzwege.">
+	<meta property="og:title" content="Bolesław Parasion — Bildhauer | Sakrale Kunst">
+	<meta property="og:description" content="Entdecken Sie sakrale Skulpturen und Volkskunst von Bolesław Parasion: Engel, Madonnen, Triptychen, Weihnachtskrippen und Kreuzwege.">
 	<meta property="og:image" content="https://parasion.art/img/bpr.png">
 	<meta property="og:url" content="https://parasion.art/de/">
 	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Bolesław Parasion">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Bolesław Parasion — Bildhauer | Sakrale Kunst">
+	<meta name="twitter:description" content="Entdecken Sie sakrale Skulpturen und Volkskunst von Bolesław Parasion: Engel, Madonnen, Triptychen, Weihnachtskrippen und Kreuzwege.">
+	<meta name="twitter:image" content="https://parasion.art/img/bpr.png">
 	<link rel="alternate" hreflang="pl" href="https://parasion.art/">
 	<link rel="alternate" hreflang="en" href="https://parasion.art/en/">
 	<link rel="alternate" hreflang="de" href="https://parasion.art/de/">
@@ -164,10 +170,10 @@
 			<div class="wrapper">
 				<div class="hero-inner">
 					<div class="hero-portrait">
-						<img src="/img/bpr.png" alt="Bolesław Parasion — Volkskunst Bildhauer" width="200" height="200">
+						<img src="/img/bpr.png" alt="Bolesław Parasion — Bildhauer" width="200" height="200">
 					</div>
 					<div class="hero-text">
-						<span class="hero-eyebrow">Volkskunst Bildhauer</span>
+						<span class="hero-eyebrow">Bildhauer</span>
 						<h1 class="hero-name">Bolesław Parasion</h1>
 						<p class="bio">Mein Name ist Bolesław Parasion und ich bin Bildhauer. Meine Arbeiten konzentrieren sich auf sakrale und volkstümliche Themen. Ich erschaffe <a href="/de/triptychen">Triptychen</a>, <a href="/de/engel">bunte Engel</a>, <a href="/de/madonnen">Madonnen</a>, <a href="/de/weihnachtskrippe">Weihnachtskrippen</a> und monumentale religiöse Skulpturen, wie zum Beispiel <a href="/de/die-erschaffung-der-welt">Die Erschaffung der Welt</a>, <a href="/de/das-letzte-abendmahl">Das letzte Abendmahl</a> oder <a href="/de/der-kreuzweg">Der Kreuzweg</a>. Einige meiner Arbeiten zum Kreuzweg befinden sich in Kirchen in Polen und in den USA. Meine Arbeiten wurden in Ausstellungen im In- und Ausland präsentiert und bei Kunstwettbewerben ausgezeichnet. Ich arbeite ununterbrochen und erfülle Aufträge für Sammler, private Kunden und Kunstgalerien. Die Bildhauerei bleibt meine größte Leidenschaft und ein untrennbarer Teil meines Lebens. Ich lade Sie ein, meine Galerie mit Arbeiten zu besuchen.</p>
 					</div>
@@ -275,7 +281,7 @@
 	<footer class="site-footer">
 		<div class="wrapper">
 			<span>&copy; <span id="year"></span> <a href="/de/">Bolesław Parasion</a></span>
-			<span>Volkskunst Bildhauer</span>
+			<span>Bildhauer</span>
 			<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 		</div>
 	</footer>
@@ -399,12 +405,25 @@
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
-		"@type": "Artist",
+		"@type": "Person",
+		"@id": "https://parasion.art/#artist",
+		"jobTitle": "Bildhauer",
 		"name": "Bolesław Parasion",
 		"url": "https://parasion.art",
 		"image": "https://parasion.art/img/bpr.png",
-		"description": "Bildhauer. Sakrale und volkstümliche Skulpturen.",
+		"description": "Entdecken Sie sakrale Skulpturen und Volkskunst von Bolesław Parasion: Engel, Madonnen, Triptychen, Weihnachtskrippen und Kreuzwege.",
 		"sameAs": ["https://fb.com/parasion"]
+	}
+	</script>
+
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"name": "Bolesław Parasion",
+		"url": "https://parasion.art/de/",
+		"inLanguage": "de",
+		"publisher": {"@id": "https://parasion.art/#artist"}
 	}
 	</script>
 

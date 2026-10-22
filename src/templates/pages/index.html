@@ -64,12 +64,25 @@
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
-		"@type": "Artist",
+		"@type": "Person",
+		"@id": "{{domain}}/#artist",
+		"jobTitle": "{{heroSubtitle}}",
 		"name": "{{author}}",
 		"url": "{{domain}}",
 		"image": "{{domain}}/img/bpr.png",
 		"description": "{{jsonLdDescription}}",
 		"sameAs": ["{{facebook}}"]
+	}
+	</script>
+
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"name": "{{author}}",
+		"url": "{{ogUrl}}",
+		"inLanguage": "{{lang}}",
+		"publisher": {"@id": "{{domain}}/#artist"}
 	}
 	</script>
 
