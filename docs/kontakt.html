@@ -335,11 +335,11 @@
 		finished = true;
 		try { sessionStorage.setItem(key, '1'); } catch (_) { /* Storage may be disabled. */ }
 	}
-	if (!finished) timer = setTimeout(openWhenReady, 6000);
+	if (!finished) timer = setTimeout(openWhenReady, 3000);
 	window.addEventListener('pagehide', function () { clearTimeout(timer); if (dialog.open) close(); });
 	window.addEventListener('pageshow', function (event) {
 		showLauncher();
-		if (event.persisted && !finished && !wasSeen()) timer = setTimeout(openWhenReady, 6000);
+		if (event.persisted && !finished && !wasSeen()) timer = setTimeout(openWhenReady, 3000);
 	});
 })();
 </script>
