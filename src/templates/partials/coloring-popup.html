@@ -1,29 +1,29 @@
 <dialog class="coloring-popup" id="coloring-popup" aria-labelledby="coloring-popup-title" aria-describedby="coloring-popup-description">
-	<button class="coloring-popup__close" type="button" aria-label="Zamknij okienko" autofocus>&times;</button>
+	<button class="coloring-popup__close" type="button" aria-label="{{popup_close}}" autofocus>&times;</button>
 	<div class="coloring-popup__art">
-		<img src="/img/anioly-kolorowanka.jpg" width="1200" height="1545" alt="Okładka Anioły — kolorowanka dla dorosłych. 47 oryginalnych aniołów. Prace artysty: Bolesław Parasion." decoding="async">
+		<img src="/img/anioly-kolorowanka.jpg" width="1200" height="1545" alt="{{popup_coverAlt}}" decoding="async">
 	</div>
 	<div class="coloring-popup__content">
-		<p class="coloring-popup__eyebrow">Sztuka, której nadasz własne kolory</p>
-		<h2 id="coloring-popup-title">Podaruj sobie chwilę<br>z aniołami.</h2>
-		<p class="coloring-popup__intro">Odłóż codzienny pośpiech. Sięgnij po kredki i wejdź w świat pełen skrzydeł, kwiatów i niezwykłych detali.</p>
-		<p id="coloring-popup-description"><strong>„Anioły” — kolorowanka dla dorosłych</strong> to 47 oryginalnych aniołów z prac Bolesława Parasiona. Wybierz ulubione barwy i nadaj każdemu z nich swój własny charakter.</p>
-		<p class="coloring-popup__gift">Dla siebie na spokojny wieczór. Albo w prezencie komuś, kto lubi tworzyć.</p>
-		<a class="coloring-popup__cta" href="https://amzn.eu/d/0fkqdUTv" target="_blank" rel="noopener noreferrer">Kup kolorowankę na Amazonie <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg><span class="coloring-popup__sr-only"> (otwiera się w nowej karcie)</span></a>
-		<p class="coloring-popup__note">47 aniołów. Twoje kolory. Twój czas.</p>
-		<button class="coloring-popup__later" type="button">Może później — wracam do galerii</button>
+		<p class="coloring-popup__eyebrow">{{popup_eyebrow}}</p>
+		<h2 id="coloring-popup-title">{{popup_title}}</h2>
+		<p class="coloring-popup__intro">{{popup_intro}}</p>
+		<p id="coloring-popup-description">{{popup_description}}</p>
+		<p class="coloring-popup__gift">{{popup_gift}}</p>
+		<a class="coloring-popup__cta" href="{{popup_url}}" target="_blank" rel="noopener noreferrer">{{popup_cta}} <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg><span class="coloring-popup__sr-only">{{popup_newTab}}</span></a>
+		<p class="coloring-popup__note">{{popup_note}}</p>
+		<button class="coloring-popup__later" type="button">{{popup_later}}</button>
 	</div>
 </dialog>
-<button class="coloring-launcher" id="coloring-launcher" type="button" aria-label="Otwórz ponownie kolorowankę Anioły i ofertę zakupu" aria-haspopup="dialog" aria-controls="coloring-popup" hidden>
+<button class="coloring-launcher" id="coloring-launcher" type="button" aria-label="{{popup_reopen}}" aria-haspopup="dialog" aria-controls="coloring-popup" hidden>
 	<img src="/img/anioly-kolorowanka.jpg" width="1200" height="1545" alt="" decoding="async">
-	<span><strong>Kolorowanka „Anioły”</strong><span>Wróć do oferty <span aria-hidden="true">→</span></span></span>
+	<span><strong>{{popup_launcherTitle}}</strong><span>{{popup_launcherLink}} <span aria-hidden="true">→</span></span></span>
 </button>
 <script>
 (function () {
 	'use strict';
 	var dialog = document.getElementById('coloring-popup');
-	if (!dialog || document.documentElement.lang !== 'pl' || typeof dialog.showModal !== 'function') return;
-	var key = 'parasion_coloring_popup_seen_v1';
+	if (!dialog || typeof dialog.showModal !== 'function') return;
+	var key = 'parasion_coloring_popup_seen_v1' + (document.documentElement.lang === 'pl' ? '' : '_' + document.documentElement.lang);
 	function wasSeen() {
 		try { return sessionStorage.getItem(key) === '1'; } catch (_) { return false; }
 	}

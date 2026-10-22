@@ -304,8 +304,8 @@
 (function () {
 	'use strict';
 	var dialog = document.getElementById('coloring-popup');
-	if (!dialog || document.documentElement.lang !== 'pl' || typeof dialog.showModal !== 'function') return;
-	var key = 'parasion_coloring_popup_seen_v1';
+	if (!dialog || typeof dialog.showModal !== 'function') return;
+	var key = 'parasion_coloring_popup_seen_v1' + (document.documentElement.lang === 'pl' ? '' : '_' + document.documentElement.lang);
 	function wasSeen() {
 		try { return sessionStorage.getItem(key) === '1'; } catch (_) { return false; }
 	}
