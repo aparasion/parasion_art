@@ -157,7 +157,11 @@ function fill(template, vars) {
 	// 2. Replace variables
 	for (var key in vars) {
 		if (vars.hasOwnProperty(key)) {
-			out = out.split('{{' + key + '}}').join(vars[key]);
+			var value = vars[key];
+			if (['title', 'description', 'ogDescription'].includes(key)) {
+				value = String(value).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+			}
+			out = out.split('{{' + key + '}}').join(value);
 		}
 	}
 	return out;
@@ -224,7 +228,8 @@ function buildGalleryPage(gallery, galleryIndex, lang) {
 		var parts = gallery.galleries.map(function(gal, i) {
 			var marginStyle = i > 0 ? ' style="margin-top: 80px;"' : '';
 			var lightbox = gallery.lightbox || '#00000080';
-			var block = '\t\t\t<h1 class="gallery-title"' + marginStyle + '>' + gal.title[lang] + '</h1>\n';
+			var heading = i === 0 ? 'h1' : 'h2';
+			var block = '\t\t\t<' + heading + ' class="gallery-title"' + marginStyle + '>' + gal.title[lang] + '</' + heading + '>\n';
 			block += '\t\t\t<p class="gallery-description">' + gallery.description[lang] + '</p>\n';
 			if (i === 0) {
 				block += '\n\t\t\t<script>if(!window.picflow){window.picflow=!0;var s=document.createElement("script");s.src="https://picflow.com/embed/main.js";s.type=\'module\';s.defer=true;document.head.appendChild(s);}</script>\n';
@@ -248,6 +253,7 @@ function buildGalleryPage(gallery, galleryIndex, lang) {
 	var jsonLd = '\t<script type="application/ld+json">\n\t{\n' +
 		'\t\t"@context": "https://schema.org",\n' +
 		'\t\t"@type": "ImageGallery",\n' +
+		'\t\t"inLanguage": "' + lang + '",\n' +
 		'\t\t"name": "' + gallery.title[lang] + '",\n' +
 		'\t\t"description": "' + gallery.description[lang] + '",\n' +
 		'\t\t"url": "' + fullUrl + '",\n' +
@@ -275,7 +281,7 @@ function buildGalleryPage(gallery, galleryIndex, lang) {
 		ga_id: data.site.ga_id,
 		author: author,
 		domain: data.site.domain,
-		title: author + ' — ' + gallery.title[lang],
+		title: gallery.seoTitle[lang],
 		description: gallery.description[lang],
 		ogDescription: gallery.description[lang],
 		ogImage: ogImageFor(gallery),
@@ -411,7 +417,7 @@ function buildContactPage(lang) {
 		ga_id: data.site.ga_id,
 		author: author,
 		domain: data.site.domain,
-		title: author + ' — ' + data.contact.title[lang],
+		title: data.contact.title[lang] + ' | ' + author,
 		description: data.contact.description[lang],
 		ogDescription: data.contact.description[lang],
 		ogImage: data.site.domain + '/img/bpr.png',
@@ -551,6 +557,23 @@ function validate() {
 	}
 }
 
+// Generate the sitemap advertised by robots.txt, using the same URLs as canonical tags.
+function buildSitemap() {
+	var groups = [Object.fromEntries(data.languages.map(lang => [lang, data.site.domain + homeUrl(lang)]))];
+	for (var gallery of data.galleries) {
+		groups.push(Object.fromEntries(data.languages.map(lang => [lang, data.site.domain + pageUrl(lang, gallery.slug[lang])])));
+	}
+	groups.push(Object.fromEntries(data.languages.map(lang => [lang, data.site.domain + contactUrl(lang)])));
+	var entries = [];
+	for (var urls of groups) {
+		var alternates = data.languages.map(lang => '\t\t<xhtml:link rel="alternate" hreflang="' + lang + '" href="' + xmlEscape(urls[lang]) + '"/>').join('\n');
+		for (var lang of data.languages) {
+			entries.push('\t<url>\n\t\t<loc>' + xmlEscape(urls[lang]) + '</loc>\n' + alternates + '\n\t</url>');
+		}
+	}
+	writeOutput('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + entries.join('\n') + '\n</urlset>\n');
+}
+
 // ---------------------------------------------------------------------------
 // Main build
 // ---------------------------------------------------------------------------
@@ -582,7 +605,8 @@ function build() {
 	// 404 page
 	build404Page();
 
-	// RSS feed
+	// Search discovery and RSS feed
+	buildSitemap();
 	buildFeed();
 
 	console.log('\nDone! Generated all HTML files in docs/.');
