@@ -1,7 +1,7 @@
 <dialog class="coloring-popup" id="coloring-popup" aria-labelledby="coloring-popup-title" aria-describedby="coloring-popup-description">
 	<button class="coloring-popup__close" type="button" aria-label="{{popup_close}}" autofocus>&times;</button>
 	<div class="coloring-popup__art">
-		<img src="/img/anioly-kolorowanka.jpg" width="1200" height="1545" alt="{{popup_coverAlt}}" decoding="async">
+		<img src="{{popup_coverImage}}" width="{{popup_coverWidth}}" height="{{popup_coverHeight}}" alt="{{popup_coverAlt}}" decoding="async">
 	</div>
 	<div class="coloring-popup__content">
 		<p class="coloring-popup__eyebrow">{{popup_eyebrow}}</p>
@@ -15,7 +15,7 @@
 	</div>
 </dialog>
 <button class="coloring-launcher" id="coloring-launcher" type="button" aria-label="{{popup_reopen}}" aria-haspopup="dialog" aria-controls="coloring-popup" hidden>
-	<img src="/img/anioly-kolorowanka.jpg" width="1200" height="1545" alt="" decoding="async">
+	<img src="{{popup_coverImage}}" width="{{popup_coverWidth}}" height="{{popup_coverHeight}}" alt="" decoding="async">
 	<span><strong>{{popup_launcherTitle}}</strong><span>{{popup_launcherLink}} <span aria-hidden="true">→</span></span></span>
 </button>
 <script>

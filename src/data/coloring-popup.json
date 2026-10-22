@@ -14,7 +14,10 @@
 		"later": "Może później — wracam do galerii",
 		"reopen": "Otwórz ponownie kolorowankę Anioły i ofertę zakupu",
 		"launcherTitle": "Kolorowanka „Anioły”",
-		"launcherLink": "Wróć do oferty"
+		"launcherLink": "Wróć do oferty",
+		"coverImage": "/img/anioly-kolorowanka.jpg",
+		"coverWidth": 1200,
+		"coverHeight": 1545
 	},
 	"en": {
 		"close": "Close popup",
@@ -31,7 +34,10 @@
 		"later": "Maybe later — back to the gallery",
 		"reopen": "Reopen the Angels coloring book offer",
 		"launcherTitle": "“Angels” coloring book",
-		"launcherLink": "Back to the offer"
+		"launcherLink": "Back to the offer",
+		"coverImage": "/img/Angels-coloring-book.png",
+		"coverWidth": 606,
+		"coverHeight": 785
 	},
 	"de": {
 		"close": "Fenster schließen",
@@ -48,7 +54,10 @@
 		"later": "Vielleicht später — zurück zur Galerie",
 		"reopen": "Angebot für das Malbuch Engel erneut öffnen",
 		"launcherTitle": "Malbuch „Engel“",
-		"launcherLink": "Zurück zum Angebot"
+		"launcherLink": "Zurück zum Angebot",
+		"coverImage": "/img/Angels-coloring-book.png",
+		"coverWidth": 606,
+		"coverHeight": 785
 	},
 	"es": {
 		"close": "Cerrar ventana",
@@ -65,6 +74,9 @@
 		"later": "Quizá más tarde — volver a la galería",
 		"reopen": "Volver a abrir la oferta del libro para colorear Ángeles",
 		"launcherTitle": "Libro para colorear «Ángeles»",
-		"launcherLink": "Volver a la oferta"
+		"launcherLink": "Volver a la oferta",
+		"coverImage": "/img/Angels-coloring-book.png",
+		"coverWidth": 606,
+		"coverHeight": 785
 	}
 }
