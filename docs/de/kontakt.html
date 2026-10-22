@@ -230,6 +230,121 @@
 		</div>
 	</footer>
 
+<dialog class="coloring-popup" id="coloring-popup" aria-labelledby="coloring-popup-title" aria-describedby="coloring-popup-description">
+	<button class="coloring-popup__close" type="button" aria-label="Fenster schließen" autofocus>&times;</button>
+	<div class="coloring-popup__art">
+		<img src="/img/anioly-kolorowanka.jpg" width="1200" height="1545" alt="Cover von Engel — ein Malbuch für Erwachsene. 47 einzigartige Engel. Kunstwerke von Bolesław Parasion." decoding="async">
+	</div>
+	<div class="coloring-popup__content">
+		<p class="coloring-popup__eyebrow">Kunst, der du deine eigenen Farben gibst</p>
+		<h2 id="coloring-popup-title">Gönn dir einen Moment<br>mit Engeln.</h2>
+		<p class="coloring-popup__intro">Lass den Alltag hinter dir. Nimm deine Buntstifte und tauche ein in eine Welt voller Flügel, Blumen und zauberhafter Details.</p>
+		<p id="coloring-popup-description"><strong>„Engel“ — ein Malbuch für Erwachsene</strong> enthält 47 einzigartige Engel aus den Werken von Bolesław Parasion. Wähle deine Lieblingsfarben und verleihe jedem Engel seinen eigenen Charakter.</p>
+		<p class="coloring-popup__gift">Für einen ruhigen Abend ganz für dich. Oder als Geschenk für jemanden, der gerne kreativ ist.</p>
+		<a class="coloring-popup__cta" href="https://amzn.eu/d/02BcMnSg" target="_blank" rel="noopener noreferrer">Malbuch bei Amazon kaufen <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg><span class="coloring-popup__sr-only"> (öffnet sich in einem neuen Tab)</span></a>
+		<p class="coloring-popup__note">47 Engel. Deine Farben. Deine Zeit.</p>
+		<button class="coloring-popup__later" type="button">Vielleicht später — zurück zur Galerie</button>
+	</div>
+</dialog>
+<button class="coloring-launcher" id="coloring-launcher" type="button" aria-label="Angebot für das Malbuch Engel erneut öffnen" aria-haspopup="dialog" aria-controls="coloring-popup" hidden>
+	<img src="/img/anioly-kolorowanka.jpg" width="1200" height="1545" alt="" decoding="async">
+	<span><strong>Malbuch „Engel“</strong><span>Zurück zum Angebot <span aria-hidden="true">→</span></span></span>
+</button>
+<script>
+(function () {
+	'use strict';
+	var dialog = document.getElementById('coloring-popup');
+	if (!dialog || typeof dialog.showModal !== 'function') return;
+	var key = 'parasion_coloring_popup_seen_v1' + (document.documentElement.lang === 'pl' ? '' : '_' + document.documentElement.lang);
+	function wasSeen() {
+		try { return sessionStorage.getItem(key) === '1'; } catch (_) { return false; }
+	}
+	var launcher = document.getElementById('coloring-launcher');
+	var image = dialog.querySelector('img');
+	var timer;
+	var finished = wasSeen();
+	var restoreScroll = null;
+	function showLauncher() {
+		launcher.hidden = dialog.open || !(finished || wasSeen()) || !image.complete || !image.naturalWidth;
+	}
+	function restore() {
+		if (restoreScroll) { restoreScroll(); restoreScroll = null; }
+	}
+	function close() {
+		dialog.close();
+		restore();
+		showLauncher();
+		if (!launcher.hidden) launcher.focus({ preventScroll: true });
+	}
+	launcher.addEventListener('click', openPopup);
+	image.addEventListener('load', showLauncher);
+	showLauncher();
+	dialog.addEventListener('cancel', function (event) { event.preventDefault(); close(); });
+	dialog.querySelector('.coloring-popup__close').addEventListener('click', close);
+	dialog.querySelector('.coloring-popup__later').addEventListener('click', close);
+	dialog.querySelector('.coloring-popup__cta').addEventListener('click', close);
+	dialog.addEventListener('keydown', function (event) {
+		// Keep the site's gallery keyboard shortcuts from navigating behind the modal.
+		event.stopPropagation();
+		if (event.key !== 'Tab') return;
+		var first = dialog.querySelector('.coloring-popup__close');
+		var last = dialog.querySelector('.coloring-popup__later');
+		if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+		else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+	});
+	// Only dismiss an actual backdrop click, never a click on the card itself.
+	var backdropDown = false;
+	function outside(event) {
+		var rect = dialog.getBoundingClientRect();
+		return event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
+	}
+	dialog.addEventListener('pointerdown', function (event) { backdropDown = event.target === dialog && outside(event); });
+	dialog.addEventListener('click', function (event) {
+		if (backdropDown && event.target === dialog && outside(event)) close();
+		backdropDown = false;
+	});
+	dialog.addEventListener('close', function () {
+		if (!dialog.open) { restore(); showLauncher(); }
+	});
+	function openWhenReady() {
+		if (finished || wasSeen()) return;
+		// A failed or missing cover must never produce a broken promotional card.
+		if (!image.complete) { timer = setTimeout(openWhenReady, 500); return; }
+		if (!image.naturalWidth) return;
+		var active = document.activeElement;
+		if (document.hidden || document.querySelector('dialog[open]') ||
+			(active && (active.matches('input, textarea, select') || active.isContentEditable))) {
+			timer = setTimeout(openWhenReady, 1000);
+			return;
+		}
+		openPopup();
+	}
+	function openPopup() {
+		if (!image.naturalWidth || document.querySelector('dialog[open]')) return;
+		clearTimeout(timer);
+		var body = document.body;
+		var overflow = body.style.overflow;
+		var padding = body.style.paddingRight;
+		var gap = window.innerWidth - document.documentElement.clientWidth;
+		body.style.paddingRight = (parseFloat(getComputedStyle(body).paddingRight) + gap) + 'px';
+		body.style.overflow = 'hidden';
+		restoreScroll = function () { body.style.overflow = overflow; body.style.paddingRight = padding; };
+		try { dialog.showModal(); } catch (_) { restoreScroll(); restoreScroll = null; return; }
+		dialog.scrollTop = 0;
+		launcher.hidden = true;
+		finished = true;
+		try { sessionStorage.setItem(key, '1'); } catch (_) { /* Storage may be disabled. */ }
+	}
+	if (!finished) timer = setTimeout(openWhenReady, 6000);
+	window.addEventListener('pagehide', function () { clearTimeout(timer); if (dialog.open) close(); });
+	window.addEventListener('pageshow', function (event) {
+		showLauncher();
+		if (event.persisted && !finished && !wasSeen()) timer = setTimeout(openWhenReady, 6000);
+	});
+})();
+</script>
+
+
 
 	<script>
 	(function() {

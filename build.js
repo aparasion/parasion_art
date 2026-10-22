@@ -16,6 +16,8 @@ const ROOT = __dirname;
 const DOCS = path.join(ROOT, 'docs');
 const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/data/site.json'), 'utf8'));
 
+const popupData = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/data/coloring-popup.json'), 'utf8'));
+
 // ---------------------------------------------------------------------------
 // Load templates & partials
 // ---------------------------------------------------------------------------
@@ -145,8 +147,13 @@ function featuredCards(lang, i18n) {
 function fill(template, vars) {
 	// 1. Resolve partials first
 	var out = resolvePartials(template);
-	// Promotional content belongs only to actual Polish pages (not the shared 404).
-	out = out.split('{{coloringPopup}}').join(vars.lang === 'pl' ? '\n\n' + partials['coloring-popup'] : '');
+	// Include the localized promotion on actual language pages, not the shared 404.
+	var popupCopy = popupData[vars.lang];
+	var popup = popupCopy ? partials['coloring-popup'].replace(/\{\{popup_(\w+)\}\}/g, function (_, key) {
+		if (!Object.prototype.hasOwnProperty.call(popupCopy, key)) throw new Error('Missing popup translation: ' + vars.lang + '.' + key);
+		return popupCopy[key];
+	}) : '';
+	out = out.split('{{coloringPopup}}').join(popup ? '\n\n' + popup : '');
 	// 2. Replace variables
 	for (var key in vars) {
 		if (vars.hasOwnProperty(key)) {
