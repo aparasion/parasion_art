@@ -1200,27 +1200,27 @@ textarea:focus-visible {
   .gallery-nav a { justify-content: center; }
 }
 
-/* Polish coloring book promotion */
+/* Coloring book promotion — shared by all languages. */
 .coloring-popup {
   position: fixed;
   inset: 0;
   margin: auto;
   padding: 0;
-  width: min(900px, calc(100% - 40px));
-  max-width: 900px;
+  width: min(840px, calc(100% - 40px));
+  max-width: 840px;
   max-height: calc(100vh - 40px);
   max-height: calc(100dvh - 40px);
   overflow: auto;
   overscroll-behavior: contain;
-  border: 1px solid #e6d9bd;
+  border: 1px solid #dce3dd;
   border-radius: 20px;
-  background: #fffaf1;
-  color: #15294a;
+  background: #f1f4ef;
+  color: #263e35;
   color-scheme: light;
   box-shadow: 0 28px 100px #06152b55;
 }
-.coloring-popup[open] { display: grid; grid-template-columns: 42% 58%; animation: coloring-appear .25s ease-out; }
-.coloring-popup::backdrop { background: rgb(8 20 39 / 65%); backdrop-filter: blur(5px); }
+.coloring-popup[open] { display: grid; grid-template-columns: 43% 57%; animation: coloring-appear .25s ease-out; }
+.coloring-popup::backdrop { background: rgb(22 34 29 / 55%); backdrop-filter: blur(5px); }
 .coloring-popup__close {
   position: absolute;
   z-index: 1;
@@ -1230,32 +1230,33 @@ textarea:focus-visible {
   place-items: center;
   width: 44px;
   height: 44px;
-  border: 1px solid #dccfb6;
+  border: 1px solid #dce3dd;
   border-radius: 50%;
-  background: #fffaf1;
-  color: #15294a;
+  background: #f1f4ef;
+  color: #263e35;
   font: 30px/1 system-ui, sans-serif;
   cursor: pointer;
 }
-.coloring-popup__art { display: grid; align-items: center; padding: 24px; background: #f2e9d7; }
-.coloring-popup__art img { display: block; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 12px 26px #26304426; }
-.coloring-popup__content { align-self: center; padding: 52px 38px 30px; }
-.coloring-popup__eyebrow { margin: 0 0 16px; color: #856016; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
-.coloring-popup h2 { margin: 0 0 18px; color: #142c55; font: 500 clamp(28px, 3.8vw, 42px)/1.13 Georgia, serif; letter-spacing: -.035em; }
-.coloring-popup__content > p:not(.coloring-popup__eyebrow):not(.coloring-popup__note) { margin: 0 0 16px; color: #4f5360; font-size: 14px; line-height: 1.75; }
-.coloring-popup__content strong { color: #233958; font-weight: 600; }
-.coloring-popup__content > .coloring-popup__gift { padding-left: 14px; border-left: 2px solid #c99a40; }
+.coloring-popup__art { display: grid; align-items: center; padding: 32px; background: #fff; }
+.coloring-popup__art img { display: block; width: 100%; height: auto; border-radius: 2px; box-shadow: 0 8px 24px rgb(30 47 39 / 10%); }
+.coloring-popup__content { align-self: center; padding: 60px 36px 32px; }
+.coloring-popup__eyebrow { margin: 0 0 16px; color: #536c5c; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.coloring-popup h2 { margin: 0 0 18px; color: #263e35; font: 500 clamp(28px, 3.4vw, 38px)/1.15 Georgia, serif; letter-spacing: -.035em; }
+.coloring-popup__content > p:not(.coloring-popup__eyebrow) { margin: 0 0 16px; color: #526057; font-size: 14px; line-height: 1.65; }
+.coloring-popup__content strong { color: #344c40; font-weight: 600; }
 .coloring-popup__cta {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  min-height: 54px;
+  gap: 12px;
+  min-height: 50px;
   padding: 14px 18px;
-  border: 1px solid #244c7d;
+  border: 1px solid #3e5e4e;
   border-radius: 9px;
-  background: #173761;
-  box-shadow: 0 4px 12px rgb(23 55 97 / 20%);
+  background: #304d3e;
+  box-shadow: none;
+  margin-top: 24px;
+  transition: background-color .2s ease;
   font-size: 15px;
   font-weight: 600;
   line-height: 1.5;
@@ -1267,12 +1268,11 @@ textarea:focus-visible {
 .coloring-popup__cta:hover,
 .coloring-popup__cta:focus-visible,
 .coloring-popup__cta:active { color: #fff; opacity: 1; text-decoration: none; }
-.coloring-popup__cta:hover { background: #244c7d; box-shadow: 0 6px 16px rgb(23 55 97 / 28%); }
-.coloring-popup__cta:active { background: #102b50; }
+.coloring-popup__cta:hover { background: #3e5e4e; box-shadow: none; }
+.coloring-popup__cta:active { background: #263e32; }
 .coloring-popup__cta svg { flex-shrink: 0; }
-.coloring-popup__note { margin: 11px 0 16px; color: #686455; font-size: 11px; text-align: center; }
-.coloring-popup__later { display: block; min-height: 44px; margin: 0 auto; padding: 8px 4px; border: 0; background: transparent; color: #5c6070; font: inherit; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
-.coloring-popup :is(button, a):focus-visible { outline: 3px solid #ba7e19; outline-offset: 4px; }
+.coloring-popup__later { display: block; min-height: 44px; margin: 10px auto 0; padding: 8px 4px; border: 0; background: transparent; color: #526057; font: inherit; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.coloring-popup :is(button, a):focus-visible { outline: 3px solid #5a7865; outline-offset: 4px; }
 .coloring-popup__sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @keyframes coloring-appear { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 640px) {
@@ -1294,27 +1294,27 @@ textarea:focus-visible {
   bottom: max(18px, env(safe-area-inset-bottom));
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
   max-width: calc(100vw - 36px);
-  padding: 8px 14px 8px 8px;
-  border: 1px solid #d9bd81;
+  padding: 12px 20px 12px 12px;
+  border: 1px solid #dce3dd;
   border-radius: 14px;
-  background: #fffaf1;
-  color: #173761;
+  background: #fff;
+  color: #304d3e;
   box-shadow: 0 4px 20px #102c4726;
-  font: 12px/1.4 var(--font-sans);
+  font: 14px/1.4 var(--font-sans);
   text-align: left;
   cursor: pointer;
   transition: box-shadow .2s ease, background-color .2s ease;
 }
 .coloring-launcher[hidden] { display: none; }
-.coloring-launcher > img { flex: none; width: 34px; height: 44px; object-fit: contain; border-radius: 3px; }
+.coloring-launcher > img { flex: none; width: 46px; height: 60px; object-fit: contain; border-radius: 3px; }
 .coloring-launcher > span { display: grid; gap: 3px; }
 .coloring-launcher strong { font-weight: 600; }
-.coloring-launcher > span > span { color: #656050; font-size: 11px; }
-.coloring-launcher:hover { background: #fff4df; box-shadow: 0 6px 24px #102c473b; }
-.coloring-launcher:focus-visible { outline: 3px solid #ba7e19; outline-offset: 3px; }
+.coloring-launcher > span > span { color: #526057; font-size: 12px; }
+.coloring-launcher:hover { background: #fff; box-shadow: 0 6px 24px #102c473b; }
+.coloring-launcher:focus-visible { outline: 3px solid #5a7865; outline-offset: 3px; }
 @media (max-width: 640px) {
-  .coloring-launcher { left: max(12px, env(safe-area-inset-left)); bottom: max(12px, env(safe-area-inset-bottom)); padding-right: 10px; font-size: 11px; }
+  .coloring-launcher { left: max(12px, env(safe-area-inset-left)); bottom: max(12px, env(safe-area-inset-bottom)); padding-right: 16px; font-size: 13px; }
 }
 @media (prefers-reduced-motion: reduce) { .coloring-launcher { transition: none; } }
