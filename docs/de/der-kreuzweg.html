@@ -42,9 +42,7 @@
 
 	<script>
 	function toggleMenu() {
-		var nav = document.getElementById('site-nav');
-		var open = nav.classList.toggle('open');
-		nav.querySelector('button').setAttribute('aria-expanded', String(open));
+		document.getElementById('site-nav').classList.toggle('open');
 	}
 	function toggleTheme() {
 		var root = document.documentElement;
@@ -60,14 +58,14 @@
 	document.addEventListener('click', function(e) {
 		var nav = document.getElementById('site-nav');
 		if (nav && nav.classList.contains('open') && !nav.contains(e.target)) {
-			nav.classList.remove('open'); nav.querySelector('button').setAttribute('aria-expanded', 'false');
+			nav.classList.remove('open');
 		}
 	});
 
 	document.addEventListener('keydown', function(e) {
 		if (e.key === 'Escape') {
 			var nav = document.getElementById('site-nav');
-			if (nav && nav.classList.contains('open')) { nav.classList.remove('open'); nav.querySelector('button').setAttribute('aria-expanded', 'false'); nav.querySelector('button').focus(); }
+			if (nav) nav.classList.remove('open');
 			return;
 		}
 
@@ -103,7 +101,6 @@
 	<header class="site-header" id="site-header">
 		<div class="wrapper">
 			<a class="site-title" href="/de/"><span class="site-title-full">Bolesław Parasion</span><span class="site-title-mobile">PARASION.art</span></a>
-			<nav class="primary-nav" aria-label="Menü"><a href="/de/#gallery">Werke</a><a href="/de/#about">Über mich</a><a href="/de/kontakt">Kontakt aufnehmen</a></nav>
 			<div class="header-controls">
 				<div class="lang-selector lang-selector--header">
 					<a href="/droga-krzyzowa" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski" width="24"></a>
@@ -116,13 +113,13 @@
 					<svg class="theme-icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
 				</button>
 				<nav class="site-nav" id="site-nav">
-					<button class="nav-trigger" onclick="toggleMenu()" aria-expanded="false" aria-controls="nav-dropdown" aria-label="Menü">
+					<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menü">
 						<span class="hamburger" id="hamburger">
 							<span></span><span></span><span></span>
 						</span>
 					</button>
-					<div class="dropdown" id="nav-dropdown">
-<a href="/de/#gallery">Werke</a><a href="/de/#about">Über mich</a>					<a href="/de/engel">Engel</a>
+					<div class="dropdown">
+					<a href="/de/engel">Engel</a>
 					<a href="/de/triptychen">Triptychen</a>
 					<a href="/de/madonnen">Madonnen</a>
 					<a href="/de/die-erschaffung-der-welt">Die Erschaffung der Welt</a>
@@ -144,7 +141,6 @@
 
 			<p class="breadcrumb"><a href="/de/">Bolesław Parasion</a> <span class="breadcrumb-sep">/</span> Der Kreuzweg</p>
 
-<p class="gallery-inquiry"><a class="text-link" href="/de/kontakt?subject=Der%20Kreuzweg">Zu dieser Sammlung anfragen ↗</a></p>
 			<h1 class="gallery-title">Der Kreuzweg (Triptychon-Version)</h1>
 			<p class="gallery-description">Der Kreuzweg von Bolesław Parasion</p>
 
@@ -164,9 +160,6 @@
 		</div>
 	</main>
 
-
-
-<aside class="book-promotion"><div class="wrapper book-inner"><img src="/img/Angels-coloring-book.png" width="606" height="785" alt="Cover von Engel — ein Malbuch für Erwachsene. 47 einzigartige Engel. Kunstwerke von Bolesław Parasion." loading="lazy"><div><p class="section-eyebrow">Kunst, der du deine eigenen Farben gibst</p><h2>Gönn dir einen Moment<br>mit Engeln.</h2><p><strong>„Engel“ — ein Malbuch für Erwachsene</strong> enthält 47 einzigartige Engel aus den Werken von Bolesław Parasion. Wähle deine Lieblingsfarben und verleihe jedem Engel seinen eigenen Charakter.</p><a class="button" href="https://amzn.eu/d/02BcMnSg" target="_blank" rel="noopener noreferrer">Malbuch bei Amazon kaufen ↗<span class="sr-only"> (öffnet sich in einem neuen Tab)</span></a><p class="book-note">47 Engel. Deine Farben. Deine Zeit.</p></div></div></aside>
 	<button class="back-to-top" id="back-to-top" aria-label="Back to top">
 		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
 	</button>
@@ -178,6 +171,121 @@
 			<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 		</div>
 	</footer>
+
+<dialog class="coloring-popup" id="coloring-popup" aria-labelledby="coloring-popup-title" aria-describedby="coloring-popup-description">
+	<button class="coloring-popup__close" type="button" aria-label="Fenster schließen" autofocus>&times;</button>
+	<div class="coloring-popup__art">
+		<img src="/img/Angels-coloring-book.png" width="606" height="785" alt="Cover von Engel — ein Malbuch für Erwachsene. 47 einzigartige Engel. Kunstwerke von Bolesław Parasion." decoding="async">
+	</div>
+	<div class="coloring-popup__content">
+		<p class="coloring-popup__eyebrow">Kunst, der du deine eigenen Farben gibst</p>
+		<h2 id="coloring-popup-title">Gönn dir einen Moment<br>mit Engeln.</h2>
+		<p class="coloring-popup__intro">Lass den Alltag hinter dir. Nimm deine Buntstifte und tauche ein in eine Welt voller Flügel, Blumen und zauberhafter Details.</p>
+		<p id="coloring-popup-description"><strong>„Engel“ — ein Malbuch für Erwachsene</strong> enthält 47 einzigartige Engel aus den Werken von Bolesław Parasion. Wähle deine Lieblingsfarben und verleihe jedem Engel seinen eigenen Charakter.</p>
+		<p class="coloring-popup__gift">Für einen ruhigen Abend ganz für dich. Oder als Geschenk für jemanden, der gerne kreativ ist.</p>
+		<a class="coloring-popup__cta" href="https://amzn.eu/d/02BcMnSg" target="_blank" rel="noopener noreferrer">Malbuch bei Amazon kaufen <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg><span class="coloring-popup__sr-only"> (öffnet sich in einem neuen Tab)</span></a>
+		<p class="coloring-popup__note">47 Engel. Deine Farben. Deine Zeit.</p>
+		<button class="coloring-popup__later" type="button">Vielleicht später — zurück zur Galerie</button>
+	</div>
+</dialog>
+<button class="coloring-launcher" id="coloring-launcher" type="button" aria-label="Angebot für das Malbuch Engel erneut öffnen" aria-haspopup="dialog" aria-controls="coloring-popup" hidden>
+	<img src="/img/Angels-coloring-book.png" width="606" height="785" alt="" decoding="async">
+	<span><strong>Malbuch „Engel“</strong><span>Zurück zum Angebot <span aria-hidden="true">→</span></span></span>
+</button>
+<script>
+(function () {
+	'use strict';
+	var dialog = document.getElementById('coloring-popup');
+	if (!dialog || typeof dialog.showModal !== 'function') return;
+	var key = 'parasion_coloring_popup_seen_v1' + (document.documentElement.lang === 'pl' ? '' : '_' + document.documentElement.lang);
+	function wasSeen() {
+		try { return sessionStorage.getItem(key) === '1'; } catch (_) { return false; }
+	}
+	var launcher = document.getElementById('coloring-launcher');
+	var image = dialog.querySelector('img');
+	var timer;
+	var finished = wasSeen();
+	var restoreScroll = null;
+	function showLauncher() {
+		launcher.hidden = dialog.open || !(finished || wasSeen()) || !image.complete || !image.naturalWidth;
+	}
+	function restore() {
+		if (restoreScroll) { restoreScroll(); restoreScroll = null; }
+	}
+	function close() {
+		dialog.close();
+		restore();
+		showLauncher();
+		if (!launcher.hidden) launcher.focus({ preventScroll: true });
+	}
+	launcher.addEventListener('click', openPopup);
+	image.addEventListener('load', showLauncher);
+	showLauncher();
+	dialog.addEventListener('cancel', function (event) { event.preventDefault(); close(); });
+	dialog.querySelector('.coloring-popup__close').addEventListener('click', close);
+	dialog.querySelector('.coloring-popup__later').addEventListener('click', close);
+	dialog.querySelector('.coloring-popup__cta').addEventListener('click', close);
+	dialog.addEventListener('keydown', function (event) {
+		// Keep the site's gallery keyboard shortcuts from navigating behind the modal.
+		event.stopPropagation();
+		if (event.key !== 'Tab') return;
+		var first = dialog.querySelector('.coloring-popup__close');
+		var last = dialog.querySelector('.coloring-popup__later');
+		if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+		else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+	});
+	// Only dismiss an actual backdrop click, never a click on the card itself.
+	var backdropDown = false;
+	function outside(event) {
+		var rect = dialog.getBoundingClientRect();
+		return event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
+	}
+	dialog.addEventListener('pointerdown', function (event) { backdropDown = event.target === dialog && outside(event); });
+	dialog.addEventListener('click', function (event) {
+		if (backdropDown && event.target === dialog && outside(event)) close();
+		backdropDown = false;
+	});
+	dialog.addEventListener('close', function () {
+		if (!dialog.open) { restore(); showLauncher(); }
+	});
+	function openWhenReady() {
+		if (finished || wasSeen()) return;
+		// A failed or missing cover must never produce a broken promotional card.
+		if (!image.complete) { timer = setTimeout(openWhenReady, 500); return; }
+		if (!image.naturalWidth) return;
+		var active = document.activeElement;
+		if (document.hidden || document.querySelector('dialog[open]') ||
+			(active && (active.matches('input, textarea, select') || active.isContentEditable))) {
+			timer = setTimeout(openWhenReady, 1000);
+			return;
+		}
+		openPopup();
+	}
+	function openPopup() {
+		if (!image.naturalWidth || document.querySelector('dialog[open]')) return;
+		clearTimeout(timer);
+		var body = document.body;
+		var overflow = body.style.overflow;
+		var padding = body.style.paddingRight;
+		var gap = window.innerWidth - document.documentElement.clientWidth;
+		body.style.paddingRight = (parseFloat(getComputedStyle(body).paddingRight) + gap) + 'px';
+		body.style.overflow = 'hidden';
+		restoreScroll = function () { body.style.overflow = overflow; body.style.paddingRight = padding; };
+		try { dialog.showModal(); } catch (_) { restoreScroll(); restoreScroll = null; return; }
+		dialog.scrollTop = 0;
+		launcher.hidden = true;
+		finished = true;
+		try { sessionStorage.setItem(key, '1'); } catch (_) { /* Storage may be disabled. */ }
+	}
+	if (!finished) timer = setTimeout(openWhenReady, 3000);
+	window.addEventListener('pagehide', function () { clearTimeout(timer); if (dialog.open) close(); });
+	window.addEventListener('pageshow', function (event) {
+		showLauncher();
+		if (event.persisted && !finished && !wasSeen()) timer = setTimeout(openWhenReady, 3000);
+	});
+})();
+</script>
+
 
 
 	<script type="application/ld+json">

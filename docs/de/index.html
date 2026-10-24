@@ -42,9 +42,7 @@
 
 	<script>
 	function toggleMenu() {
-		var nav = document.getElementById('site-nav');
-		var open = nav.classList.toggle('open');
-		nav.querySelector('button').setAttribute('aria-expanded', String(open));
+		document.getElementById('site-nav').classList.toggle('open');
 	}
 	function toggleTheme() {
 		var root = document.documentElement;
@@ -60,14 +58,14 @@
 	document.addEventListener('click', function(e) {
 		var nav = document.getElementById('site-nav');
 		if (nav && nav.classList.contains('open') && !nav.contains(e.target)) {
-			nav.classList.remove('open'); nav.querySelector('button').setAttribute('aria-expanded', 'false');
+			nav.classList.remove('open');
 		}
 	});
 
 	document.addEventListener('keydown', function(e) {
 		if (e.key === 'Escape') {
 			var nav = document.getElementById('site-nav');
-			if (nav && nav.classList.contains('open')) { nav.classList.remove('open'); nav.querySelector('button').setAttribute('aria-expanded', 'false'); nav.querySelector('button').focus(); }
+			if (nav) nav.classList.remove('open');
 			return;
 		}
 
@@ -125,7 +123,6 @@
 	<header class="site-header" id="site-header">
 		<div class="wrapper">
 			<a class="site-title" href="/de/"><span class="site-title-full">Bolesław Parasion</span><span class="site-title-mobile">PARASION.art</span></a>
-			<nav class="primary-nav" aria-label="Menü"><a href="/de/#gallery">Werke</a><a href="/de/#about">Über mich</a><a href="/de/kontakt">Kontakt aufnehmen</a></nav>
 			<div class="header-controls">
 				<div class="lang-selector lang-selector--header">
 					<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski" width="24"></a>
@@ -138,13 +135,13 @@
 					<svg class="theme-icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
 				</button>
 				<nav class="site-nav" id="site-nav">
-					<button class="nav-trigger" onclick="toggleMenu()" aria-expanded="false" aria-controls="nav-dropdown" aria-label="Menü">
+					<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menü">
 						<span class="hamburger" id="hamburger">
 							<span></span><span></span><span></span>
 						</span>
 					</button>
-					<div class="dropdown" id="nav-dropdown">
-<a href="/de/#gallery">Werke</a><a href="/de/#about">Über mich</a>					<a href="/de/engel">Engel</a>
+					<div class="dropdown">
+					<a href="/de/engel">Engel</a>
 					<a href="/de/triptychen">Triptychen</a>
 					<a href="/de/madonnen">Madonnen</a>
 					<a href="/de/die-erschaffung-der-welt">Die Erschaffung der Welt</a>
@@ -166,13 +163,14 @@
 		<section class="hero fade-in">
 			<div class="wrapper">
 				<div class="hero-inner">
-<div class="hero-text">
-                        <span class="hero-eyebrow">Volkskunst Bildhauer</span>
-                        <h1 class="hero-name">Bolesław Parasion</h1>
-                        <p class="hero-intro">Sakrale und volkstümliche Skulpturen. Werke für Sammler, Galerien und sakrale Räume.</p>
-                        <div class="hero-actions"><a class="button" href="#gallery">Werke entdecken <span aria-hidden="true">↗</span></a><a class="text-link" href="/de/kontakt">Kontakt aufnehmen</a></div>
-                    </div>
-                    <div class="hero-art"><img src="/img/anioly.jpg" alt="Sakrale und volkstümliche Skulpturen. Werke für Sammler, Galerien und sakrale Räume." width="720" height="900" fetchpriority="high"></div>
+					<div class="hero-portrait">
+						<img src="/img/bpr.png" alt="Bolesław Parasion — Volkskunst Bildhauer" width="200" height="200">
+					</div>
+					<div class="hero-text">
+						<span class="hero-eyebrow">Volkskunst Bildhauer</span>
+						<h1 class="hero-name">Bolesław Parasion</h1>
+						<p class="bio">Mein Name ist Bolesław Parasion und ich bin Bildhauer. Meine Arbeiten konzentrieren sich auf sakrale und volkstümliche Themen. Ich erschaffe <a href="/de/triptychen">Triptychen</a>, <a href="/de/engel">bunte Engel</a>, <a href="/de/madonnen">Madonnen</a>, <a href="/de/weihnachtskrippe">Weihnachtskrippen</a> und monumentale religiöse Skulpturen, wie zum Beispiel <a href="/de/die-erschaffung-der-welt">Die Erschaffung der Welt</a>, <a href="/de/das-letzte-abendmahl">Das letzte Abendmahl</a> oder <a href="/de/der-kreuzweg">Der Kreuzweg</a>. Einige meiner Arbeiten zum Kreuzweg befinden sich in Kirchen in Polen und in den USA. Meine Arbeiten wurden in Ausstellungen im In- und Ausland präsentiert und bei Kunstwettbewerben ausgezeichnet. Ich arbeite ununterbrochen und erfülle Aufträge für Sammler, private Kunden und Kunstgalerien. Die Bildhauerei bleibt meine größte Leidenschaft und ein untrennbarer Teil meines Lebens. Ich lade Sie ein, meine Galerie mit Arbeiten zu besuchen.</p>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -180,7 +178,7 @@
 		<section class="featured-strip fade-in">
 			<div class="wrapper">
 				<div class="section-head">
-					<h2 class="section-eyebrow">Ausgewählte Sammlungen</h2>
+					<span class="section-eyebrow">Ausgewählte Arbeiten</span>
 				</div>
 				<div class="featured-grid">
 					<a href="/de/das-letzte-abendmahl" class="featured-card">
@@ -191,7 +189,7 @@
 						</div>
 					</a>
 					<a href="/de/die-erschaffung-der-welt" class="featured-card">
-						<div class="featured-card-img" style="background-image: url('/img/stworzenie.jpg'); background-position: center 30%; transform: scale(1)"></div>
+						<div class="featured-card-img" style="background-image: url('/img/stworzenie.jpg'); background-position: center 30%; transform: scale(1.1)"></div>
 						<div class="featured-card-body">
 							<span class="featured-card-tag">Galerien</span>
 							<span class="featured-card-title">Die Erschaffung der Welt</span>
@@ -205,7 +203,7 @@
 						</div>
 					</a>
 					<a href="/de/madonnen" class="featured-card">
-						<div class="featured-card-img" style="background-image: url('/img/madonny.png'); background-position: center 25%; transform: scale(1)"></div>
+						<div class="featured-card-img" style="background-image: url('/img/madonny.png'); background-position: center 25%; transform: scale(1.2)"></div>
 						<div class="featured-card-body">
 							<span class="featured-card-tag">Galerien</span>
 							<span class="featured-card-title">Madonnen</span>
@@ -218,12 +216,17 @@
 		<section class="featured fade-in" id="gallery">
 			<div class="wrapper">
 				<div class="section-head">
-					<h2 class="section-eyebrow">Galerien</h2>
+					<span class="section-eyebrow">Galerien</span>
 					<span class="section-count">09</span>
+				</div>
+				<div class="gallery-filter">
+					<svg class="gallery-filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+					<input id="gallery-filter" class="gallery-filter-input" type="search" placeholder="Galerien filtern" aria-label="Galerien filtern">
+					<span class="gallery-filter-shortcut">/</span>
 				</div>
 				<div class="gallery-grid" id="gallery-grid">
 					<a href="/de/engel" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/anioly.jpg'); background-position: center 20%; transform: scale(1)"></div>
+						<div class="gallery-card-img" style="background-image: url('/img/anioly.jpg'); background-position: center 20%; transform: scale(1.1)"></div>
 						<span class="gallery-card-label">Engel</span>
 					</a>
 					<a href="/de/triptychen" class="gallery-card">
@@ -231,11 +234,11 @@
 						<span class="gallery-card-label">Triptychen</span>
 					</a>
 					<a href="/de/madonnen" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/madonny.png'); background-position: center 25%; transform: scale(1)"></div>
+						<div class="gallery-card-img" style="background-image: url('/img/madonny.png'); background-position: center 25%; transform: scale(1.2)"></div>
 						<span class="gallery-card-label">Madonnen</span>
 					</a>
 					<a href="/de/die-erschaffung-der-welt" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/stworzenie.jpg'); background-position: center 30%; transform: scale(1)"></div>
+						<div class="gallery-card-img" style="background-image: url('/img/stworzenie.jpg'); background-position: center 30%; transform: scale(1.1)"></div>
 						<span class="gallery-card-label">Die Erschaffung der Welt</span>
 					</a>
 					<a href="/de/das-letzte-abendmahl" class="gallery-card">
@@ -247,15 +250,15 @@
 						<span class="gallery-card-label">Der Kreuzweg</span>
 					</a>
 					<a href="/de/weihnachtskrippe" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/szopka.jpg'); background-position: center 20%; transform: scale(1)"></div>
+						<div class="gallery-card-img" style="background-image: url('/img/szopka.jpg'); background-position: center 20%; transform: scale(1.15)"></div>
 						<span class="gallery-card-label">Weihnachtskrippe</span>
 					</a>
 					<a href="/de/verschiedene-holzfiguren" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/pozostale.jpg'); background-position: center 15%; transform: scale(1)"></div>
+						<div class="gallery-card-img" style="background-image: url('/img/pozostale.jpg'); background-position: center 15%; transform: scale(1.15)"></div>
 						<span class="gallery-card-label">Verschiedene Holzfiguren</span>
 					</a>
 					<a href="/de/atelier" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/atelier.jpg'); background-position: center 30%; transform: scale(1)"></div>
+						<div class="gallery-card-img" style="background-image: url('/img/atelier.jpg'); background-position: center 30%; transform: scale(1.05)"></div>
 						<span class="gallery-card-label">Atelier</span>
 					</a>
 				</div>
@@ -263,13 +266,8 @@
 			</div>
 		</section>
 
-        <section class="about-section" id="about"><div class="wrapper about-inner"><img src="/img/bpr.png" alt="Bolesław Parasion — Volkskunst Bildhauer" width="200" height="200" loading="lazy"><div><span class="section-eyebrow">Ein Leben für die Bildhauerei</span><h2>Über mich</h2><p class="bio">Mein Name ist Bolesław Parasion und ich bin Bildhauer. Meine Arbeiten konzentrieren sich auf sakrale und volkstümliche Themen. Ich erschaffe <a href="/de/triptychen">Triptychen</a>, <a href="/de/engel">bunte Engel</a>, <a href="/de/madonnen">Madonnen</a>, <a href="/de/weihnachtskrippe">Weihnachtskrippen</a> und monumentale religiöse Skulpturen, wie zum Beispiel <a href="/de/die-erschaffung-der-welt">Die Erschaffung der Welt</a>, <a href="/de/das-letzte-abendmahl">Das letzte Abendmahl</a> oder <a href="/de/der-kreuzweg">Der Kreuzweg</a>. Einige meiner Arbeiten zum Kreuzweg befinden sich in Kirchen in Polen und in den USA. Meine Arbeiten wurden in Ausstellungen im In- und Ausland präsentiert und bei Kunstwettbewerben ausgezeichnet. Ich arbeite ununterbrochen und erfülle Aufträge für Sammler, private Kunden und Kunstgalerien. Die Bildhauerei bleibt meine größte Leidenschaft und ein untrennbarer Teil meines Lebens. Ich lade Sie ein, meine Galerie mit Arbeiten zu besuchen.</p></div></div></section>
-        <section class="commission-section"><div class="wrapper"><h2>Eine Idee für eine Skulptur?</h2><p>Sprechen wir über meine Werke oder einen individuellen Auftrag.</p><a class="button" href="/de/kontakt">Kontakt aufnehmen <span aria-hidden="true">↗</span></a></div></section>
 	</main>
 
-
-
-<aside class="book-promotion"><div class="wrapper book-inner"><img src="/img/Angels-coloring-book.png" width="606" height="785" alt="Cover von Engel — ein Malbuch für Erwachsene. 47 einzigartige Engel. Kunstwerke von Bolesław Parasion." loading="lazy"><div><p class="section-eyebrow">Kunst, der du deine eigenen Farben gibst</p><h2>Gönn dir einen Moment<br>mit Engeln.</h2><p><strong>„Engel“ — ein Malbuch für Erwachsene</strong> enthält 47 einzigartige Engel aus den Werken von Bolesław Parasion. Wähle deine Lieblingsfarben und verleihe jedem Engel seinen eigenen Charakter.</p><a class="button" href="https://amzn.eu/d/02BcMnSg" target="_blank" rel="noopener noreferrer">Malbuch bei Amazon kaufen ↗<span class="sr-only"> (öffnet sich in einem neuen Tab)</span></a><p class="book-note">47 Engel. Deine Farben. Deine Zeit.</p></div></div></aside>
 	<button class="back-to-top" id="back-to-top" aria-label="Back to top">
 		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
 	</button>
@@ -282,6 +280,121 @@
 		</div>
 	</footer>
 
+<dialog class="coloring-popup" id="coloring-popup" aria-labelledby="coloring-popup-title" aria-describedby="coloring-popup-description">
+	<button class="coloring-popup__close" type="button" aria-label="Fenster schließen" autofocus>&times;</button>
+	<div class="coloring-popup__art">
+		<img src="/img/Angels-coloring-book.png" width="606" height="785" alt="Cover von Engel — ein Malbuch für Erwachsene. 47 einzigartige Engel. Kunstwerke von Bolesław Parasion." decoding="async">
+	</div>
+	<div class="coloring-popup__content">
+		<p class="coloring-popup__eyebrow">Kunst, der du deine eigenen Farben gibst</p>
+		<h2 id="coloring-popup-title">Gönn dir einen Moment<br>mit Engeln.</h2>
+		<p class="coloring-popup__intro">Lass den Alltag hinter dir. Nimm deine Buntstifte und tauche ein in eine Welt voller Flügel, Blumen und zauberhafter Details.</p>
+		<p id="coloring-popup-description"><strong>„Engel“ — ein Malbuch für Erwachsene</strong> enthält 47 einzigartige Engel aus den Werken von Bolesław Parasion. Wähle deine Lieblingsfarben und verleihe jedem Engel seinen eigenen Charakter.</p>
+		<p class="coloring-popup__gift">Für einen ruhigen Abend ganz für dich. Oder als Geschenk für jemanden, der gerne kreativ ist.</p>
+		<a class="coloring-popup__cta" href="https://amzn.eu/d/02BcMnSg" target="_blank" rel="noopener noreferrer">Malbuch bei Amazon kaufen <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg><span class="coloring-popup__sr-only"> (öffnet sich in einem neuen Tab)</span></a>
+		<p class="coloring-popup__note">47 Engel. Deine Farben. Deine Zeit.</p>
+		<button class="coloring-popup__later" type="button">Vielleicht später — zurück zur Galerie</button>
+	</div>
+</dialog>
+<button class="coloring-launcher" id="coloring-launcher" type="button" aria-label="Angebot für das Malbuch Engel erneut öffnen" aria-haspopup="dialog" aria-controls="coloring-popup" hidden>
+	<img src="/img/Angels-coloring-book.png" width="606" height="785" alt="" decoding="async">
+	<span><strong>Malbuch „Engel“</strong><span>Zurück zum Angebot <span aria-hidden="true">→</span></span></span>
+</button>
+<script>
+(function () {
+	'use strict';
+	var dialog = document.getElementById('coloring-popup');
+	if (!dialog || typeof dialog.showModal !== 'function') return;
+	var key = 'parasion_coloring_popup_seen_v1' + (document.documentElement.lang === 'pl' ? '' : '_' + document.documentElement.lang);
+	function wasSeen() {
+		try { return sessionStorage.getItem(key) === '1'; } catch (_) { return false; }
+	}
+	var launcher = document.getElementById('coloring-launcher');
+	var image = dialog.querySelector('img');
+	var timer;
+	var finished = wasSeen();
+	var restoreScroll = null;
+	function showLauncher() {
+		launcher.hidden = dialog.open || !(finished || wasSeen()) || !image.complete || !image.naturalWidth;
+	}
+	function restore() {
+		if (restoreScroll) { restoreScroll(); restoreScroll = null; }
+	}
+	function close() {
+		dialog.close();
+		restore();
+		showLauncher();
+		if (!launcher.hidden) launcher.focus({ preventScroll: true });
+	}
+	launcher.addEventListener('click', openPopup);
+	image.addEventListener('load', showLauncher);
+	showLauncher();
+	dialog.addEventListener('cancel', function (event) { event.preventDefault(); close(); });
+	dialog.querySelector('.coloring-popup__close').addEventListener('click', close);
+	dialog.querySelector('.coloring-popup__later').addEventListener('click', close);
+	dialog.querySelector('.coloring-popup__cta').addEventListener('click', close);
+	dialog.addEventListener('keydown', function (event) {
+		// Keep the site's gallery keyboard shortcuts from navigating behind the modal.
+		event.stopPropagation();
+		if (event.key !== 'Tab') return;
+		var first = dialog.querySelector('.coloring-popup__close');
+		var last = dialog.querySelector('.coloring-popup__later');
+		if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+		else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+	});
+	// Only dismiss an actual backdrop click, never a click on the card itself.
+	var backdropDown = false;
+	function outside(event) {
+		var rect = dialog.getBoundingClientRect();
+		return event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
+	}
+	dialog.addEventListener('pointerdown', function (event) { backdropDown = event.target === dialog && outside(event); });
+	dialog.addEventListener('click', function (event) {
+		if (backdropDown && event.target === dialog && outside(event)) close();
+		backdropDown = false;
+	});
+	dialog.addEventListener('close', function () {
+		if (!dialog.open) { restore(); showLauncher(); }
+	});
+	function openWhenReady() {
+		if (finished || wasSeen()) return;
+		// A failed or missing cover must never produce a broken promotional card.
+		if (!image.complete) { timer = setTimeout(openWhenReady, 500); return; }
+		if (!image.naturalWidth) return;
+		var active = document.activeElement;
+		if (document.hidden || document.querySelector('dialog[open]') ||
+			(active && (active.matches('input, textarea, select') || active.isContentEditable))) {
+			timer = setTimeout(openWhenReady, 1000);
+			return;
+		}
+		openPopup();
+	}
+	function openPopup() {
+		if (!image.naturalWidth || document.querySelector('dialog[open]')) return;
+		clearTimeout(timer);
+		var body = document.body;
+		var overflow = body.style.overflow;
+		var padding = body.style.paddingRight;
+		var gap = window.innerWidth - document.documentElement.clientWidth;
+		body.style.paddingRight = (parseFloat(getComputedStyle(body).paddingRight) + gap) + 'px';
+		body.style.overflow = 'hidden';
+		restoreScroll = function () { body.style.overflow = overflow; body.style.paddingRight = padding; };
+		try { dialog.showModal(); } catch (_) { restoreScroll(); restoreScroll = null; return; }
+		dialog.scrollTop = 0;
+		launcher.hidden = true;
+		finished = true;
+		try { sessionStorage.setItem(key, '1'); } catch (_) { /* Storage may be disabled. */ }
+	}
+	if (!finished) timer = setTimeout(openWhenReady, 3000);
+	window.addEventListener('pagehide', function () { clearTimeout(timer); if (dialog.open) close(); });
+	window.addEventListener('pageshow', function (event) {
+		showLauncher();
+		if (event.persisted && !finished && !wasSeen()) timer = setTimeout(openWhenReady, 3000);
+	});
+})();
+</script>
+
+
 
 	<script type="application/ld+json">
 	{
@@ -293,6 +406,26 @@
 		"description": "Bildhauer. Sakrale und volkstümliche Skulpturen.",
 		"sameAs": ["https://fb.com/parasion"]
 	}
+	</script>
+
+	<script>
+	(function() {
+		var input = document.getElementById('gallery-filter');
+		var grid = document.getElementById('gallery-grid');
+		if (!input || !grid) return;
+		var cards = grid.querySelectorAll('.gallery-card');
+		input.addEventListener('input', function() {
+			var q = input.value.trim().toLowerCase();
+			var visible = 0;
+			cards.forEach(function(card) {
+				var label = (card.textContent || '').toLowerCase();
+				var match = !q || label.indexOf(q) !== -1;
+				card.classList.toggle('is-hidden', !match);
+				if (match) visible++;
+			});
+			grid.classList.toggle('is-empty', visible === 0);
+		});
+	})();
 	</script>
 
 	<script>

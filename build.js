@@ -68,7 +68,7 @@ function navLinks(lang) {
 	});
 	// Add contact page link at the end
 	links.push('\t\t\t\t\t<a href="' + contactUrl(lang) + '">' + data.contact.title[lang] + '</a>');
-	return '<a href="' + homeUrl(lang) + '#gallery">' + data.i18n[lang].worksLabel + '</a><a href="' + homeUrl(lang) + '#about">' + data.i18n[lang].aboutLabel + '</a>' + links.join('\n');
+	return links.join('\n');
 }
 
 function hreflangTags(urls) {
@@ -112,7 +112,7 @@ function galleryCards(lang) {
 		var href = pageUrl(lang, gal.slug[lang]);
 		var img = gal.thumbImage || gal.ogImage;
 		var pos = gal.thumbPosition || 'center center';
-		var scale = 1;
+		var scale = gal.thumbScale || 1;
 		var imgStyle = 'background-image: url(\'' + img + '\'); background-position: ' + pos + '; transform: scale(' + scale + ')';
 		return '\t\t\t\t\t<a href="' + href + '" class="gallery-card">' +
 			'\n\t\t\t\t\t\t<div class="gallery-card-img" style="' + imgStyle + '"></div>' +
@@ -132,7 +132,7 @@ function featuredCards(lang, i18n) {
 		var href = pageUrl(lang, gal.slug[lang]);
 		var img = gal.thumbImage || gal.ogImage;
 		var pos = gal.thumbPosition || 'center center';
-		var scale = 1;
+		var scale = gal.thumbScale || 1;
 		var imgStyle = 'background-image: url(\'' + img + '\'); background-position: ' + pos + '; transform: scale(' + scale + ')';
 		return '\t\t\t\t\t<a href="' + href + '" class="featured-card">' +
 			'\n\t\t\t\t\t\t<div class="featured-card-img" style="' + imgStyle + '"></div>' +
@@ -147,11 +147,6 @@ function featuredCards(lang, i18n) {
 function fill(template, vars) {
 	// 1. Resolve partials first
 	var out = resolvePartials(template);
-	var locale = vars.lang || 'pl';
-	var copy = data.i18n[locale];
-	['worksLabel', 'aboutLabel', 'exploreLabel', 'contactCta', 'heroIntro', 'aboutEyebrow', 'commissionTitle', 'commissionIntro', 'inquiryLabel', 'formSubject'].forEach(function(key) { vars[key] = copy[key]; });
-	vars.contactUrl = contactUrl(locale);
-	vars.inquiryUrl = contactUrl(locale) + '?subject=' + encodeURIComponent(vars.pageTitle || '');
 	// Include the localized promotion on actual language pages, not the shared 404.
 	var popupCopy = popupData[vars.lang];
 	var popup = popupCopy ? partials['coloring-popup'].replace(/\{\{popup_(\w+)\}\}/g, function (_, key) {

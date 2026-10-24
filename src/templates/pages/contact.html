@@ -62,7 +62,6 @@
 						</div>
 					</div>
 
-					<div class="field"><label class="field-label" for="cf-subject">{{formSubject}}</label><input id="cf-subject" name="subject" type="text"></div>
 					<div class="field">
 						<label class="field-label" for="cf-message">{{formMessage}}</label>
 						<textarea id="cf-message" name="message" rows="5" required></textarea>
@@ -130,7 +129,6 @@
 	})();
 	</script>
 
-<script>(function() { var subject = new URLSearchParams(window.location.search).get('subject'); var input = document.querySelector('[name="subject"]'); if (subject && input) input.value = subject; })();</script>
 {{> scroll-effects}}
 
 </body>
