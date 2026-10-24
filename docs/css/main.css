@@ -36,39 +36,41 @@
 /* Dark theme — applied via [data-theme="dark"] or system preference if not overridden */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0a0a0a;
-    --bg-alt: #111111;
-    --bg-hover: #1a1a1a;
-    --border: #262626;
-    --border-strong: #3a3a3a;
-    --text: #fafafa;
-    --text-secondary: #a3a3a3;
-    --text-muted: #737373;
-    --text-dim: #525252;
-    --hover: #ffffff;
-    --header-bg: rgba(10, 10, 10, 0.78);
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.5);
+    --bg: #29221c;
+    --bg-alt: #322920;
+    --bg-hover: #403329;
+    --border: #514236;
+    --border-strong: #75604d;
+    --text: #f5eadb;
+    --text-secondary: #d0bda5;
+    --text-muted: #bca58b;
+    --text-dim: #b39b80;
+    --hover: #efbc86;
+    --header-bg: rgba(41, 34, 28, 0.9);
+    --shadow-sm: 0 1px 2px rgba(18, 11, 6, 0.25);
+    --shadow-md: 0 4px 24px rgba(18, 11, 6, 0.35);
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: #0a0a0a;
-  --bg-alt: #111111;
-  --bg-hover: #1a1a1a;
-  --border: #262626;
-  --border-strong: #3a3a3a;
-  --text: #fafafa;
-  --text-secondary: #a3a3a3;
-  --text-muted: #737373;
-  --text-dim: #525252;
-  --hover: #ffffff;
-  --header-bg: rgba(10, 10, 10, 0.78);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.5);
+  --bg: #29221c;
+  --bg-alt: #322920;
+  --bg-hover: #403329;
+  --border: #514236;
+  --border-strong: #75604d;
+  --text: #f5eadb;
+  --text-secondary: #d0bda5;
+  --text-muted: #bca58b;
+  --text-dim: #b39b80;
+  --hover: #efbc86;
+  --header-bg: rgba(41, 34, 28, 0.9);
+  --shadow-sm: 0 1px 2px rgba(18, 11, 6, 0.25);
+  --shadow-md: 0 4px 24px rgba(18, 11, 6, 0.35);
   color-scheme: dark;
 }
+
+::selection { background: var(--text); color: var(--bg); }
 
 /* --- 2. Reset --- */
 *, *::before, *::after { box-sizing: border-box; }
