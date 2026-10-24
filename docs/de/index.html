@@ -175,7 +175,7 @@
 			</div>
 		</section>
 
-		<section class="featured-strip fade-in">
+		<section class="featured-strip fade-in" id="gallery">
 			<div class="wrapper">
 				<div class="section-head">
 					<span class="section-eyebrow">Ausgewählte Arbeiten</span>
@@ -209,60 +209,42 @@
 							<span class="featured-card-title">Madonnen</span>
 						</div>
 					</a>
-				</div>
-			</div>
-		</section>
-
-		<section class="featured fade-in" id="gallery">
-			<div class="wrapper">
-				<div class="section-head">
-					<span class="section-eyebrow">Galerien</span>
-					<span class="section-count">09</span>
-				</div>
-				<div class="gallery-filter">
-					<svg class="gallery-filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-					<input id="gallery-filter" class="gallery-filter-input" type="search" placeholder="Galerien filtern" aria-label="Galerien filtern">
-					<span class="gallery-filter-shortcut">/</span>
-				</div>
-				<div class="gallery-grid" id="gallery-grid">
-					<a href="/de/engel" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/anioly.jpg'); background-position: center 20%; transform: scale(1.1)"></div>
-						<span class="gallery-card-label">Engel</span>
+					<a href="/de/engel" class="featured-card">
+						<div class="featured-card-img" style="background-image: url('/img/anioly.jpg'); background-position: center 20%; transform: scale(1.1)"></div>
+						<div class="featured-card-body">
+							<span class="featured-card-tag">Galerien</span>
+							<span class="featured-card-title">Engel</span>
+						</div>
 					</a>
-					<a href="/de/triptychen" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/tryptyki.jpg'); background-position: center center; transform: scale(1)"></div>
-						<span class="gallery-card-label">Triptychen</span>
+					<a href="/de/triptychen" class="featured-card">
+						<div class="featured-card-img" style="background-image: url('/img/tryptyki.jpg'); background-position: center center; transform: scale(1)"></div>
+						<div class="featured-card-body">
+							<span class="featured-card-tag">Galerien</span>
+							<span class="featured-card-title">Triptychen</span>
+						</div>
 					</a>
-					<a href="/de/madonnen" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/madonny.png'); background-position: center 25%; transform: scale(1.2)"></div>
-						<span class="gallery-card-label">Madonnen</span>
+					<a href="/de/weihnachtskrippe" class="featured-card">
+						<div class="featured-card-img" style="background-image: url('/img/szopka.jpg'); background-position: center 20%; transform: scale(1.15)"></div>
+						<div class="featured-card-body">
+							<span class="featured-card-tag">Galerien</span>
+							<span class="featured-card-title">Weihnachtskrippe</span>
+						</div>
 					</a>
-					<a href="/de/die-erschaffung-der-welt" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/stworzenie.jpg'); background-position: center 30%; transform: scale(1.1)"></div>
-						<span class="gallery-card-label">Die Erschaffung der Welt</span>
+					<a href="/de/verschiedene-holzfiguren" class="featured-card">
+						<div class="featured-card-img" style="background-image: url('/img/pozostale.jpg'); background-position: center 15%; transform: scale(1.15)"></div>
+						<div class="featured-card-body">
+							<span class="featured-card-tag">Galerien</span>
+							<span class="featured-card-title">Verschiedene Holzfiguren</span>
+						</div>
 					</a>
-					<a href="/de/das-letzte-abendmahl" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/ostatnia.jpg'); background-position: center center; transform: scale(1)"></div>
-						<span class="gallery-card-label">Das letzte Abendmahl</span>
-					</a>
-					<a href="/de/der-kreuzweg" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/droga.jpg'); background-position: center center; transform: scale(1)"></div>
-						<span class="gallery-card-label">Der Kreuzweg</span>
-					</a>
-					<a href="/de/weihnachtskrippe" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/szopka.jpg'); background-position: center 20%; transform: scale(1.15)"></div>
-						<span class="gallery-card-label">Weihnachtskrippe</span>
-					</a>
-					<a href="/de/verschiedene-holzfiguren" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/pozostale.jpg'); background-position: center 15%; transform: scale(1.15)"></div>
-						<span class="gallery-card-label">Verschiedene Holzfiguren</span>
-					</a>
-					<a href="/de/atelier" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/atelier.jpg'); background-position: center 30%; transform: scale(1.05)"></div>
-						<span class="gallery-card-label">Atelier</span>
+					<a href="/de/atelier" class="featured-card">
+						<div class="featured-card-img" style="background-image: url('/img/atelier.jpg'); background-position: center 30%; transform: scale(1.05)"></div>
+						<div class="featured-card-body">
+							<span class="featured-card-tag">Galerien</span>
+							<span class="featured-card-title">Atelier</span>
+						</div>
 					</a>
 				</div>
-				<p class="gallery-empty">Keine Treffer</p>
 			</div>
 		</section>
 
@@ -404,26 +386,6 @@
 		"description": "Bildhauer. Sakrale und volkstümliche Skulpturen.",
 		"sameAs": ["https://fb.com/parasion"]
 	}
-	</script>
-
-	<script>
-	(function() {
-		var input = document.getElementById('gallery-filter');
-		var grid = document.getElementById('gallery-grid');
-		if (!input || !grid) return;
-		var cards = grid.querySelectorAll('.gallery-card');
-		input.addEventListener('input', function() {
-			var q = input.value.trim().toLowerCase();
-			var visible = 0;
-			cards.forEach(function(card) {
-				var label = (card.textContent || '').toLowerCase();
-				var match = !q || label.indexOf(q) !== -1;
-				card.classList.toggle('is-hidden', !match);
-				if (match) visible++;
-			});
-			grid.classList.toggle('is-empty', visible === 0);
-		});
-	})();
 	</script>
 
 	<script>
