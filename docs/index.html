@@ -170,6 +170,7 @@
 						<span class="hero-eyebrow">artysta rzeźbiarz</span>
 						<h1 class="hero-name">Bolesław Parasion</h1>
 						<p class="bio">Nazywam się Bolesław Parasion i jestem rzeźbiarzem. Moja twórczość koncentruje się na tematyce sakralnej i ludowej. Tworzę <a href="/tryptyki">Tryptyki</a>, <a href="/anioly">barwne anioły</a>, <a href="/madonny">madonny</a>, <a href="/szopka-bozonarodzeniowa">szopki bożonarodzeniowe</a> oraz monumentalne rzeźby religijne, takie jak np. <a href="/stworzenie-swiata">Stworzenie Świata</a>, <a href="/ostatnia-wieczerza">Ostatnia Wieczerza</a> czy <a href="/droga-krzyzowa">Droga Krzyżowa</a>. Kilka z moich prac Drogi Krzyżowej znajduje się w kościołach w Polsce i w USA. Moje prace były prezentowane na wystawach w kraju i za granicą, a także wyróżniane w konkursach artystycznych. Tworzę nieprzerwanie, realizując zamówienia dla kolekcjonerów, prywatnych odbiorców i galerii sztuki. Rzeźbiarstwo pozostaje moją największą pasją i nieodłączną częścią życia. Zapraszam do obejrzenia mojej galerii prac.</p>
+						<a class="hero-contact" href="/kontakt">Kontakt <span aria-hidden="true">↗</span></a>
 					</div>
 				</div>
 			</div>
@@ -177,9 +178,6 @@
 
 		<section class="featured-strip fade-in" id="gallery">
 			<div class="wrapper">
-				<div class="section-head">
-					<span class="section-eyebrow">Wybrane prace</span>
-				</div>
 				<div class="featured-grid">
 					<a href="/ostatnia-wieczerza" class="featured-card">
 						<div class="featured-card-img" style="background-image: url('/img/ostatnia.jpg'); background-position: center center; transform: scale(1)"></div>
@@ -247,6 +245,32 @@
 				</div>
 			</div>
 		</section>
+
+		<script>
+		(function () {
+			var grid = document.querySelector('.featured-grid');
+			if (!grid) return;
+			function shuffle() {
+				var cards = Array.from(grid.children);
+				if (cards.length < 2) return;
+				var key = 'parasion_gallery_order';
+				var previous = cards.map(function (card) { return card.getAttribute('href'); }).join('|');
+				try { previous = sessionStorage.getItem(key) || previous; } catch (_) {}
+				for (var i = cards.length - 1; i > 0; i--) {
+					var j = Math.floor(Math.random() * (i + 1));
+					var card = cards[i]; cards[i] = cards[j]; cards[j] = card;
+				}
+				function order() { return cards.map(function (card) { return card.getAttribute('href'); }).join('|'); }
+				if (order() === previous) cards.push(cards.shift());
+				var fragment = document.createDocumentFragment();
+				cards.forEach(function (card) { fragment.appendChild(card); });
+				grid.appendChild(fragment);
+				try { sessionStorage.setItem(key, order()); } catch (_) {}
+			}
+			shuffle();
+			window.addEventListener('pageshow', function (event) { if (event.persisted) shuffle(); });
+		})();
+		</script>
 
 	</main>
 

@@ -170,6 +170,7 @@
 						<span class="hero-eyebrow">Volkskunst Bildhauer</span>
 						<h1 class="hero-name">Bolesław Parasion</h1>
 						<p class="bio">Mein Name ist Bolesław Parasion und ich bin Bildhauer. Meine Arbeiten konzentrieren sich auf sakrale und volkstümliche Themen. Ich erschaffe <a href="/de/triptychen">Triptychen</a>, <a href="/de/engel">bunte Engel</a>, <a href="/de/madonnen">Madonnen</a>, <a href="/de/weihnachtskrippe">Weihnachtskrippen</a> und monumentale religiöse Skulpturen, wie zum Beispiel <a href="/de/die-erschaffung-der-welt">Die Erschaffung der Welt</a>, <a href="/de/das-letzte-abendmahl">Das letzte Abendmahl</a> oder <a href="/de/der-kreuzweg">Der Kreuzweg</a>. Einige meiner Arbeiten zum Kreuzweg befinden sich in Kirchen in Polen und in den USA. Meine Arbeiten wurden in Ausstellungen im In- und Ausland präsentiert und bei Kunstwettbewerben ausgezeichnet. Ich arbeite ununterbrochen und erfülle Aufträge für Sammler, private Kunden und Kunstgalerien. Die Bildhauerei bleibt meine größte Leidenschaft und ein untrennbarer Teil meines Lebens. Ich lade Sie ein, meine Galerie mit Arbeiten zu besuchen.</p>
+						<a class="hero-contact" href="/de/kontakt">Kontakt <span aria-hidden="true">↗</span></a>
 					</div>
 				</div>
 			</div>
@@ -177,9 +178,6 @@
 
 		<section class="featured-strip fade-in" id="gallery">
 			<div class="wrapper">
-				<div class="section-head">
-					<span class="section-eyebrow">Ausgewählte Arbeiten</span>
-				</div>
 				<div class="featured-grid">
 					<a href="/de/das-letzte-abendmahl" class="featured-card">
 						<div class="featured-card-img" style="background-image: url('/img/ostatnia.jpg'); background-position: center center; transform: scale(1)"></div>
@@ -247,6 +245,32 @@
 				</div>
 			</div>
 		</section>
+
+		<script>
+		(function () {
+			var grid = document.querySelector('.featured-grid');
+			if (!grid) return;
+			function shuffle() {
+				var cards = Array.from(grid.children);
+				if (cards.length < 2) return;
+				var key = 'parasion_gallery_order';
+				var previous = cards.map(function (card) { return card.getAttribute('href'); }).join('|');
+				try { previous = sessionStorage.getItem(key) || previous; } catch (_) {}
+				for (var i = cards.length - 1; i > 0; i--) {
+					var j = Math.floor(Math.random() * (i + 1));
+					var card = cards[i]; cards[i] = cards[j]; cards[j] = card;
+				}
+				function order() { return cards.map(function (card) { return card.getAttribute('href'); }).join('|'); }
+				if (order() === previous) cards.push(cards.shift());
+				var fragment = document.createDocumentFragment();
+				cards.forEach(function (card) { fragment.appendChild(card); });
+				grid.appendChild(fragment);
+				try { sessionStorage.setItem(key, order()); } catch (_) {}
+			}
+			shuffle();
+			window.addEventListener('pageshow', function (event) { if (event.persisted) shuffle(); });
+		})();
+		</script>
 
 	</main>
 
