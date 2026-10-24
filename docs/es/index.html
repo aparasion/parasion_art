@@ -170,6 +170,7 @@
 						<span class="hero-eyebrow">artista escultor</span>
 						<h1 class="hero-name">Bolesław Parasion</h1>
 						<p class="bio">Me llamo Bolesław Parasion y soy escultor. Mi trabajo se centra en temas sagrados y folclóricos. Creo <a href="/es/tripticos">trípticos</a>, <a href="/es/angeles">ángeles coloridos</a>, <a href="/es/madonas">madonas</a>, <a href="/es/nacimiento">nacimientos</a> y esculturas religiosas monumentales, como por ejemplo <a href="/es/creacion-del-mundo">La Creación del Mundo</a>, <a href="/es/ultima-cena">La Última Cena</a> o <a href="/es/via-crucis">El Vía Crucis</a>. Algunas de mis obras del Vía Crucis se encuentran en iglesias en Polonia y en EE. UU. Mis obras han sido presentadas en exposiciones en el país y en el extranjero, y también han sido reconocidas en concursos de arte. Trabajo continuamente, realizando pedidos para coleccionistas, clientes privados y galerías de arte. La escultura sigue siendo mi mayor pasión y una parte inseparable de mi vida. Te invito a visitar mi galería de obras.</p>
+						<a class="hero-contact" href="/es/contacto">Contacto <span aria-hidden="true">↗</span></a>
 					</div>
 				</div>
 			</div>
@@ -177,9 +178,6 @@
 
 		<section class="featured-strip fade-in" id="gallery">
 			<div class="wrapper">
-				<div class="section-head">
-					<span class="section-eyebrow">Obras seleccionadas</span>
-				</div>
 				<div class="featured-grid">
 					<a href="/es/ultima-cena" class="featured-card">
 						<div class="featured-card-img" style="background-image: url('/img/ostatnia.jpg'); background-position: center center; transform: scale(1)"></div>
@@ -247,6 +245,32 @@
 				</div>
 			</div>
 		</section>
+
+		<script>
+		(function () {
+			var grid = document.querySelector('.featured-grid');
+			if (!grid) return;
+			function shuffle() {
+				var cards = Array.from(grid.children);
+				if (cards.length < 2) return;
+				var key = 'parasion_gallery_order';
+				var previous = cards.map(function (card) { return card.getAttribute('href'); }).join('|');
+				try { previous = sessionStorage.getItem(key) || previous; } catch (_) {}
+				for (var i = cards.length - 1; i > 0; i--) {
+					var j = Math.floor(Math.random() * (i + 1));
+					var card = cards[i]; cards[i] = cards[j]; cards[j] = card;
+				}
+				function order() { return cards.map(function (card) { return card.getAttribute('href'); }).join('|'); }
+				if (order() === previous) cards.push(cards.shift());
+				var fragment = document.createDocumentFragment();
+				cards.forEach(function (card) { fragment.appendChild(card); });
+				grid.appendChild(fragment);
+				try { sessionStorage.setItem(key, order()); } catch (_) {}
+			}
+			shuffle();
+			window.addEventListener('pageshow', function (event) { if (event.persisted) shuffle(); });
+		})();
+		</script>
 
 	</main>
 

@@ -330,6 +330,8 @@ function buildIndexPage(lang) {
 		langSelectorLinks: langSelectorLinks(lang, langAltUrls),
 		facebook: data.site.facebook,
 		bio: bio,
+		contactUrl: contactUrl(lang),
+		contactLabel: data.contact.title[lang],
 		jsonLdDescription: i18n.indexJsonLdDescription,
 		featuredCards: featuredCards(lang, i18n),
 		galleriesLabel: i18n.galleriesLabel,
