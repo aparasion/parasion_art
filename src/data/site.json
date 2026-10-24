@@ -9,12 +9,7 @@
 		"mobileBrand": "PARASION.art",
 		"contactEmail": "boleslaw@parasion.art"
 	},
-	"featured": [
-		"last-supper",
-		"creation",
-		"way-of-the-cross",
-		"madonnas"
-	],
+	"featured": ["last-supper", "creation", "way-of-the-cross", "madonnas"],
 	"languages": [
 		"pl",
 		"en",
@@ -399,7 +394,7 @@
 			"bio": "Nazywam się {{author}} i jestem rzeźbiarzem. Moja twórczość koncentruje się na tematyce sakralnej i ludowej. Tworzę {{link:triptychs}}, {{link:angels|barwne anioły}}, {{link:madonnas|madonny}}, {{link:nativity|szopki bożonarodzeniowe}} oraz monumentalne rzeźby religijne, takie jak np. {{link:creation}}, {{link:last-supper|Ostatnia Wieczerza}} czy {{link:way-of-the-cross|Droga Krzyżowa}}. Kilka z moich prac Drogi Krzyżowej znajduje się w kościołach w Polsce i w USA. Moje prace były prezentowane na wystawach w kraju i za granicą, a także wyróżniane w konkursach artystycznych. Tworzę nieprzerwanie, realizując zamówienia dla kolekcjonerów, prywatnych odbiorców i galerii sztuki. Rzeźbiarstwo pozostaje moją największą pasją i nieodłączną częścią życia. Zapraszam do obejrzenia mojej galerii prac.",
 			"languageMenuLabel": "Język",
 			"galleriesLabel": "Galerie",
-			"featuredLabel": "Wybrane kolekcje",
+			"featuredLabel": "Wybrane prace",
 			"allLabel": "Wszystkie",
 			"filterPlaceholder": "Filtruj galerie",
 			"filterEmpty": "Brak wyników",
@@ -413,16 +408,7 @@
 			"formSuccessTitle": "Wiadomość wysłana. Dziękuję!",
 			"footerTagline": "artysta rzeźbiarz",
 			"themeLabel": "Motyw",
-			"feedLabel": "Kanał RSS",
-			"worksLabel": "Prace",
-			"aboutLabel": "O artyście",
-			"exploreLabel": "Poznaj moje prace",
-			"contactCta": "Porozmawiajmy o rzeźbie",
-			"heroIntro": "Rzeźba sakralna i ludowa. Prace dla kolekcjonerów, galerii i przestrzeni sakralnych.",
-			"aboutEyebrow": "Sztuka z pasji",
-			"commissionTitle": "Masz pomysł na wyjątkową rzeźbę?",
-			"commissionIntro": "Zapraszam do rozmowy o moich pracach i zamówieniach indywidualnych.",
-			"inquiryLabel": "Zapytaj o tę kolekcję"
+			"feedLabel": "Kanał RSS"
 		},
 		"en": {
 			"menuButton": "Menu",
@@ -435,7 +421,7 @@
 			"bio": "My name is {{author}}, and I am a sculptor. My work focuses on sacred and folk themes. I create {{link:triptychs}}, {{link:angels|colorful angels}}, {{link:madonnas|Madonnas}}, {{link:nativity|Christmas nativity scenes}}, and monumental religious sculptures, such as {{link:creation}}, {{link:last-supper|The Last Supper}}, and {{link:way-of-the-cross|The Way of the Cross}}. Several of my Way of the Cross works are displayed in churches in Poland and the USA. My works have been exhibited both in Poland and abroad and have been recognized in art competitions. I continuously create, fulfilling commissions for collectors, private clients, and art galleries. Sculpture remains my greatest passion and an inseparable part of my life. I invite you to explore my gallery of works.",
 			"languageMenuLabel": "Language",
 			"galleriesLabel": "Galleries",
-			"featuredLabel": "Selected collections",
+			"featuredLabel": "Selected works",
 			"allLabel": "All",
 			"filterPlaceholder": "Filter galleries",
 			"filterEmpty": "No matches",
@@ -449,16 +435,7 @@
 			"formSuccessTitle": "Message sent. Thank you!",
 			"footerTagline": "sculptor artist",
 			"themeLabel": "Theme",
-			"feedLabel": "RSS feed",
-			"worksLabel": "Works",
-			"aboutLabel": "About",
-			"exploreLabel": "Explore the works",
-			"contactCta": "Contact the artist",
-			"heroIntro": "Sacred and folk sculpture. Works for collectors, galleries, and sacred spaces.",
-			"aboutEyebrow": "A life in sculpture",
-			"commissionTitle": "Have a sculpture in mind?",
-			"commissionIntro": "Get in touch to discuss my work or a personal commission.",
-			"inquiryLabel": "Ask about this collection"
+			"feedLabel": "RSS feed"
 		},
 		"de": {
 			"menuButton": "Menü",
@@ -471,7 +448,7 @@
 			"bio": "Mein Name ist {{author}} und ich bin Bildhauer. Meine Arbeiten konzentrieren sich auf sakrale und volkstümliche Themen. Ich erschaffe {{link:triptychs|Triptychen}}, {{link:angels|bunte Engel}}, {{link:madonnas|Madonnen}}, {{link:nativity|Weihnachtskrippen}} und monumentale religiöse Skulpturen, wie zum Beispiel {{link:creation}}, {{link:last-supper|Das letzte Abendmahl}} oder {{link:way-of-the-cross|Der Kreuzweg}}. Einige meiner Arbeiten zum Kreuzweg befinden sich in Kirchen in Polen und in den USA. Meine Arbeiten wurden in Ausstellungen im In- und Ausland präsentiert und bei Kunstwettbewerben ausgezeichnet. Ich arbeite ununterbrochen und erfülle Aufträge für Sammler, private Kunden und Kunstgalerien. Die Bildhauerei bleibt meine größte Leidenschaft und ein untrennbarer Teil meines Lebens. Ich lade Sie ein, meine Galerie mit Arbeiten zu besuchen.",
 			"languageMenuLabel": "Sprache",
 			"galleriesLabel": "Galerien",
-			"featuredLabel": "Ausgewählte Sammlungen",
+			"featuredLabel": "Ausgewählte Arbeiten",
 			"allLabel": "Alle",
 			"filterPlaceholder": "Galerien filtern",
 			"filterEmpty": "Keine Treffer",
@@ -485,16 +462,7 @@
 			"formSuccessTitle": "Nachricht gesendet. Danke!",
 			"footerTagline": "Volkskunst Bildhauer",
 			"themeLabel": "Thema",
-			"feedLabel": "RSS-Feed",
-			"worksLabel": "Werke",
-			"aboutLabel": "Über mich",
-			"exploreLabel": "Werke entdecken",
-			"contactCta": "Kontakt aufnehmen",
-			"heroIntro": "Sakrale und volkstümliche Skulpturen. Werke für Sammler, Galerien und sakrale Räume.",
-			"aboutEyebrow": "Ein Leben für die Bildhauerei",
-			"commissionTitle": "Eine Idee für eine Skulptur?",
-			"commissionIntro": "Sprechen wir über meine Werke oder einen individuellen Auftrag.",
-			"inquiryLabel": "Zu dieser Sammlung anfragen"
+			"feedLabel": "RSS-Feed"
 		},
 		"es": {
 			"menuButton": "Menú",
@@ -507,7 +475,7 @@
 			"bio": "Me llamo {{author}} y soy escultor. Mi trabajo se centra en temas sagrados y folclóricos. Creo {{link:triptychs|trípticos}}, {{link:angels|ángeles coloridos}}, {{link:madonnas|madonas}}, {{link:nativity|nacimientos}} y esculturas religiosas monumentales, como por ejemplo {{link:creation}}, {{link:last-supper|La Última Cena}} o {{link:way-of-the-cross|El Vía Crucis}}. Algunas de mis obras del Vía Crucis se encuentran en iglesias en Polonia y en EE. UU. Mis obras han sido presentadas en exposiciones en el país y en el extranjero, y también han sido reconocidas en concursos de arte. Trabajo continuamente, realizando pedidos para coleccionistas, clientes privados y galerías de arte. La escultura sigue siendo mi mayor pasión y una parte inseparable de mi vida. Te invito a visitar mi galería de obras.",
 			"languageMenuLabel": "Idioma",
 			"galleriesLabel": "Galerías",
-			"featuredLabel": "Colecciones seleccionadas",
+			"featuredLabel": "Obras seleccionadas",
 			"allLabel": "Todas",
 			"filterPlaceholder": "Filtrar galerías",
 			"filterEmpty": "Sin resultados",
@@ -521,16 +489,7 @@
 			"formSuccessTitle": "Mensaje enviado. ¡Gracias!",
 			"footerTagline": "artista escultor",
 			"themeLabel": "Tema",
-			"feedLabel": "Canal RSS",
-			"worksLabel": "Obras",
-			"aboutLabel": "Sobre mí",
-			"exploreLabel": "Explorar las obras",
-			"contactCta": "Contactar al artista",
-			"heroIntro": "Escultura sagrada y folclórica. Obras para coleccionistas, galerías y espacios sagrados.",
-			"aboutEyebrow": "Una vida dedicada a la escultura",
-			"commissionTitle": "¿Tienes una escultura en mente?",
-			"commissionIntro": "Contacta conmigo para hablar de mis obras o de un encargo personal.",
-			"inquiryLabel": "Consultar sobre esta colección"
+			"feedLabel": "Canal RSS"
 		}
 	}
 }

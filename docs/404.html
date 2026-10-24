@@ -29,9 +29,7 @@
 
 	<script>
 	function toggleMenu() {
-		var nav = document.getElementById('site-nav');
-		var open = nav.classList.toggle('open');
-		nav.querySelector('button').setAttribute('aria-expanded', String(open));
+		document.getElementById('site-nav').classList.toggle('open');
 	}
 	function toggleTheme() {
 		var root = document.documentElement;
@@ -47,14 +45,14 @@
 	document.addEventListener('click', function(e) {
 		var nav = document.getElementById('site-nav');
 		if (nav && nav.classList.contains('open') && !nav.contains(e.target)) {
-			nav.classList.remove('open'); nav.querySelector('button').setAttribute('aria-expanded', 'false');
+			nav.classList.remove('open');
 		}
 	});
 
 	document.addEventListener('keydown', function(e) {
 		if (e.key === 'Escape') {
 			var nav = document.getElementById('site-nav');
-			if (nav && nav.classList.contains('open')) { nav.classList.remove('open'); nav.querySelector('button').setAttribute('aria-expanded', 'false'); nav.querySelector('button').focus(); }
+			if (nav) nav.classList.remove('open');
 			return;
 		}
 
@@ -88,7 +86,6 @@
 	<header class="site-header" id="site-header">
 		<div class="wrapper">
 			<a class="site-title" href="/"><span class="site-title-full">Bolesław Parasion</span><span class="site-title-mobile">PARASION.art</span></a>
-			<nav class="primary-nav" aria-label="Menu"><a href="/#gallery">Prace</a><a href="/#about">O artyście</a><a href="/kontakt">Porozmawiajmy o rzeźbie</a></nav>
 			<div class="header-controls">
 				<div class="lang-selector lang-selector--header">
 					<a href="/en/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/gb.png" alt="English" width="24"></a>
@@ -101,13 +98,13 @@
 					<svg class="theme-icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
 				</button>
 				<nav class="site-nav" id="site-nav">
-					<button class="nav-trigger" onclick="toggleMenu()" aria-expanded="false" aria-controls="nav-dropdown" aria-label="Menu">
+					<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menu">
 						<span class="hamburger" id="hamburger">
 							<span></span><span></span><span></span>
 						</span>
 					</button>
-					<div class="dropdown" id="nav-dropdown">
-<a href="/#gallery">Prace</a><a href="/#about">O artyście</a>					<a href="/anioly">Anioły</a>
+					<div class="dropdown">
+					<a href="/anioly">Anioły</a>
 					<a href="/tryptyki">Tryptyki</a>
 					<a href="/madonny">Madonny</a>
 					<a href="/stworzenie-swiata">Stworzenie Świata</a>
@@ -132,7 +129,7 @@
 				<p class="error-message">Strona nie została znaleziona · Page not found</p>
 
 				<nav class="error-links">
-<a href="/#gallery">Prace</a><a href="/#about">O artyście</a>					<a href="/anioly">Anioły</a>
+					<a href="/anioly">Anioły</a>
 					<a href="/tryptyki">Tryptyki</a>
 					<a href="/madonny">Madonny</a>
 					<a href="/stworzenie-swiata">Stworzenie Świata</a>
@@ -147,7 +144,6 @@
 
 		</div>
 	</main>
-
 
 	<button class="back-to-top" id="back-to-top" aria-label="Back to top">
 		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
