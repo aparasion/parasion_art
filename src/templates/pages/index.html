@@ -16,14 +16,13 @@
 		<section class="hero fade-in">
 			<div class="wrapper">
 				<div class="hero-inner">
-					<div class="hero-portrait">
-						<img src="/img/bpr.png" alt="{{heroAlt}}" width="200" height="200">
-					</div>
-					<div class="hero-text">
-						<span class="hero-eyebrow">{{heroSubtitle}}</span>
-						<h1 class="hero-name">{{author}}</h1>
-						<p class="bio">{{bio}}</p>
-					</div>
+<div class="hero-text">
+                        <span class="hero-eyebrow">{{heroSubtitle}}</span>
+                        <h1 class="hero-name">{{author}}</h1>
+                        <p class="hero-intro">{{heroIntro}}</p>
+                        <div class="hero-actions"><a class="button" href="#gallery">{{exploreLabel}} <span aria-hidden="true">↗</span></a><a class="text-link" href="{{contactUrl}}">{{contactCta}}</a></div>
+                    </div>
+                    <div class="hero-art"><img src="/img/anioly.jpg" alt="{{heroIntro}}" width="720" height="900" fetchpriority="high"></div>
 				</div>
 			</div>
 		</section>
@@ -31,7 +30,7 @@
 		<section class="featured-strip fade-in">
 			<div class="wrapper">
 				<div class="section-head">
-					<span class="section-eyebrow">{{featuredLabel}}</span>
+					<h2 class="section-eyebrow">{{featuredLabel}}</h2>
 				</div>
 				<div class="featured-grid">
 {{featuredCards}}
@@ -42,13 +41,8 @@
 		<section class="featured fade-in" id="gallery">
 			<div class="wrapper">
 				<div class="section-head">
-					<span class="section-eyebrow">{{galleriesLabel}}</span>
+					<h2 class="section-eyebrow">{{galleriesLabel}}</h2>
 					<span class="section-count">{{galleryCount}}</span>
-				</div>
-				<div class="gallery-filter">
-					<svg class="gallery-filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-					<input id="gallery-filter" class="gallery-filter-input" type="search" placeholder="{{filterPlaceholder}}" aria-label="{{filterPlaceholder}}">
-					<span class="gallery-filter-shortcut">/</span>
 				</div>
 				<div class="gallery-grid" id="gallery-grid">
 {{galleryCards}}
@@ -57,6 +51,8 @@
 			</div>
 		</section>
 
+        <section class="about-section" id="about"><div class="wrapper about-inner"><img src="/img/bpr.png" alt="{{heroAlt}}" width="200" height="200" loading="lazy"><div><span class="section-eyebrow">{{aboutEyebrow}}</span><h2>{{aboutLabel}}</h2><p class="bio">{{bio}}</p></div></div></section>
+        <section class="commission-section"><div class="wrapper"><h2>{{commissionTitle}}</h2><p>{{commissionIntro}}</p><a class="button" href="{{contactUrl}}">{{contactCta}} <span aria-hidden="true">↗</span></a></div></section>
 	</main>
 
 {{> footer}}
@@ -71,26 +67,6 @@
 		"description": "{{jsonLdDescription}}",
 		"sameAs": ["{{facebook}}"]
 	}
-	</script>
-
-	<script>
-	(function() {
-		var input = document.getElementById('gallery-filter');
-		var grid = document.getElementById('gallery-grid');
-		if (!input || !grid) return;
-		var cards = grid.querySelectorAll('.gallery-card');
-		input.addEventListener('input', function() {
-			var q = input.value.trim().toLowerCase();
-			var visible = 0;
-			cards.forEach(function(card) {
-				var label = (card.textContent || '').toLowerCase();
-				var match = !q || label.indexOf(q) !== -1;
-				card.classList.toggle('is-hidden', !match);
-				if (match) visible++;
-			});
-			grid.classList.toggle('is-empty', visible === 0);
-		});
-	})();
 	</script>
 
 {{> scroll-effects}}

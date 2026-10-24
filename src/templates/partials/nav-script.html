@@ -1,6 +1,8 @@
 	<script>
 	function toggleMenu() {
-		document.getElementById('site-nav').classList.toggle('open');
+		var nav = document.getElementById('site-nav');
+		var open = nav.classList.toggle('open');
+		nav.querySelector('button').setAttribute('aria-expanded', String(open));
 	}
 	function toggleTheme() {
 		var root = document.documentElement;
@@ -16,14 +18,14 @@
 	document.addEventListener('click', function(e) {
 		var nav = document.getElementById('site-nav');
 		if (nav && nav.classList.contains('open') && !nav.contains(e.target)) {
-			nav.classList.remove('open');
+			nav.classList.remove('open'); nav.querySelector('button').setAttribute('aria-expanded', 'false');
 		}
 	});
 
 	document.addEventListener('keydown', function(e) {
 		if (e.key === 'Escape') {
 			var nav = document.getElementById('site-nav');
-			if (nav) nav.classList.remove('open');
+			if (nav && nav.classList.contains('open')) { nav.classList.remove('open'); nav.querySelector('button').setAttribute('aria-expanded', 'false'); nav.querySelector('button').focus(); }
 			return;
 		}
 

@@ -42,7 +42,9 @@
 
 	<script>
 	function toggleMenu() {
-		document.getElementById('site-nav').classList.toggle('open');
+		var nav = document.getElementById('site-nav');
+		var open = nav.classList.toggle('open');
+		nav.querySelector('button').setAttribute('aria-expanded', String(open));
 	}
 	function toggleTheme() {
 		var root = document.documentElement;
@@ -58,14 +60,14 @@
 	document.addEventListener('click', function(e) {
 		var nav = document.getElementById('site-nav');
 		if (nav && nav.classList.contains('open') && !nav.contains(e.target)) {
-			nav.classList.remove('open');
+			nav.classList.remove('open'); nav.querySelector('button').setAttribute('aria-expanded', 'false');
 		}
 	});
 
 	document.addEventListener('keydown', function(e) {
 		if (e.key === 'Escape') {
 			var nav = document.getElementById('site-nav');
-			if (nav) nav.classList.remove('open');
+			if (nav && nav.classList.contains('open')) { nav.classList.remove('open'); nav.querySelector('button').setAttribute('aria-expanded', 'false'); nav.querySelector('button').focus(); }
 			return;
 		}
 
@@ -123,6 +125,7 @@
 	<header class="site-header" id="site-header">
 		<div class="wrapper">
 			<a class="site-title" href="/en/"><span class="site-title-full">Bolesław Parasion</span><span class="site-title-mobile">PARASION.art</span></a>
+			<nav class="primary-nav" aria-label="Menu"><a href="/en/#gallery">Works</a><a href="/en/#about">About</a><a href="/en/contact">Contact the artist</a></nav>
 			<div class="header-controls">
 				<div class="lang-selector lang-selector--header">
 					<a href="/" onclick="localStorage.setItem('parasion_lang_chosen','1')"><img src="/img/pl.png" alt="Polski" width="24"></a>
@@ -135,13 +138,13 @@
 					<svg class="theme-icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
 				</button>
 				<nav class="site-nav" id="site-nav">
-					<button class="nav-trigger" onclick="toggleMenu()" aria-label="Menu">
+					<button class="nav-trigger" onclick="toggleMenu()" aria-expanded="false" aria-controls="nav-dropdown" aria-label="Menu">
 						<span class="hamburger" id="hamburger">
 							<span></span><span></span><span></span>
 						</span>
 					</button>
-					<div class="dropdown">
-					<a href="/en/angels">Angels</a>
+					<div class="dropdown" id="nav-dropdown">
+<a href="/en/#gallery">Works</a><a href="/en/#about">About</a>					<a href="/en/angels">Angels</a>
 					<a href="/en/triptychs">Triptychs</a>
 					<a href="/en/madonnas">Madonnas</a>
 					<a href="/en/the-creation-of-the-world">The Creation of the World</a>
@@ -163,14 +166,13 @@
 		<section class="hero fade-in">
 			<div class="wrapper">
 				<div class="hero-inner">
-					<div class="hero-portrait">
-						<img src="/img/bpr.png" alt="Bolesław Parasion — sculptor artist" width="200" height="200">
-					</div>
-					<div class="hero-text">
-						<span class="hero-eyebrow">sculptor artist</span>
-						<h1 class="hero-name">Bolesław Parasion</h1>
-						<p class="bio">My name is Bolesław Parasion, and I am a sculptor. My work focuses on sacred and folk themes. I create <a href="/en/triptychs">Triptychs</a>, <a href="/en/angels">colorful angels</a>, <a href="/en/madonnas">Madonnas</a>, <a href="/en/nativity-scene">Christmas nativity scenes</a>, and monumental religious sculptures, such as <a href="/en/the-creation-of-the-world">The Creation of the World</a>, <a href="/en/the-last-supper">The Last Supper</a>, and <a href="/en/the-way-of-the-cross">The Way of the Cross</a>. Several of my Way of the Cross works are displayed in churches in Poland and the USA. My works have been exhibited both in Poland and abroad and have been recognized in art competitions. I continuously create, fulfilling commissions for collectors, private clients, and art galleries. Sculpture remains my greatest passion and an inseparable part of my life. I invite you to explore my gallery of works.</p>
-					</div>
+<div class="hero-text">
+                        <span class="hero-eyebrow">sculptor artist</span>
+                        <h1 class="hero-name">Bolesław Parasion</h1>
+                        <p class="hero-intro">Sacred and folk sculpture. Works for collectors, galleries, and sacred spaces.</p>
+                        <div class="hero-actions"><a class="button" href="#gallery">Explore the works <span aria-hidden="true">↗</span></a><a class="text-link" href="/en/contact">Contact the artist</a></div>
+                    </div>
+                    <div class="hero-art"><img src="/img/anioly.jpg" alt="Sacred and folk sculpture. Works for collectors, galleries, and sacred spaces." width="720" height="900" fetchpriority="high"></div>
 				</div>
 			</div>
 		</section>
@@ -178,7 +180,7 @@
 		<section class="featured-strip fade-in">
 			<div class="wrapper">
 				<div class="section-head">
-					<span class="section-eyebrow">Selected works</span>
+					<h2 class="section-eyebrow">Selected collections</h2>
 				</div>
 				<div class="featured-grid">
 					<a href="/en/the-last-supper" class="featured-card">
@@ -189,7 +191,7 @@
 						</div>
 					</a>
 					<a href="/en/the-creation-of-the-world" class="featured-card">
-						<div class="featured-card-img" style="background-image: url('/img/stworzenie.jpg'); background-position: center 30%; transform: scale(1.1)"></div>
+						<div class="featured-card-img" style="background-image: url('/img/stworzenie.jpg'); background-position: center 30%; transform: scale(1)"></div>
 						<div class="featured-card-body">
 							<span class="featured-card-tag">Galleries</span>
 							<span class="featured-card-title">The Creation of the World</span>
@@ -203,7 +205,7 @@
 						</div>
 					</a>
 					<a href="/en/madonnas" class="featured-card">
-						<div class="featured-card-img" style="background-image: url('/img/madonny.png'); background-position: center 25%; transform: scale(1.2)"></div>
+						<div class="featured-card-img" style="background-image: url('/img/madonny.png'); background-position: center 25%; transform: scale(1)"></div>
 						<div class="featured-card-body">
 							<span class="featured-card-tag">Galleries</span>
 							<span class="featured-card-title">Madonnas</span>
@@ -216,17 +218,12 @@
 		<section class="featured fade-in" id="gallery">
 			<div class="wrapper">
 				<div class="section-head">
-					<span class="section-eyebrow">Galleries</span>
+					<h2 class="section-eyebrow">Galleries</h2>
 					<span class="section-count">09</span>
-				</div>
-				<div class="gallery-filter">
-					<svg class="gallery-filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-					<input id="gallery-filter" class="gallery-filter-input" type="search" placeholder="Filter galleries" aria-label="Filter galleries">
-					<span class="gallery-filter-shortcut">/</span>
 				</div>
 				<div class="gallery-grid" id="gallery-grid">
 					<a href="/en/angels" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/anioly.jpg'); background-position: center 20%; transform: scale(1.1)"></div>
+						<div class="gallery-card-img" style="background-image: url('/img/anioly.jpg'); background-position: center 20%; transform: scale(1)"></div>
 						<span class="gallery-card-label">Angels</span>
 					</a>
 					<a href="/en/triptychs" class="gallery-card">
@@ -234,11 +231,11 @@
 						<span class="gallery-card-label">Triptychs</span>
 					</a>
 					<a href="/en/madonnas" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/madonny.png'); background-position: center 25%; transform: scale(1.2)"></div>
+						<div class="gallery-card-img" style="background-image: url('/img/madonny.png'); background-position: center 25%; transform: scale(1)"></div>
 						<span class="gallery-card-label">Madonnas</span>
 					</a>
 					<a href="/en/the-creation-of-the-world" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/stworzenie.jpg'); background-position: center 30%; transform: scale(1.1)"></div>
+						<div class="gallery-card-img" style="background-image: url('/img/stworzenie.jpg'); background-position: center 30%; transform: scale(1)"></div>
 						<span class="gallery-card-label">The Creation of the World</span>
 					</a>
 					<a href="/en/the-last-supper" class="gallery-card">
@@ -250,15 +247,15 @@
 						<span class="gallery-card-label">The Way of the Cross</span>
 					</a>
 					<a href="/en/nativity-scene" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/szopka.jpg'); background-position: center 20%; transform: scale(1.15)"></div>
+						<div class="gallery-card-img" style="background-image: url('/img/szopka.jpg'); background-position: center 20%; transform: scale(1)"></div>
 						<span class="gallery-card-label">Nativity Scene</span>
 					</a>
 					<a href="/en/other-figures" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/pozostale.jpg'); background-position: center 15%; transform: scale(1.15)"></div>
+						<div class="gallery-card-img" style="background-image: url('/img/pozostale.jpg'); background-position: center 15%; transform: scale(1)"></div>
 						<span class="gallery-card-label">Other figures</span>
 					</a>
 					<a href="/en/atelier" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/atelier.jpg'); background-position: center 30%; transform: scale(1.05)"></div>
+						<div class="gallery-card-img" style="background-image: url('/img/atelier.jpg'); background-position: center 30%; transform: scale(1)"></div>
 						<span class="gallery-card-label">Atelier</span>
 					</a>
 				</div>
@@ -266,8 +263,13 @@
 			</div>
 		</section>
 
+        <section class="about-section" id="about"><div class="wrapper about-inner"><img src="/img/bpr.png" alt="Bolesław Parasion — sculptor artist" width="200" height="200" loading="lazy"><div><span class="section-eyebrow">A life in sculpture</span><h2>About</h2><p class="bio">My name is Bolesław Parasion, and I am a sculptor. My work focuses on sacred and folk themes. I create <a href="/en/triptychs">Triptychs</a>, <a href="/en/angels">colorful angels</a>, <a href="/en/madonnas">Madonnas</a>, <a href="/en/nativity-scene">Christmas nativity scenes</a>, and monumental religious sculptures, such as <a href="/en/the-creation-of-the-world">The Creation of the World</a>, <a href="/en/the-last-supper">The Last Supper</a>, and <a href="/en/the-way-of-the-cross">The Way of the Cross</a>. Several of my Way of the Cross works are displayed in churches in Poland and the USA. My works have been exhibited both in Poland and abroad and have been recognized in art competitions. I continuously create, fulfilling commissions for collectors, private clients, and art galleries. Sculpture remains my greatest passion and an inseparable part of my life. I invite you to explore my gallery of works.</p></div></div></section>
+        <section class="commission-section"><div class="wrapper"><h2>Have a sculpture in mind?</h2><p>Get in touch to discuss my work or a personal commission.</p><a class="button" href="/en/contact">Contact the artist <span aria-hidden="true">↗</span></a></div></section>
 	</main>
 
+
+
+<aside class="book-promotion"><div class="wrapper book-inner"><img src="/img/Angels-coloring-book.png" width="606" height="785" alt="Cover of Angels — an adult coloring book. 47 original angels. Artwork by Bolesław Parasion." loading="lazy"><div><p class="section-eyebrow">Art to bring to life with your own colors</p><h2>Take a moment<br>with angels.</h2><p><strong>“Angels” — an adult coloring book</strong> features 47 original angels from the works of Bolesław Parasion. Choose your favorite colors and give each one a character of its own.</p><a class="button" href="https://a.co/d/0fO1gzHi" target="_blank" rel="noopener noreferrer">Buy the coloring book on Amazon ↗<span class="sr-only"> (opens in a new tab)</span></a><p class="book-note">47 angels. Your colors. Your time.</p></div></div></aside>
 	<button class="back-to-top" id="back-to-top" aria-label="Back to top">
 		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
 	</button>
@@ -280,121 +282,6 @@
 		</div>
 	</footer>
 
-<dialog class="coloring-popup" id="coloring-popup" aria-labelledby="coloring-popup-title" aria-describedby="coloring-popup-description">
-	<button class="coloring-popup__close" type="button" aria-label="Close popup" autofocus>&times;</button>
-	<div class="coloring-popup__art">
-		<img src="/img/Angels-coloring-book.png" width="606" height="785" alt="Cover of Angels — an adult coloring book. 47 original angels. Artwork by Bolesław Parasion." decoding="async">
-	</div>
-	<div class="coloring-popup__content">
-		<p class="coloring-popup__eyebrow">Art to bring to life with your own colors</p>
-		<h2 id="coloring-popup-title">Take a moment<br>with angels.</h2>
-		<p class="coloring-popup__intro">Set aside the everyday rush. Pick up your pencils and enter a world of wings, flowers, and intricate details.</p>
-		<p id="coloring-popup-description"><strong>“Angels” — an adult coloring book</strong> features 47 original angels from the works of Bolesław Parasion. Choose your favorite colors and give each one a character of its own.</p>
-		<p class="coloring-popup__gift">For a peaceful evening of your own. Or as a gift for someone who loves to create.</p>
-		<a class="coloring-popup__cta" href="https://a.co/d/0fO1gzHi" target="_blank" rel="noopener noreferrer">Buy the coloring book on Amazon <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg><span class="coloring-popup__sr-only"> (opens in a new tab)</span></a>
-		<p class="coloring-popup__note">47 angels. Your colors. Your time.</p>
-		<button class="coloring-popup__later" type="button">Maybe later — back to the gallery</button>
-	</div>
-</dialog>
-<button class="coloring-launcher" id="coloring-launcher" type="button" aria-label="Reopen the Angels coloring book offer" aria-haspopup="dialog" aria-controls="coloring-popup" hidden>
-	<img src="/img/Angels-coloring-book.png" width="606" height="785" alt="" decoding="async">
-	<span><strong>“Angels” coloring book</strong><span>Back to the offer <span aria-hidden="true">→</span></span></span>
-</button>
-<script>
-(function () {
-	'use strict';
-	var dialog = document.getElementById('coloring-popup');
-	if (!dialog || typeof dialog.showModal !== 'function') return;
-	var key = 'parasion_coloring_popup_seen_v1' + (document.documentElement.lang === 'pl' ? '' : '_' + document.documentElement.lang);
-	function wasSeen() {
-		try { return sessionStorage.getItem(key) === '1'; } catch (_) { return false; }
-	}
-	var launcher = document.getElementById('coloring-launcher');
-	var image = dialog.querySelector('img');
-	var timer;
-	var finished = wasSeen();
-	var restoreScroll = null;
-	function showLauncher() {
-		launcher.hidden = dialog.open || !(finished || wasSeen()) || !image.complete || !image.naturalWidth;
-	}
-	function restore() {
-		if (restoreScroll) { restoreScroll(); restoreScroll = null; }
-	}
-	function close() {
-		dialog.close();
-		restore();
-		showLauncher();
-		if (!launcher.hidden) launcher.focus({ preventScroll: true });
-	}
-	launcher.addEventListener('click', openPopup);
-	image.addEventListener('load', showLauncher);
-	showLauncher();
-	dialog.addEventListener('cancel', function (event) { event.preventDefault(); close(); });
-	dialog.querySelector('.coloring-popup__close').addEventListener('click', close);
-	dialog.querySelector('.coloring-popup__later').addEventListener('click', close);
-	dialog.querySelector('.coloring-popup__cta').addEventListener('click', close);
-	dialog.addEventListener('keydown', function (event) {
-		// Keep the site's gallery keyboard shortcuts from navigating behind the modal.
-		event.stopPropagation();
-		if (event.key !== 'Tab') return;
-		var first = dialog.querySelector('.coloring-popup__close');
-		var last = dialog.querySelector('.coloring-popup__later');
-		if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-		else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-	});
-	// Only dismiss an actual backdrop click, never a click on the card itself.
-	var backdropDown = false;
-	function outside(event) {
-		var rect = dialog.getBoundingClientRect();
-		return event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
-	}
-	dialog.addEventListener('pointerdown', function (event) { backdropDown = event.target === dialog && outside(event); });
-	dialog.addEventListener('click', function (event) {
-		if (backdropDown && event.target === dialog && outside(event)) close();
-		backdropDown = false;
-	});
-	dialog.addEventListener('close', function () {
-		if (!dialog.open) { restore(); showLauncher(); }
-	});
-	function openWhenReady() {
-		if (finished || wasSeen()) return;
-		// A failed or missing cover must never produce a broken promotional card.
-		if (!image.complete) { timer = setTimeout(openWhenReady, 500); return; }
-		if (!image.naturalWidth) return;
-		var active = document.activeElement;
-		if (document.hidden || document.querySelector('dialog[open]') ||
-			(active && (active.matches('input, textarea, select') || active.isContentEditable))) {
-			timer = setTimeout(openWhenReady, 1000);
-			return;
-		}
-		openPopup();
-	}
-	function openPopup() {
-		if (!image.naturalWidth || document.querySelector('dialog[open]')) return;
-		clearTimeout(timer);
-		var body = document.body;
-		var overflow = body.style.overflow;
-		var padding = body.style.paddingRight;
-		var gap = window.innerWidth - document.documentElement.clientWidth;
-		body.style.paddingRight = (parseFloat(getComputedStyle(body).paddingRight) + gap) + 'px';
-		body.style.overflow = 'hidden';
-		restoreScroll = function () { body.style.overflow = overflow; body.style.paddingRight = padding; };
-		try { dialog.showModal(); } catch (_) { restoreScroll(); restoreScroll = null; return; }
-		dialog.scrollTop = 0;
-		launcher.hidden = true;
-		finished = true;
-		try { sessionStorage.setItem(key, '1'); } catch (_) { /* Storage may be disabled. */ }
-	}
-	if (!finished) timer = setTimeout(openWhenReady, 3000);
-	window.addEventListener('pagehide', function () { clearTimeout(timer); if (dialog.open) close(); });
-	window.addEventListener('pageshow', function (event) {
-		showLauncher();
-		if (event.persisted && !finished && !wasSeen()) timer = setTimeout(openWhenReady, 3000);
-	});
-})();
-</script>
-
-
 
 	<script type="application/ld+json">
 	{
@@ -406,26 +293,6 @@
 		"description": "Sculptor artist. Sacred and folk sculptures.",
 		"sameAs": ["https://fb.com/parasion"]
 	}
-	</script>
-
-	<script>
-	(function() {
-		var input = document.getElementById('gallery-filter');
-		var grid = document.getElementById('gallery-grid');
-		if (!input || !grid) return;
-		var cards = grid.querySelectorAll('.gallery-card');
-		input.addEventListener('input', function() {
-			var q = input.value.trim().toLowerCase();
-			var visible = 0;
-			cards.forEach(function(card) {
-				var label = (card.textContent || '').toLowerCase();
-				var match = !q || label.indexOf(q) !== -1;
-				card.classList.toggle('is-hidden', !match);
-				if (match) visible++;
-			});
-			grid.classList.toggle('is-empty', visible === 0);
-		});
-	})();
 	</script>
 
 	<script>
