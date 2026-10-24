@@ -107,20 +107,6 @@ function ogImageFor(gallery) {
 	return gallery.ogImage || (data.site.domain + '/img/bpr.png');
 }
 
-function galleryCards(lang) {
-	return data.galleries.map(function(gal) {
-		var href = pageUrl(lang, gal.slug[lang]);
-		var img = gal.thumbImage || gal.ogImage;
-		var pos = gal.thumbPosition || 'center center';
-		var scale = gal.thumbScale || 1;
-		var imgStyle = 'background-image: url(\'' + img + '\'); background-position: ' + pos + '; transform: scale(' + scale + ')';
-		return '\t\t\t\t\t<a href="' + href + '" class="gallery-card">' +
-			'\n\t\t\t\t\t\t<div class="gallery-card-img" style="' + imgStyle + '"></div>' +
-			'\n\t\t\t\t\t\t<span class="gallery-card-label">' + gal.label[lang] + '</span>' +
-			'\n\t\t\t\t\t</a>';
-	}).join('\n');
-}
-
 function featuredCards(lang, i18n) {
 	var ids = data.featured || [];
 	var picks = ids.map(function(id) {
@@ -323,8 +309,6 @@ function buildIndexPage(lang) {
 	var bio = resolveBioLinks(i18n.bio, lang);
 	bio = bio.split('{{author}}').join(author);
 
-	var galleryCount = String(data.galleries.length).padStart(2, '0');
-
 	var html = fill(templates.index, {
 		lang: lang,
 		clicky_id: data.site.clicky_id,
@@ -347,13 +331,9 @@ function buildIndexPage(lang) {
 		facebook: data.site.facebook,
 		bio: bio,
 		jsonLdDescription: i18n.indexJsonLdDescription,
-		galleryCards: galleryCards(lang),
 		featuredCards: featuredCards(lang, i18n),
 		galleriesLabel: i18n.galleriesLabel,
 		featuredLabel: i18n.featuredLabel,
-		galleryCount: galleryCount,
-		filterPlaceholder: i18n.filterPlaceholder,
-		filterEmpty: i18n.filterEmpty,
 		themeLabel: i18n.themeLabel,
 		footerTagline: i18n.footerTagline
 	});

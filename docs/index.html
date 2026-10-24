@@ -175,7 +175,7 @@
 			</div>
 		</section>
 
-		<section class="featured-strip fade-in">
+		<section class="featured-strip fade-in" id="gallery">
 			<div class="wrapper">
 				<div class="section-head">
 					<span class="section-eyebrow">Wybrane prace</span>
@@ -209,60 +209,42 @@
 							<span class="featured-card-title">Madonny</span>
 						</div>
 					</a>
-				</div>
-			</div>
-		</section>
-
-		<section class="featured fade-in" id="gallery">
-			<div class="wrapper">
-				<div class="section-head">
-					<span class="section-eyebrow">Galerie</span>
-					<span class="section-count">09</span>
-				</div>
-				<div class="gallery-filter">
-					<svg class="gallery-filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-					<input id="gallery-filter" class="gallery-filter-input" type="search" placeholder="Filtruj galerie" aria-label="Filtruj galerie">
-					<span class="gallery-filter-shortcut">/</span>
-				</div>
-				<div class="gallery-grid" id="gallery-grid">
-					<a href="/anioly" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/anioly.jpg'); background-position: center 20%; transform: scale(1.1)"></div>
-						<span class="gallery-card-label">Anioły</span>
+					<a href="/anioly" class="featured-card">
+						<div class="featured-card-img" style="background-image: url('/img/anioly.jpg'); background-position: center 20%; transform: scale(1.1)"></div>
+						<div class="featured-card-body">
+							<span class="featured-card-tag">Galerie</span>
+							<span class="featured-card-title">Anioły</span>
+						</div>
 					</a>
-					<a href="/tryptyki" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/tryptyki.jpg'); background-position: center center; transform: scale(1)"></div>
-						<span class="gallery-card-label">Tryptyki</span>
+					<a href="/tryptyki" class="featured-card">
+						<div class="featured-card-img" style="background-image: url('/img/tryptyki.jpg'); background-position: center center; transform: scale(1)"></div>
+						<div class="featured-card-body">
+							<span class="featured-card-tag">Galerie</span>
+							<span class="featured-card-title">Tryptyki</span>
+						</div>
 					</a>
-					<a href="/madonny" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/madonny.png'); background-position: center 25%; transform: scale(1.2)"></div>
-						<span class="gallery-card-label">Madonny</span>
+					<a href="/szopka-bozonarodzeniowa" class="featured-card">
+						<div class="featured-card-img" style="background-image: url('/img/szopka.jpg'); background-position: center 20%; transform: scale(1.15)"></div>
+						<div class="featured-card-body">
+							<span class="featured-card-tag">Galerie</span>
+							<span class="featured-card-title">Szopka Bożonarodzeniowa</span>
+						</div>
 					</a>
-					<a href="/stworzenie-swiata" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/stworzenie.jpg'); background-position: center 30%; transform: scale(1.1)"></div>
-						<span class="gallery-card-label">Stworzenie Świata</span>
+					<a href="/pozostale" class="featured-card">
+						<div class="featured-card-img" style="background-image: url('/img/pozostale.jpg'); background-position: center 15%; transform: scale(1.15)"></div>
+						<div class="featured-card-body">
+							<span class="featured-card-tag">Galerie</span>
+							<span class="featured-card-title">Pozostałe</span>
+						</div>
 					</a>
-					<a href="/ostatnia-wieczerza" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/ostatnia.jpg'); background-position: center center; transform: scale(1)"></div>
-						<span class="gallery-card-label">Ostatnia Wieczerza</span>
-					</a>
-					<a href="/droga-krzyzowa" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/droga.jpg'); background-position: center center; transform: scale(1)"></div>
-						<span class="gallery-card-label">Droga Krzyżowa</span>
-					</a>
-					<a href="/szopka-bozonarodzeniowa" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/szopka.jpg'); background-position: center 20%; transform: scale(1.15)"></div>
-						<span class="gallery-card-label">Szopka Bożonarodzeniowa</span>
-					</a>
-					<a href="/pozostale" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/pozostale.jpg'); background-position: center 15%; transform: scale(1.15)"></div>
-						<span class="gallery-card-label">Pozostałe</span>
-					</a>
-					<a href="/atelier" class="gallery-card">
-						<div class="gallery-card-img" style="background-image: url('/img/atelier.jpg'); background-position: center 30%; transform: scale(1.05)"></div>
-						<span class="gallery-card-label">Atelier</span>
+					<a href="/atelier" class="featured-card">
+						<div class="featured-card-img" style="background-image: url('/img/atelier.jpg'); background-position: center 30%; transform: scale(1.05)"></div>
+						<div class="featured-card-body">
+							<span class="featured-card-tag">Galerie</span>
+							<span class="featured-card-title">Atelier</span>
+						</div>
 					</a>
 				</div>
-				<p class="gallery-empty">Brak wyników</p>
 			</div>
 		</section>
 
@@ -290,7 +272,7 @@
 		<h2 id="coloring-popup-title">Chwila z aniołami.</h2>
 		<p class="coloring-popup__intro">Zwolnij. Sięgnij po kredki i nadaj aniołom własne kolory.</p>
 		<p id="coloring-popup-description"><strong>„Anioły” — kolorowanka dla dorosłych.</strong> 47 oryginalnych aniołów z prac Bolesława Parasiona. Dla siebie lub na prezent.</p>
-		<a class="coloring-popup__cta" href="https://amzn.eu/d/0fkqdUTv" target="_blank" rel="noopener noreferrer">Kup na Amazonie <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg><span class="coloring-popup__sr-only"> (otwiera się w nowej karcie)</span></a>
+		<a class="coloring-popup__cta" href="https://amzn.eu/d/0fkqdUTv" target="_blank" rel="noopener noreferrer">Kup na Amazon.pl <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg><span class="coloring-popup__sr-only"> (otwiera się w nowej karcie)</span></a>
 		<button class="coloring-popup__later" type="button">Wróć do galerii</button>
 	</div>
 </dialog>
@@ -404,26 +386,6 @@
 		"description": "Artysta rzeźbiarz. Rzeźby sakralne i ludowe.",
 		"sameAs": ["https://fb.com/parasion"]
 	}
-	</script>
-
-	<script>
-	(function() {
-		var input = document.getElementById('gallery-filter');
-		var grid = document.getElementById('gallery-grid');
-		if (!input || !grid) return;
-		var cards = grid.querySelectorAll('.gallery-card');
-		input.addEventListener('input', function() {
-			var q = input.value.trim().toLowerCase();
-			var visible = 0;
-			cards.forEach(function(card) {
-				var label = (card.textContent || '').toLowerCase();
-				var match = !q || label.indexOf(q) !== -1;
-				card.classList.toggle('is-hidden', !match);
-				if (match) visible++;
-			});
-			grid.classList.toggle('is-empty', visible === 0);
-		});
-	})();
 	</script>
 
 	<script>
